@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://fuumepbar80f"]
+
+[ext_resource type="Script" path="res://scenes/bubble.gd" id="1_xw6fj"]
+[ext_resource type="Texture2D" uid="uid://cyxbo6a7g6ugr" path="res://ui/effect_background.png" id="2_ptxig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tl2mc"]
+font_size = 221
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_6m0gp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_jn2yy"]
+resource_name = "appear"
+length = 0.533
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StretcherSkel/Stretcher:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.68112, -0.25, 0, 0.166667, -0.589584, 1.00083, -0.166667, 0.589584, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.533)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StretcherSkel/Stretcher:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.68112, -0.25, 0, 0.166667, -0.589584, 1.00083, -0.166667, 0.589584, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.533)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_keeeu"]
+_data = {
+"RESET": SubResource("Animation_6m0gp"),
+"appear": SubResource("Animation_jn2yy")
+}
+
+[node name="SpeechBubble" type="Node2D"]
+script = ExtResource("1_xw6fj")
+
+[node name="StretcherSkel" type="Skeleton2D" parent="."]
+
+[node name="Stretcher" type="Bone2D" parent="StretcherSkel"]
+scale = Vector2(1e-05, 1e-05)
+rest = Transform2D(1.00201, 0, 0, 1.01217, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StretcherSkel/Stretcher"]
+texture = ExtResource("2_ptxig")
+
+[node name="Text" type="Label" parent="StretcherSkel/Stretcher"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.4959
+offset_top = -8.27455
+offset_right = 637.504
+offset_bottom = 293.725
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.0524411, 0.0524411)
+text = "WOW!"
+label_settings = SubResource("LabelSettings_tl2mc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bone2D" type="Bone2D" parent="StretcherSkel/Stretcher"]
+position = Vector2(25.9479, 0)
+rest = Transform2D(1, 0, 0, 1, 25.9479, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_keeeu")
+}
