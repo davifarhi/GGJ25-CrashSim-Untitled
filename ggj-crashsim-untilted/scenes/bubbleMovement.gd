@@ -1,9 +1,11 @@
 extends RigidBody2D
 
+@export var InpulseForce:float = 10
+
 var impulsionDone = false
 
 func doInpulse() -> void:
-	apply_central_impulse(Vector2(100, 0));
+	apply_central_impulse(Vector2(1, 0) * InpulseForce);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

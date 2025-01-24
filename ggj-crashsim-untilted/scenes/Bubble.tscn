@@ -8,6 +8,7 @@ radius = 17.0294
 
 [node name="Bubble" type="RigidBody2D"]
 script = ExtResource("1_kffpd")
+InpulseForce = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pnkcj")
