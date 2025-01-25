@@ -1,0 +1,22 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://dwxuicitqt8wh"]
+
+[sub_resource type="Curve" id="Curve_lmp6s"]
+_data = [Vector2(0, 0.7), 0.0, 0.0, 0, 0, Vector2(0.906752, 0.324134), -1.22117, -1.22117, 0, 0, Vector2(1, 0), -4.73205, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7aeoc"]
+curve = SubResource("Curve_lmp6s")
+
+[resource]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 7.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_7aeoc")
