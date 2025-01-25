@@ -7,6 +7,7 @@ signal JuiceOnInpulse(dir: Vector2)
 
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
+@export var bounceDecay:float = 16.0
 
 @export var ghostTime:float = 0.5 #sec
 var ghostIsSpawned:bool = false
@@ -61,6 +62,8 @@ func UpdateIndicatorPos():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for child in $DeformationSkel/Root.get_children():
+		child.bounce_decay = bounceDecay
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

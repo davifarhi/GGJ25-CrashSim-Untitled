@@ -4,13 +4,14 @@ extends Bone2D
 
 var target_offset = Vector2(0, 0)
 var current_offset = Vector2(0, 0)
+var bounce_decay = 16.0
 
 # thanks Freya
 func expDecay(a: Vector2, b: Vector2, decay: float, dt: float) -> Vector2:
 	return b + (a-b)*exp(-decay*dt);
 
 func _process(delta: float) -> void:
-	current_offset = expDecay(current_offset, target_offset, 16, delta)
+	current_offset = expDecay(current_offset, target_offset, bounce_decay, delta)
 	
 	var pos = current_offset + global_position
 	global_position = pos
