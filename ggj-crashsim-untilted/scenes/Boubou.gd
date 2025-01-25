@@ -10,6 +10,7 @@ signal BoubouDie(player: Boubou)
 @export var IndicatorDistance:float = 32;
 
 var impulsionDone = false
+var dead = false
 enum InputType { Mouse, Gamepad }
 @export var currentInputType = InputType.Mouse
 
@@ -48,11 +49,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float)  -> void:
+	if dead:
+		return;
 	UpdateIndicatorPos()
 	if (Input.is_action_just_pressed("Inpulse")):
 		doInpulse()
 		
 func Die() -> void:
+	$Visual.hide()
+	$DeathParticles.restart()
+	linear_velocity = Vector2(0, 0)
+	set_physics_process(false)
+	dead = true
 	BoubouDie.emit(self)
-	queue_free()
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=7 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://gqqkd4sbswxi" path="res://assets/BubblePrototype.png" id="1_pnkcj"]
@@ -8,25 +8,47 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cdih5"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 69.89
+initial_velocity_max = 172.04
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.01
+scale_max = 0.01
+
 [node name="Bubble" type="RigidBody2D" node_paths=PackedStringArray("Indicator")]
 linear_damp = 1.0
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
-Indicator = NodePath("DirIndicator")
+Indicator = NodePath("Visual/DirIndicator")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Visual"]
 texture_filter = 4
 position = Vector2(1, 2)
 scale = Vector2(0.022, 0.022)
 texture = ExtResource("2_hxvjg")
 
-[node name="Eyes" type="Sprite2D" parent="Body"]
+[node name="Eyes" type="Sprite2D" parent="Visual/Body"]
 texture_filter = 4
 texture = ExtResource("3_xldl1")
 
-[node name="DirIndicator" type="Sprite2D" parent="."]
+[node name="DirIndicator" type="Sprite2D" parent="Visual"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_pnkcj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2fpey")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_cdih5")
+texture = ExtResource("2_hxvjg")
+one_shot = true
+explosiveness = 1.0
