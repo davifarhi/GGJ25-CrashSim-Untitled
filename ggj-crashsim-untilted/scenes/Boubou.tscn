@@ -1,14 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=15 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://gqqkd4sbswxi" path="res://assets/BubblePrototype.png" id="1_pnkcj"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
-[ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
+[ext_resource type="PackedScene" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
 [ext_resource type="Texture2D" uid="uid://cyi4y8obgey51" path="res://assets/BoubouBodyMini.png" id="6_pxi0c"]
 [ext_resource type="Script" path="res://scenes/deformation_skel.gd" id="6_x1b53"]
 [ext_resource type="Script" path="res://scenes/dash_particle.gd" id="7_ixgqx"]
+[ext_resource type="AudioStream" uid="uid://booysvwoj4ad6" path="res://assets/sound/env_bumper_vo_01.wav" id="10_rj37l"]
+[ext_resource type="AudioStream" uid="uid://bc75k7vk3hd6s" path="res://assets/sound/env_bumper_vo_02.wav" id="11_xjbac"]
+[ext_resource type="AudioStream" uid="uid://clb86kxa5skg0" path="res://assets/sound/env_bumper_vo_03.wav" id="12_l2t58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
@@ -257,6 +260,17 @@ visible = false
 modulate = Color(1, 1, 1, 0.301961)
 scale = Vector2(0.022, 0.022)
 texture = ExtResource("2_hxvjg")
+
+[node name="BumperContactSFX" type="Node" parent="."]
+
+[node name="EnvBumperVo01" type="AudioStreamPlayer2D" parent="BumperContactSFX"]
+stream = ExtResource("10_rj37l")
+
+[node name="EnvBumperVo02" type="AudioStreamPlayer2D" parent="BumperContactSFX"]
+stream = ExtResource("11_xjbac")
+
+[node name="EnvBumperVo03" type="AudioStreamPlayer2D" parent="BumperContactSFX"]
+stream = ExtResource("12_l2t58")
 
 [connection signal="JuiceOnInpulse" from="." to="." method="_on_juice_on_inpulse"]
 [connection signal="JuiceOnInpulse" from="." to="GPUParticles2D" method="_on_bubble_juice_on_inpulse"]
