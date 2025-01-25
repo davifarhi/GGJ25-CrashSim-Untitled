@@ -16,7 +16,6 @@ Indicator = NodePath("DirIndicator")
 texture = ExtResource("1_pnkcj")
 
 [node name="DirIndicator" type="Sprite2D" parent="."]
-position = Vector2(32, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_pnkcj")
 
