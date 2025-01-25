@@ -18,6 +18,7 @@ var ghostGlobalPos:Vector2
 @export_category("Indicator")
 @export var Indicator:Node2D
 @export var IndicatorDistance:float = 32;
+var latestDir = Vector2(1,0)
 
 var impulsionDone = false
 var dead = false
@@ -49,11 +50,12 @@ func InputDir() -> Vector2:
 		dir = get_viewport().get_mouse_position() - global_position
 	elif currentInputType == InputType.Gamepad:
 		dir = Input.get_vector("JoypadDirLeft", "JoypadDirRight", "JoypadDirUp", "JoypadDirDown")
-		
-	if dir.length_squared() == 0:
-		dir = Vector2(-1, 0) # set a default value to avoid 0 div
 	
-	return dir.normalized()
+	if dir.length_squared() == 0:
+		dir = latestDir
+	
+	latestDir = dir.normalized()
+	return latestDir
 
 func UpdateIndicatorPos():
 	Indicator.position = Vector2()
