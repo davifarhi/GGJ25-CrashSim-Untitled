@@ -50,7 +50,7 @@ position = Vector2(163, 804)
 position = Vector2(676, 249)
 
 [node name="RoundBumper3" parent="." instance=ExtResource("4_ee4q3")]
-position = Vector2(1343, 470)
+position = Vector2(1339, 491)
 
 [node name="RoundBumper4" parent="." instance=ExtResource("4_ee4q3")]
 position = Vector2(1555, 576)
@@ -63,3 +63,5 @@ position = Vector2(1218, 254)
 
 [node name="Spikes4" parent="." instance=ExtResource("5_vfllr")]
 position = Vector2(1428, 687)
+
+[connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]

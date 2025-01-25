@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7pwpfpcibo16"]
+
+[ext_resource type="Texture2D" uid="uid://dhah6jwkrf202" path="res://assets/uglyWall64x64.png" id="1_e23re"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjxt"]
+size = Vector2(62, 63)
+
+[node name="StaticWall5" type="StaticBody2D"]
+position = Vector2(993, 587)
+rotation = 1.5708
+scale = Vector2(1, 8.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_7jjxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e23re")

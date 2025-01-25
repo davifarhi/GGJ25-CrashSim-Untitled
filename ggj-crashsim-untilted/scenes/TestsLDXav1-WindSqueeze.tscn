@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://byph3w7uq22sl"]
+
+[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="1_rltd0"]
+[ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="3_lmtj8"]
+[ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="4_djtbd"]
+[ext_resource type="PackedScene" uid="uid://b7pwpfpcibo16" path="res://scenes/obstacles/static_wall.tscn" id="5_dgdoj"]
+[ext_resource type="Texture2D" uid="uid://dhah6jwkrf202" path="res://assets/uglyWall64x64.png" id="5_jj7u4"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="6_hddq3"]
+[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="8_aegvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjxt"]
+size = Vector2(62, 63)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelDecoration" parent="." instance=ExtResource("1_rltd0")]
+
+[node name="Obstacle" type="Node2D" parent="."]
+
+[node name="WindTurbine" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("3_lmtj8")]
+position = Vector2(603, 121)
+windbox_shape = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/WindTurbine"]
+position = Vector2(-1, 235)
+scale = Vector2(1, 3.72)
+texture = ExtResource("4_djtbd")
+
+[node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("3_lmtj8")]
+position = Vector2(603, 980)
+rotation = -3.14159
+windbox_shape = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/WindTurbine2"]
+position = Vector2(-1, 235)
+scale = Vector2(1, 3.72)
+texture = ExtResource("4_djtbd")
+
+[node name="StaticWall2" type="StaticBody2D" parent="Obstacle"]
+position = Vector2(705, 838)
+scale = Vector2(1, 8.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/StaticWall2"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_7jjxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/StaticWall2"]
+texture = ExtResource("5_jj7u4")
+
+[node name="StaticWall6" type="StaticBody2D" parent="Obstacle"]
+position = Vector2(1295, 482)
+scale = Vector2(1, 8.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/StaticWall6"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_7jjxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/StaticWall6"]
+texture = ExtResource("5_jj7u4")
+
+[node name="StaticWall3" type="StaticBody2D" parent="Obstacle"]
+position = Vector2(703, 145)
+scale = Vector2(1, 8.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/StaticWall3"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_7jjxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/StaticWall3"]
+texture = ExtResource("5_jj7u4")
+
+[node name="StaticWall4" type="StaticBody2D" parent="Obstacle"]
+position = Vector2(1009, 393)
+rotation = 1.5708
+scale = Vector2(1, 8.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/StaticWall4"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_7jjxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/StaticWall4"]
+texture = ExtResource("5_jj7u4")
+
+[node name="StaticWall5" parent="Obstacle" instance=ExtResource("5_dgdoj")]
+
+[node name="Spikes4" parent="Obstacle" instance=ExtResource("6_hddq3")]
+position = Vector2(1201, 504)
+
+[node name="Boubou" parent="." instance=ExtResource("8_aegvl")]
+position = Vector2(186, 402)
+rotation = 0.261799
+bounceDecay = 10.0
+
+[connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]
