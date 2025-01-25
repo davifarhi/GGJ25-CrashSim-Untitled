@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ycj1s8f21go5"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cuwk5enyeau8u" path="res://assets/PhysicMaterials/bouncy_walls.tres" id="1_6xao7"]
+[ext_resource type="Texture2D" uid="uid://28enar0nkssk" path="res://assets/block44.png" id="2_h2snr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dpma"]
+size = Vector2(200, 200)
+
+[node name="Block" type="RigidBody2D"]
+physics_material_override = ExtResource("1_6xao7")
+lock_rotation = true
+freeze = true
+continuous_cd = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_h2snr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6dpma")
