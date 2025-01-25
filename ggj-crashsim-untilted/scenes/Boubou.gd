@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name Boubou
 signal BoubouDie(player: Boubou)
 signal BoubouFinishedDying(player: Boubou)
+signal JuiceOnInpulse(dir: Vector2)
 
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
@@ -18,7 +19,9 @@ enum InputType { Mouse, Gamepad }
 
 func doInpulse() -> void:
 	linear_velocity = Vector2()
-	apply_central_impulse(- InputDir() * InpulseForce);
+	var dir = InputDir()
+	apply_central_impulse(- dir * InpulseForce);
+	JuiceOnInpulse.emit(dir)
 
 # input handling
 func _input(event: InputEvent) -> void:
