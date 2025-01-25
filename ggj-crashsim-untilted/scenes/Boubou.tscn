@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=19 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
@@ -12,6 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://booysvwoj4ad6" path="res://assets/sound/env_bumper_vo_01.wav" id="10_rj37l"]
 [ext_resource type="AudioStream" uid="uid://bc75k7vk3hd6s" path="res://assets/sound/env_bumper_vo_02.wav" id="11_xjbac"]
 [ext_resource type="AudioStream" uid="uid://clb86kxa5skg0" path="res://assets/sound/env_bumper_vo_03.wav" id="12_l2t58"]
+[ext_resource type="AudioStream" uid="uid://c714ijfgvn00y" path="res://assets/sound/bou_death_01.wav" id="13_gliq1"]
+[ext_resource type="AudioStream" uid="uid://b4e3tfggiq4mp" path="res://assets/sound/bou_death_vo_01.wav" id="14_ihsvq"]
+[ext_resource type="AudioStream" uid="uid://41jolr6cuyxf" path="res://assets/sound/bou_born_01.wav" id="15_57mvn"]
+[ext_resource type="AudioStream" uid="uid://dfcdfstt7xdoe" path="res://assets/sound/bou_born_vo_01.wav" id="16_ctu78"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
@@ -33,7 +37,7 @@ scale_max = 0.01
 continuous_cd = 2
 linear_damp = 0.1
 script = ExtResource("1_kffpd")
-InpulseForce = 1000.0
+InpulseForce = 800.0
 maxSpeed = 2000.0
 ghostTime = 0.04
 Indicator = NodePath("Visual/DirIndicator")
@@ -276,6 +280,22 @@ stream = ExtResource("11_xjbac")
 
 [node name="EnvBumperVo03" type="AudioStreamPlayer2D" parent="BumperContactSFX"]
 stream = ExtResource("12_l2t58")
+
+[node name="DeathSFX" type="Node" parent="."]
+
+[node name="BouDeath01" type="AudioStreamPlayer2D" parent="DeathSFX"]
+stream = ExtResource("13_gliq1")
+
+[node name="BouDeathVo01" type="AudioStreamPlayer2D" parent="DeathSFX"]
+stream = ExtResource("14_ihsvq")
+
+[node name="BornSFX" type="Node" parent="."]
+
+[node name="BouBorn01" type="AudioStreamPlayer2D" parent="BornSFX"]
+stream = ExtResource("15_57mvn")
+
+[node name="BouBornVo01" type="AudioStreamPlayer2D" parent="BornSFX"]
+stream = ExtResource("16_ctu78")
 
 [connection signal="JuiceOnInpulse" from="." to="." method="_on_juice_on_inpulse"]
 [connection signal="JuiceOnInpulse" from="." to="GPUParticles2D" method="_on_bubble_juice_on_inpulse"]
