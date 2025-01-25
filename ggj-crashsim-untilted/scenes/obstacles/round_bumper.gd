@@ -32,4 +32,5 @@ func _on_activation_zone_body_entered(body: Node2D) -> void:
 	if not body is Boubou:
 		return
 		
+	sprite.stop()
 	sprite.play("Bump")
