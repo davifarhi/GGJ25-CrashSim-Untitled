@@ -8,11 +8,12 @@ shader = ExtResource("1_diulj")
 shader_parameter/sigma = 2.0
 
 [node name="PauseMenu" type="Node2D"]
-process_mode = 2
+process_mode = 3
 z_index = 1000
 script = ExtResource("1_7ci1p")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_left = 737.0
 offset_top = 210.0
 offset_right = 777.0
@@ -41,13 +42,14 @@ offset_right = 1035.0
 offset_bottom = 636.0
 text = "Back to Main Menu"
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="BackgroundBlur" type="ColorRect" parent="."]
 z_index = 50
 z_as_relative = false
 material = SubResource("ShaderMaterial_iy1xw")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(77.0366, 43.4822)
+mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
