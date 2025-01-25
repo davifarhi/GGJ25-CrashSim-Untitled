@@ -1,9 +1,9 @@
 extends RigidBody2D
 
 class_name Boubou
-signal BoubouDie(player: Boubou)
 
 @export var InpulseForce:float = 10
+@export var maxSpeed:float = 1
 
 @export_category("Indicator")
 @export var Indicator:Node2D
@@ -14,6 +14,7 @@ enum InputType { Mouse, Gamepad }
 @export var currentInputType = InputType.Mouse
 
 func doInpulse() -> void:
+	linear_velocity = Vector2()
 	apply_central_impulse(- InputDir() * InpulseForce);
 
 # input handling
@@ -49,10 +50,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float)  -> void:
 	UpdateIndicatorPos()
+
+func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("Inpulse")):
 		doInpulse()
-		
-func Die() -> void:
-	BoubouDie.emit(self)
-	queue_free()
-	pass
+	if linear_velocity.length_squared() > maxSpeed * maxSpeed:
+		linear_velocity = linear_velocity.normalized() * maxSpeed

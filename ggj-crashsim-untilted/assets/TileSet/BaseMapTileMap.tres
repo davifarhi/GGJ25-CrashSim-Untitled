@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://t30p8bvanrpv" path="res://assets/BlackTile.png" id="1_kl6lq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3f3l3"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1aeou"]
