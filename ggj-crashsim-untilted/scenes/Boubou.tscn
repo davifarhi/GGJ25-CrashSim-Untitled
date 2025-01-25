@@ -22,10 +22,11 @@ scale_min = 0.01
 scale_max = 0.01
 
 [node name="Bubble" type="RigidBody2D" node_paths=PackedStringArray("Indicator")]
-linear_damp = 1.0
+linear_damp = 0.1
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
 Indicator = NodePath("Visual/DirIndicator")
+maxSpeed = 2000.0
 
 [node name="Visual" type="Node2D" parent="."]
 
