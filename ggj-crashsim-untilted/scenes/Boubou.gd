@@ -58,7 +58,9 @@ func InputDir() -> Vector2:
 func UpdateIndicatorPos():
 	Indicator.position = Vector2()
 	Indicator.rotation = -rotation
-	Indicator.global_translate(IndicatorDistance * InputDir())
+	var dir = InputDir()
+	Indicator.global_translate(IndicatorDistance * dir)
+	Indicator.rotate(dir.angle())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

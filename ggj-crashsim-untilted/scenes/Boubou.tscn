@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
-[ext_resource type="Texture2D" uid="uid://gqqkd4sbswxi" path="res://assets/BubblePrototype.png" id="1_pnkcj"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
+[ext_resource type="Texture2D" uid="uid://ywll0u7t0nc3" path="res://assets/indicator.png" id="2_ionhn"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
 [ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
@@ -34,13 +34,12 @@ InpulseForce = 1000.0
 maxSpeed = 2000.0
 ghostTime = 0.04
 Indicator = NodePath("Visual/DirIndicator")
-IndicatorDistance = 42.0
+IndicatorDistance = 80.0
 
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="DirIndicator" type="Sprite2D" parent="Visual"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_pnkcj")
+texture = ExtResource("2_ionhn")
 
 [node name="BodyPolygon" type="Polygon2D" parent="Visual"]
 position = Vector2(29, 39)
@@ -60,6 +59,7 @@ texture = ExtResource("3_xldl1")
 shape = SubResource("CircleShape2D_2fpey")
 
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
+visible = false
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_cdih5")
 texture = ExtResource("2_hxvjg")
@@ -73,54 +73,61 @@ texture = ExtResource("2_hxvjg")
 one_shot = true
 explosiveness = 1.0
 
-[node name="WallDetection1" parent="." instance=ExtResource("5_bkr48")]
+[node name="WallDir" type="Node2D" parent="."]
+visible = false
+rotation = -1.5708
+
+[node name="WallDetection1" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 0.0
 target_position = Vector2(0, 35)
 
-[node name="WallDetection2" parent="." instance=ExtResource("5_bkr48")]
-rotation = -2.0944
+[node name="WallDetection2" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = -0.5236
+scale = Vector2(1, 1)
 target_position = Vector2(0, 35)
 
-[node name="WallDetection3" parent="." instance=ExtResource("5_bkr48")]
+[node name="WallDetection3" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = -1.04719
+target_position = Vector2(0, 35)
+
+[node name="WallDetection4" parent="WallDir" instance=ExtResource("5_bkr48")]
+target_position = Vector2(0, 35)
+
+[node name="WallDetection5" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = -2.09439
+scale = Vector2(1, 1)
+target_position = Vector2(0, 35)
+
+[node name="WallDetection6" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -2.61799
 target_position = Vector2(0, 35)
 
-[node name="WallDetection4" parent="." instance=ExtResource("5_bkr48")]
+[node name="WallDetection7" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -3.14159
 target_position = Vector2(0, 35)
 
-[node name="WallDetection5" parent="." instance=ExtResource("5_bkr48")]
-rotation = -3.66519
+[node name="WallDetection8" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 2.618
 target_position = Vector2(0, 35)
 
-[node name="WallDetection6" parent="." instance=ExtResource("5_bkr48")]
-rotation = -4.18879
+[node name="WallDetection9" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 2.0944
 target_position = Vector2(0, 35)
 
-[node name="WallDetection7" parent="." instance=ExtResource("5_bkr48")]
-rotation = -4.71239
+[node name="WallDetection10" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 1.5708
 target_position = Vector2(0, 35)
 
-[node name="WallDetection8" parent="." instance=ExtResource("5_bkr48")]
-rotation = -5.23599
+[node name="WallDetection11" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 1.04721
 target_position = Vector2(0, 35)
 
-[node name="WallDetection9" parent="." instance=ExtResource("5_bkr48")]
-rotation = -5.75959
-target_position = Vector2(0, 35)
-
-[node name="WallDetection10" parent="." instance=ExtResource("5_bkr48")]
-rotation = -6.28319
-target_position = Vector2(0, 35)
-
-[node name="WallDetection11" parent="." instance=ExtResource("5_bkr48")]
-rotation = -6.80678
-target_position = Vector2(0, 35)
-
-[node name="WallDetection12" parent="." instance=ExtResource("5_bkr48")]
-rotation = -7.33038
+[node name="WallDetection12" parent="WallDir" instance=ExtResource("5_bkr48")]
+rotation = 0.523605
 target_position = Vector2(0, 35)
 
 [node name="DeformationSkel" type="Skeleton2D" parent="."]
+visible = false
 
 [node name="Root" type="Bone2D" parent="DeformationSkel"]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
@@ -133,7 +140,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection1")
+raycaster = NodePath("../../../WallDir/WallDetection1")
 
 [node name="Deform2" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(29, -18)
@@ -143,7 +150,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -30.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection2")
+raycaster = NodePath("../../../WallDir/WallDetection2")
 
 [node name="Deform3" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(14, -27)
@@ -153,7 +160,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -60.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection3")
+raycaster = NodePath("../../../WallDir/WallDetection3")
 
 [node name="Deform4" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-1, -36)
@@ -163,7 +170,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -90.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection4")
+raycaster = NodePath("../../../WallDir/WallDetection4")
 
 [node name="Deform5" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-19, -29)
@@ -173,7 +180,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -120.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection5")
+raycaster = NodePath("../../../WallDir/WallDetection5")
 
 [node name="Deform6" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-32, -18)
@@ -183,7 +190,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -150.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection6")
+raycaster = NodePath("../../../WallDir/WallDetection6")
 
 [node name="Deform7" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-35, 0)
@@ -193,7 +200,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 180.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection7")
+raycaster = NodePath("../../../WallDir/WallDetection7")
 
 [node name="Deform8" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-32, 19)
@@ -203,7 +210,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 150.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection8")
+raycaster = NodePath("../../../WallDir/WallDetection8")
 
 [node name="Deform9" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-18, 33)
@@ -213,7 +220,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 120.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection9")
+raycaster = NodePath("../../../WallDir/WallDetection9")
 
 [node name="Deform10" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(-1, 36)
@@ -223,7 +230,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 90.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection10")
+raycaster = NodePath("../../../WallDir/WallDetection10")
 
 [node name="Deform11" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(17, 31)
@@ -233,7 +240,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 60.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection11")
+raycaster = NodePath("../../../WallDir/WallDetection11")
 
 [node name="Deform12" type="Bone2D" parent="DeformationSkel/Root" node_paths=PackedStringArray("raycaster")]
 position = Vector2(29, 17)
@@ -243,7 +250,7 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 30.0
 script = ExtResource("6_x1b53")
-raycaster = NodePath("../../../WallDetection12")
+raycaster = NodePath("../../../WallDir/WallDetection12")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
