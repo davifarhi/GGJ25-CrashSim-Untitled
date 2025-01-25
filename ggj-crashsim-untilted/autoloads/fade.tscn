@@ -65,6 +65,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 800
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(70.5375, 70.5375)

@@ -12,6 +12,11 @@ const SCENE_FILES_BASE = "res://scenes/dummy-flow/"
 var next_scene: int = 1
 var is_scene_pausable: bool = true
 
+enum FADE_TO { BYE, LEVEL, MENU }
+
+var next_fade_out_to: FADE_TO = FADE_TO.LEVEL
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	StartGame.connect(_start_game)
@@ -29,6 +34,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+	
 	
 func _start_game() -> void:
 	load_next_scene()
@@ -58,18 +64,21 @@ func is_last_scene() -> bool:
 	
 func load_bye() -> void:
 	is_scene_pausable = false
-	get_tree().change_scene_to_file(SCENE_FILES_BASE + "bye.tscn")
+	Fade.fade_out()
+	next_fade_out_to = FADE_TO.BYE
 
 
 func load_menu() -> void:
 	is_scene_pausable = false
-	get_tree().change_scene_to_file(SCENE_FILES_BASE + "hello.tscn")
-	next_scene = 1 
+	Fade.fade_out()
+	PopIt.hide()
+	next_fade_out_to = FADE_TO.MENU
 
 
 func load_next_scene():
 	is_scene_pausable = false
 	Fade.fade_out()
+	next_fade_out_to = FADE_TO.LEVEL
 
 
 func load_test_scene():
@@ -82,13 +91,22 @@ func are_game_animations_active():
 
 
 func _on_fadein_finished():
-	is_scene_pausable = true
-	PopIt.StartPOPIt.emit()
+	match next_fade_out_to:
+		FADE_TO.LEVEL:
+			is_scene_pausable = true
+			PopIt.StartPOPIt.emit()
 
 
 func _on_fadeout_finished():
-	var next_scene_formatted = SCENE_FILES_BASE + "scene"+ str(next_scene) + ".tscn"
-	get_tree().change_scene_to_file(next_scene_formatted)
-	next_scene += 1
+	match next_fade_out_to:
+		FADE_TO.LEVEL:
+			var next_scene_formatted = SCENE_FILES_BASE + "scene"+ str(next_scene) + ".tscn"
+			get_tree().change_scene_to_file(next_scene_formatted)
+			next_scene += 1
+		FADE_TO.BYE:
+			get_tree().change_scene_to_file(SCENE_FILES_BASE + "bye.tscn")
+		FADE_TO.MENU:
+			get_tree().change_scene_to_file(SCENE_FILES_BASE + "hello.tscn")
+			next_scene = 1 
 	
 	Fade.fade_in()

@@ -85,7 +85,7 @@ func _ready() -> void:
 func _process(delta: float)  -> void:
 	if dead:
 		return;
-	if PopIt.is_active():
+	if GameManager.are_game_animations_active():
 		return
 		
 	UpdateIndicatorPos()
