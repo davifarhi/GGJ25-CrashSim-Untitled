@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3gda251w5tng"]
+
+[ext_resource type="TileSet" uid="uid://ccjyfmt3w6nr5" path="res://assets/TileSet/BaseMapTileMap.tres" id="1_brw0v"]
+
+[sub_resource type="GDScript" id="GDScript_drojs"]
+script/source = "extends TileMapLayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_set = ExtResource("1_brw0v")
+script = SubResource("GDScript_drojs")
