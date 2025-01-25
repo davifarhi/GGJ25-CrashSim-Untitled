@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://wakg8ukvu4bk"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/round_bumper.gd" id="1_avqpm"]
-[ext_resource type="Texture2D" uid="uid://cw7g1xd50akuu" path="res://assets/bumper.png" id="2_47jka"]
+[ext_resource type="Texture2D" uid="uid://b7n8tyjie2ykk" path="res://assets/Asset2D/bumper.png" id="2_1m1wf"]
 [ext_resource type="AudioStream" uid="uid://ba77k28qo07ka" path="res://assets/sound/env_bumper_01.wav" id="3_aw8l4"]
 [ext_resource type="AudioStream" uid="uid://rxcacxl406wx" path="res://assets/sound/env_bumper_02.wav" id="4_8242f"]
 [ext_resource type="AudioStream" uid="uid://bsitorb8ej123" path="res://assets/sound/env_bumper_03.wav" id="5_mlut8"]
@@ -69,8 +69,9 @@ playback_default_blend_time = 0.1
 speed_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="BumperBody"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_47jka")
+position = Vector2(0, -5)
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("2_1m1wf")
 
 [node name="ImpulseZone" type="Area2D" parent="BumperBody"]
 

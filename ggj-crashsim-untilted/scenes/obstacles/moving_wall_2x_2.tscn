@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj4gw1uwfjl7x"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/moving_wall_2x2.gd" id="1_ffmwb"]
-[ext_resource type="Texture2D" uid="uid://dhah6jwkrf202" path="res://assets/uglyWall64x64.png" id="1_p0n7w"]
+[ext_resource type="Texture2D" uid="uid://be2dhfbxe65hk" path="res://assets/Asset2D/Cube01.png" id="2_a1tw1"]
 
 [sub_resource type="Curve" id="Curve_88api"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -19,7 +19,10 @@ script = ExtResource("1_ffmwb")
 speed = SubResource("Curve_88api")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_p0n7w")
+texture_filter = 4
+position = Vector2(0.140303, -2.80142e-06)
+scale = Vector2(-0.32, -0.32)
+texture = ExtResource("2_a1tw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vpay0")
