@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 class_name Boubou
+signal BoubouDie(player: Boubou)
 
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
@@ -10,6 +11,7 @@ class_name Boubou
 @export var IndicatorDistance:float = 32;
 
 var impulsionDone = false
+var dead = false
 enum InputType { Mouse, Gamepad }
 @export var currentInputType = InputType.Mouse
 
@@ -49,10 +51,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float)  -> void:
+	if dead:
+		return;
 	UpdateIndicatorPos()
+	
+	# TODO: debug code, to remove :)
+	if Input.is_key_pressed(KEY_DELETE):
+		linear_velocity = Vector2(0, 0)
+		global_position = get_viewport().get_mouse_position()
 
 func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("Inpulse")):
 		doInpulse()
 	if linear_velocity.length_squared() > maxSpeed * maxSpeed:
 		linear_velocity = linear_velocity.normalized() * maxSpeed
+		
+func Die() -> void:
+	$Visual.hide()
+	$DeathParticles.restart()
+	linear_velocity = Vector2(0, 0)
+	set_physics_process(false)
+	dead = true
+	BoubouDie.emit(self)
+	pass

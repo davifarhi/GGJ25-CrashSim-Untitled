@@ -1,16 +1,31 @@
 [gd_scene load_steps=6 format=4 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
+[ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
-[ext_resource type="PackedScene" uid="uid://b3gda251w5tng" path="res://scenes/BaseMapTileMap.tscn" id="3_cuq61"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="6_j4sah"]
+[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="WindTurbine" parent="." instance=ExtResource("4_mii5k")]
-position = Vector2(480, 38)
-scale = Vector2(1, 8.105)
+[node name="WindTurbine" parent="." node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
+position = Vector2(451, 183)
+windbox_shape = NodePath("WindTurbineShape")
+
+[node name="WindTurbineShape" type="Sprite2D" parent="WindTurbine"]
+position = Vector2(1.90735e-06, 52)
+texture = ExtResource("2_3b3qt")
+
+[node name="WindTurbine2" parent="." node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
+position = Vector2(1093, -29)
+acceleration_amount = 2.0
+windbox_shape = NodePath("WindTurbineShape2")
+
+[node name="WindTurbineShape2" type="Sprite2D" parent="WindTurbine2"]
+position = Vector2(6, 600)
+scale = Vector2(1.84, 8.50963)
+texture = ExtResource("2_3b3qt")
 
 [node name="RoundBumper" parent="." instance=ExtResource("2_pe7dj")]
 position = Vector2(384, 797)
@@ -40,5 +55,8 @@ position = Vector2(608, 668)
 [node name="RoundBumper6" parent="." instance=ExtResource("2_pe7dj")]
 position = Vector2(482, 930)
 
+
 [node name="MovingWall_2x2" parent="." instance=ExtResource("6_j4sah")]
 position = Vector2(919, 221)
+
+[node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]

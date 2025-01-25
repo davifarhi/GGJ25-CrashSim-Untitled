@@ -1,30 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://dr8qcb8xad7lc"]
 
 [ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_7hnom"]
-[ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_phuow"]
+[ext_resource type="Script" path="res://scenes/obstacles/wind_turbine.gd" id="1_dcvhy"]
 [ext_resource type="Texture2D" uid="uid://6wtj3jd5v03q" path="res://assets/WindTurbineProto.png" id="3_s8srx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c37c"]
-size = Vector2(128, 135)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqg1w"]
+size = Vector2(126, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
 size = Vector2(128, 64)
 
 [node name="WindTurbine" type="Node2D"]
 position = Vector2(123, 76)
+script = ExtResource("1_dcvhy")
 
 [node name="WindBox" type="Area2D" parent="."]
 script = ExtResource("1_7hnom")
-acceleration_amount_per_second = 1000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindBox"]
-position = Vector2(1, 67.5)
-shape = SubResource("RectangleShape2D_2c37c")
-
-[node name="Sprite2D" type="Sprite2D" parent="WindBox"]
-position = Vector2(3, 68)
-scale = Vector2(2.04648, 1.07619)
-texture = ExtResource("2_phuow")
+[node name="WindBoxShape" type="CollisionShape2D" parent="WindBox"]
+position = Vector2(1, 68)
+shape = SubResource("RectangleShape2D_iqg1w")
 
 [node name="StaticPart" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
