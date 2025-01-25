@@ -70,9 +70,9 @@ shape = SubResource("RectangleShape2D_7jjxt")
 texture = ExtResource("5_jj7u4")
 
 [node name="StaticWall4" type="StaticBody2D" parent="Obstacle"]
-position = Vector2(1009, 393)
+position = Vector2(976, 447)
 rotation = 1.5708
-scale = Vector2(1, 8.8)
+scale = Vector2(1, 9.48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/StaticWall4"]
 position = Vector2(-2, -0.5)
@@ -82,6 +82,8 @@ shape = SubResource("RectangleShape2D_7jjxt")
 texture = ExtResource("5_jj7u4")
 
 [node name="StaticWall5" parent="Obstacle" instance=ExtResource("5_dgdoj")]
+position = Vector2(975, 556)
+scale = Vector2(1, 9.48)
 
 [node name="Spikes4" parent="Obstacle" instance=ExtResource("6_hddq3")]
 position = Vector2(1201, 504)

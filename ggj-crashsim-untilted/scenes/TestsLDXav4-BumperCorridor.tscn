@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd3w6iejy6shw"]
+
+[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="1_7k1pq"]
+[ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="3_tmmq1"]
+[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="8_8dqx5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelDecoration" parent="." instance=ExtResource("1_7k1pq")]
+
+[node name="Obstacle" type="Node2D" parent="."]
+
+[node name="Boubou" parent="." instance=ExtResource("8_8dqx5")]
+position = Vector2(126, 178)
+rotation = 0.261799
+bounceDecay = 10.0
+
+[node name="RoundBumper" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(593, 322)
+
+[node name="RoundBumper2" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(696, 270)
+
+[node name="RoundBumper3" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(796, 218)
+
+[node name="RoundBumper4" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(902, 178)
+
+[node name="RoundBumper5" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1019, 165)
+
+[node name="RoundBumper6" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1127, 200)
+
+[node name="RoundBumper7" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1217, 271)
+
+[node name="RoundBumper8" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1290, 373)
+
+[node name="RoundBumper9" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1346, 470)
+
+[node name="RoundBumper10" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1368, 578)
+
+[node name="RoundBumper11" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1363, 670)
+
+[node name="RoundBumper12" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1333, 768)
+
+[node name="RoundBumper13" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1081, 687)
+
+[node name="RoundBumper14" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1097, 598)
+
+[node name="RoundBumper15" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1084, 509)
+
+[node name="RoundBumper16" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(1030, 428)
+
+[node name="RoundBumper17" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(917, 433)
+
+[node name="RoundBumper18" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(836, 498)
+
+[node name="RoundBumper19" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(742, 569)
+
+[node name="RoundBumper20" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(663, 632)
+
+[node name="RoundBumper21" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(566, 665)
+
+[node name="RoundBumper22" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(485, 344)
+
+[node name="RoundBumper23" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(382, 352)
+
+[node name="RoundBumper24" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(471, 685)
+
+[node name="RoundBumper25" parent="." instance=ExtResource("3_tmmq1")]
+position = Vector2(358, 685)
+
+[connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]

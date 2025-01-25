@@ -23,7 +23,6 @@ var latestDir = Vector2(1,0)
 signal BoubouBumperContact
 @onready var bumper_contact_sfx_collection = SoundCollection.new($BumperContactSFX)
 @onready var boubou_death_sfx_group = SoundCollection.new($DeathSFX)
-@onready var boubou_born_sfx_group = SoundCollection.new($BornSFX)
 @onready var boubou_bounce_sfx_collection = SoundCollection.new($BounceSFX)
 @onready var boubou_bounce_vo_sfx_collection = SoundCollection.new($BounceVOSFX)
 @onready var boubou_inpulse_sfx_collection = SoundCollection.new($InpulseSFX)
@@ -81,12 +80,14 @@ func _ready() -> void:
 		child.bounce_decay = bounceDecay
 		
 	BoubouBumperContact.connect(_on_bumper_contact)
-	GameManager.OnLevelBegin.connect(_on_level_begin)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float)  -> void:
 	if dead:
 		return;
+	if PopIt.is_active():
+		return
+		
 	UpdateIndicatorPos()
 	
 	if (ghostremainingTime > 0):
@@ -100,12 +101,10 @@ func _process(delta: float)  -> void:
 		linear_velocity = Vector2(0, 0)
 		global_position = get_viewport().get_mouse_position()
 		
-	# dfarhi: this is ugly but if you have a better way, feel free to implement it
-	if GameManager.scene_transition_countdown == 1:
-		boubou_born_sfx_group.play_all()
-		
 
 func _physics_process(_delta: float) -> void:
+	if PopIt.is_active():
+		return
 	if (Input.is_action_just_pressed("Inpulse")):
 		doInpulse()
 	if linear_velocity.length_squared() > maxSpeed * maxSpeed:
@@ -127,7 +126,7 @@ func _on_death_particles_finished() -> void:
 	if GameManager.is_last_scene():
 		GameManager.EndGame.emit()
 	else:
-		GameManager.StartTransition.emit()
+		GameManager.NextLevel.emit()
 
 
 func _on_juice_on_inpulse(_dir: Vector2) -> void:

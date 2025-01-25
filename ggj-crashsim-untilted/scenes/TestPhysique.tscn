@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=9 format=3 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://d0pchhp267oy1" path="res://scenes/obstacles/turning_cross.tscn" id="5_rueeh"]
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="8_4yfiy"]
 [ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]
-
 [node name="Obstacle" type="Node2D" parent="."]
+position = Vector2(-989, -562)
 
 [node name="RoundBumper" parent="Obstacle" instance=ExtResource("2_pe7dj")]
 position = Vector2(384, 797)
@@ -33,11 +33,12 @@ position = Vector2(608, 668)
 position = Vector2(482, 930)
 
 [node name="WindTurbine" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
-position = Vector2(451, 183)
+position = Vector2(452, 207)
 windbox_shape = NodePath("WindTurbineShape")
 
 [node name="WindTurbineShape" type="Sprite2D" parent="Obstacle/WindTurbine"]
-position = Vector2(1.90735e-06, 52)
+visible = false
+position = Vector2(2, 63)
 texture = ExtResource("2_3b3qt")
 
 [node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
@@ -58,8 +59,13 @@ displacement = Vector2(64, 0)
 displacementTime = 0.5
 
 [node name="Boubou" parent="." instance=ExtResource("1_tasia")]
-position = Vector2(883, 313)
+position = Vector2(-106, -249)
 rotation = 1.01578
 bounceDecay = 10.0
 
-[connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("8_4yfiy")
+
+[node name="LevelDecoration" parent="Camera2D" instance=ExtResource("6_deit5")]
+
+[connection signal="JuiceOnInpulse" from="Boubou" to="Camera2D/LevelDecoration" method="_on_boubou_juice_on_inpulse"]
