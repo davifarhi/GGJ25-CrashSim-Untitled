@@ -50,10 +50,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float)  -> void:
 	UpdateIndicatorPos()
-	#if linear_velocity.length_squared() > maxSpeed * maxSpeed:
-	#	linear_velocity = linear_velocity.normalized() * maxSpeed
-	print(linear_velocity.length())
-		
 
 func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("Inpulse")):

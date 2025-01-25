@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwdcf1w8f3vv"
-path="res://.godot/imported/UglyCircle.png-fea6a9f318ac618a0e9b4ab7589f046d.ctex"
+uid="uid://bbidyod6facv3"
+path="res://.godot/imported/Spikes4Proto.png-865ec7c00f5b2d15151e75220bc189e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UglyCircle.png"
-dest_files=["res://.godot/imported/UglyCircle.png-fea6a9f318ac618a0e9b4ab7589f046d.ctex"]
+source_file="res://assets/Spikes4Proto.png"
+dest_files=["res://.godot/imported/Spikes4Proto.png-865ec7c00f5b2d15151e75220bc189e9.ctex"]
 
 [params]
 
