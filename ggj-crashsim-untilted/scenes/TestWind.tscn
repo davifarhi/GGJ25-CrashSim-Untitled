@@ -1,47 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://batqiainqsml2"]
+[gd_scene load_steps=3 format=3 uid="uid://batqiainqsml2"]
 
-[ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_3m6vn"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_gbsvf"]
-[ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_yvmps"]
-[ext_resource type="Texture2D" uid="uid://6wtj3jd5v03q" path="res://assets/WindTurbineProto.png" id="3_v1b7i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c37c"]
-size = Vector2(128, 135)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
-size = Vector2(128, 64)
+[ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="1_jmri0"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="WindTurbine" type="Node2D" parent="."]
-position = Vector2(123, 76)
-
-[node name="WindBox" type="Area2D" parent="WindTurbine"]
-script = ExtResource("1_3m6vn")
-acceleration_amount_per_second = 2000.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindTurbine/WindBox"]
-position = Vector2(1, 67.5)
-shape = SubResource("RectangleShape2D_2c37c")
-
-[node name="Sprite2D" type="Sprite2D" parent="WindTurbine/WindBox"]
-position = Vector2(3, 68)
-scale = Vector2(2.04648, 1.07619)
-texture = ExtResource("2_yvmps")
-
-[node name="StaticPart" type="StaticBody2D" parent="WindTurbine"]
-position = Vector2(0, -1)
-
-[node name="Sprite" type="Sprite2D" parent="WindTurbine/StaticPart"]
-position = Vector2(1, -32)
-texture = ExtResource("3_v1b7i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindTurbine/StaticPart"]
-position = Vector2(1, -32)
-shape = SubResource("RectangleShape2D_rx405")
+[node name="WindTurbine" parent="." instance=ExtResource("1_jmri0")]
 
 [node name="Boubou" parent="." instance=ExtResource("1_gbsvf")]
 position = Vector2(129, 110)
-
-[connection signal="body_entered" from="WindTurbine/WindBox" to="WindTurbine/WindBox" method="_on_windbox_entered"]
-[connection signal="body_exited" from="WindTurbine/WindBox" to="WindTurbine/WindBox" method="_on_windbox_exited"]

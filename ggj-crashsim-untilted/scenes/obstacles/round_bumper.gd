@@ -20,7 +20,7 @@ func _draw() -> void:
 
 
 func _on_impulse_zone_body_entered(body: Node2D) -> void:
-	if not is_instance_of(body, Boubou):
+	if not body is Boubou:
 		return
 		
 	var normal = (body.global_position - self.global_position).normalized()
@@ -29,7 +29,7 @@ func _on_impulse_zone_body_entered(body: Node2D) -> void:
 
 
 func _on_activation_zone_body_entered(body: Node2D) -> void:
-	if not is_instance_of(body, Boubou):
+	if not body is Boubou:
 		return
 		
 	sprite.play("Bump")
