@@ -17,16 +17,14 @@ ForgroundInpulseTime = 0.2
 z_index = -1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_vlwus")
-centered = false
 
 [node name="Foreground" type="Sprite2D" parent="."]
 z_index = 1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_kqdls")
-centered = false
-offset = Vector2(-100, -100)
 
 [node name="LevelWalls" type="Node2D" parent="."]
+position = Vector2(-954, -540)
 
 [node name="UpperWall" type="StaticBody2D" parent="LevelWalls"]
 physics_material_override = ExtResource("3_i76to")
