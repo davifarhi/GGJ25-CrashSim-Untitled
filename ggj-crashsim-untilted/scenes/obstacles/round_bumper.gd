@@ -22,11 +22,13 @@ func _draw() -> void:
 func _on_impulse_zone_body_entered(body: Node2D) -> void:
 	if not body is Boubou:
 		return
-		
+	
+	var boubou:Boubou = body as Boubou
 	var normal = (body.global_position - self.global_position).normalized()
 	var bump_v = normal * bump_impulse_multiplier
 	body.apply_impulse(bump_v)
-
+	
+	boubou.JuiceOnInpulse.emit(normal)
 
 func _on_activation_zone_body_entered(body: Node2D) -> void:
 	if not body is Boubou:
