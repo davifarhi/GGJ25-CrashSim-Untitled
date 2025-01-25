@@ -14,6 +14,7 @@ enum InputType { Mouse, Gamepad }
 @export var currentInputType = InputType.Mouse
 
 func doInpulse() -> void:
+	linear_velocity = Vector2()
 	apply_central_impulse(- InputDir() * InpulseForce);
 
 # input handling
