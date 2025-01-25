@@ -50,7 +50,7 @@ script = ExtResource("1_xw6fj")
 [node name="StretcherSkel" type="Skeleton2D" parent="."]
 
 [node name="Stretcher" type="Bone2D" parent="StretcherSkel"]
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(1.00083, 1.00083)
 rest = Transform2D(1.00201, 0, 0, 1.01217, 0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StretcherSkel/Stretcher"]

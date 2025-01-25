@@ -93,6 +93,7 @@ func load_next_scene():
 	next_scene += 1
 	
 	OnLevelBegin.emit()
+	
 	#SEB hack (dfarhi)
 	scene_transition_countdown = 3
 
