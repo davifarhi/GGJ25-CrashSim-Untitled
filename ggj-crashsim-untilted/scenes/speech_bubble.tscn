@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://fuumepbar80f"]
 
-[ext_resource type="Script" path="res://scenes/boubou.gd" id="1_xw6fj"]
+[ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_xw6fj"]
 [ext_resource type="Texture2D" uid="uid://cyxbo6a7g6ugr" path="res://ui/effect_background.png" id="2_ptxig"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tl2mc"]
