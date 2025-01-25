@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var direction_factor: float = -1 if pull else 1;
 	var direction = Vector2(0, 1).rotated(global_rotation)
-	player.apply_central_force(direction_factor * acceleration_amount_per_second * direction * delta)
+	player.apply_central_force(direction_factor * acceleration_amount_per_second * direction)
 
 func _on_windbox_entered(body: Node2D) -> void:
 	if body is Boubou:
