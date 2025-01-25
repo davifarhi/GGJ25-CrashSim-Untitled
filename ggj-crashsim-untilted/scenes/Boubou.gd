@@ -80,7 +80,6 @@ func _ready() -> void:
 		child.bounce_decay = bounceDecay
 		
 	BoubouBumperContact.connect(_on_bumper_contact)
-	GameManager.OnLevelBegin.connect(_on_level_begin)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float)  -> void:
@@ -127,7 +126,7 @@ func _on_death_particles_finished() -> void:
 	if GameManager.is_last_scene():
 		GameManager.EndGame.emit()
 	else:
-		GameManager.StartTransition.emit()
+		GameManager.NextLevel.emit()
 
 
 func _on_juice_on_inpulse(_dir: Vector2) -> void:
