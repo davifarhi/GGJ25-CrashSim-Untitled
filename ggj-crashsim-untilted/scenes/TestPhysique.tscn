@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=7 format=4 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
 [ext_resource type="PackedScene" uid="uid://b3gda251w5tng" path="res://scenes/BaseMapTileMap.tscn" id="3_cuq61"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
+[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,3 +52,5 @@ position = Vector2(608, 668)
 
 [node name="RoundBumper6" parent="." instance=ExtResource("2_pe7dj")]
 position = Vector2(482, 930)
+
+[node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]

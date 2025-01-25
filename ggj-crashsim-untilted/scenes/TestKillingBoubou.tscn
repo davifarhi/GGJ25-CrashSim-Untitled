@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://dr1fnb86o24qg"]
+[gd_scene load_steps=6 format=4 uid="uid://dr1fnb86o24qg"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_ocxpv"]
 [ext_resource type="PackedScene" uid="uid://b3gda251w5tng" path="res://scenes/BaseMapTileMap.tscn" id="3_1lafp"]
 [ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="3_u6bp2"]
 [ext_resource type="PackedScene" uid="uid://cxwk8f467r5uj" path="res://scenes/obstacles/spike_wall.tscn" id="4_5s7me"]
+[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="5_xx655"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,3 +21,5 @@ script = null
 [node name="SpikeWall" parent="." instance=ExtResource("4_5s7me")]
 position = Vector2(336, 706)
 rotation = -0.505867
+
+[node name="LevelDecoration" parent="." instance=ExtResource("5_xx655")]
