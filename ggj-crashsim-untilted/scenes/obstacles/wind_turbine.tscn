@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr8qcb8xad7lc"]
+[gd_scene load_steps=7 format=3 uid="uid://dr8qcb8xad7lc"]
 
 [ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_7hnom"]
 [ext_resource type="Script" path="res://scenes/obstacles/wind_turbine.gd" id="1_dcvhy"]
@@ -6,6 +6,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqg1w"]
 size = Vector2(126, 138)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_451e1"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16, 0)
+emission_shape = 3
+emission_box_extents = Vector3(64, 64, 0)
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
 size = Vector2(128, 64)
@@ -20,6 +29,13 @@ script = ExtResource("1_7hnom")
 [node name="WindBoxShape" type="CollisionShape2D" parent="WindBox"]
 position = Vector2(1, 68)
 shape = SubResource("RectangleShape2D_iqg1w")
+
+[node name="Particles" type="GPUParticles2D" parent="WindBox/WindBoxShape"]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_451e1")
+explosiveness = 0.33
+trail_enabled = true
+trail_lifetime = 1.01
 
 [node name="StaticPart" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
