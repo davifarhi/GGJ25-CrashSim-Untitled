@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=9 format=3 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
+[ext_resource type="Script" path="res://scenes/obstacles/turning_cross.gd" id="6_tib12"]
+[ext_resource type="Texture2D" uid="uid://b2gictejfruyp" path="res://assets/TurningCrossProto.png" id="7_14e2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bloyc"]
+size = Vector2(50.6249, 37.9997)
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,3 +54,22 @@ position = Vector2(608, 668)
 position = Vector2(482, 930)
 
 [node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]
+
+[node name="TurningCross" type="RigidBody2D" parent="."]
+position = Vector2(870, 562)
+freeze = true
+freeze_mode = 1
+script = ExtResource("6_tib12")
+
+[node name="Sprite2D" type="Sprite2D" parent="TurningCross"]
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("7_14e2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurningCross"]
+scale = Vector2(3.16, 1)
+shape = SubResource("RectangleShape2D_bloyc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TurningCross"]
+rotation = 1.57079
+scale = Vector2(3.20001, 1)
+shape = SubResource("RectangleShape2D_bloyc")
