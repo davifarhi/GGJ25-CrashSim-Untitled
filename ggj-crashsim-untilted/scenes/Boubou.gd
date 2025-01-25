@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 class_name Boubou
+signal BoubouDie(player: Boubou)
 
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
