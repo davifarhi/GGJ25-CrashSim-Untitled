@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqtpxlro4lj3d"]
+[gd_scene load_steps=5 format=3 uid="uid://bqtpxlro4lj3d"]
 
 [ext_resource type="Texture2D" uid="uid://c3fc27m7ff1ht" path="res://assets/LevelBackground.png" id="1_vlwus"]
 [ext_resource type="Texture2D" uid="uid://cipfoonj5s7np" path="res://assets/LevelForeground.png" id="2_kqdls"]
+[ext_resource type="PhysicsMaterial" uid="uid://cuwk5enyeau8u" path="res://assets/PhysicMaterials/bouncy_walls.tres" id="3_i76to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxmmg"]
+size = Vector2(1982, 65)
 
 [node name="LevelDecoration" type="Node2D"]
 
@@ -16,3 +20,38 @@ z_index = 1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_kqdls")
 centered = false
+
+[node name="LevelWalls" type="Node2D" parent="."]
+
+[node name="UpperWall" type="StaticBody2D" parent="LevelWalls"]
+physics_material_override = ExtResource("3_i76to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/UpperWall"]
+position = Vector2(960, 0.5)
+shape = SubResource("RectangleShape2D_xxmmg")
+
+[node name="LowerWall" type="StaticBody2D" parent="LevelWalls"]
+position = Vector2(0, 1113)
+physics_material_override = ExtResource("3_i76to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LowerWall"]
+position = Vector2(960, -24)
+shape = SubResource("RectangleShape2D_xxmmg")
+
+[node name="RightWall" type="StaticBody2D" parent="LevelWalls"]
+position = Vector2(0, 1113)
+physics_material_override = ExtResource("3_i76to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/RightWall"]
+position = Vector2(1918, -752)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_xxmmg")
+
+[node name="LeftWall" type="StaticBody2D" parent="LevelWalls"]
+position = Vector2(-1915, 1113)
+physics_material_override = ExtResource("3_i76to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LeftWall"]
+position = Vector2(1918, -752)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_xxmmg")
