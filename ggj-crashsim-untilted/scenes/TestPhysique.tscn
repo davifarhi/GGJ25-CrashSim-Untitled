@@ -14,55 +14,9 @@ size = Vector2(50.6249, 37.9997)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="WindTurbine" parent="." node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
-position = Vector2(451, 183)
-windbox_shape = NodePath("WindTurbineShape")
-
-[node name="WindTurbineShape" type="Sprite2D" parent="WindTurbine"]
-position = Vector2(1.90735e-06, 52)
-texture = ExtResource("2_3b3qt")
-
-[node name="WindTurbine2" parent="." node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
-position = Vector2(1093, -29)
-acceleration_amount = 2.0
-windbox_shape = NodePath("WindTurbineShape2")
-
-[node name="WindTurbineShape2" type="Sprite2D" parent="WindTurbine2"]
-position = Vector2(6, 600)
-scale = Vector2(1.84, 8.50963)
-texture = ExtResource("2_3b3qt")
-
-[node name="Boubou" parent="." instance=ExtResource("1_tasia")]
-position = Vector2(130, 63)
-rotation = 1.01578
-
 [node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]
 
-[node name="TurningCross" type="RigidBody2D" parent="."]
-position = Vector2(870, 562)
-freeze = true
-freeze_mode = 1
-script = ExtResource("6_tib12")
-
-[node name="Sprite2D" type="Sprite2D" parent="TurningCross"]
-scale = Vector2(1.24, 1.24)
-texture = ExtResource("7_14e2e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TurningCross"]
-scale = Vector2(3.16, 1)
-shape = SubResource("RectangleShape2D_bloyc")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TurningCross"]
-rotation = 1.57079
-scale = Vector2(3.20001, 1)
-shape = SubResource("RectangleShape2D_bloyc")
-
-[node name="MovingWall_2x2" parent="." instance=ExtResource("8_mhv05")]
-position = Vector2(1521, 197)
-displacement = Vector2(64, 0)
-displacementTime = 0.5
-
-[node name="Obstacle" type="Node" parent="."]
+[node name="Obstacle" type="Node2D" parent="."]
 
 [node name="RoundBumper" parent="Obstacle" instance=ExtResource("2_pe7dj")]
 position = Vector2(384, 797)
@@ -81,3 +35,52 @@ position = Vector2(608, 668)
 
 [node name="RoundBumper6" parent="Obstacle" instance=ExtResource("2_pe7dj")]
 position = Vector2(482, 930)
+
+[node name="WindTurbine" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
+position = Vector2(451, 183)
+windbox_shape = NodePath("WindTurbineShape")
+
+[node name="WindTurbineShape" type="Sprite2D" parent="Obstacle/WindTurbine"]
+position = Vector2(1.90735e-06, 52)
+texture = ExtResource("2_3b3qt")
+
+[node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
+position = Vector2(1093, -29)
+acceleration_amount = 2.0
+windbox_shape = NodePath("WindTurbineShape2")
+
+[node name="WindTurbineShape2" type="Sprite2D" parent="Obstacle/WindTurbine2"]
+position = Vector2(6, 600)
+scale = Vector2(1.84, 8.50963)
+texture = ExtResource("2_3b3qt")
+
+[node name="TurningCross" type="RigidBody2D" parent="Obstacle"]
+position = Vector2(870, 562)
+freeze = true
+freeze_mode = 1
+script = ExtResource("6_tib12")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle/TurningCross"]
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("7_14e2e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/TurningCross"]
+scale = Vector2(3.16, 1)
+shape = SubResource("RectangleShape2D_bloyc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacle/TurningCross"]
+rotation = 1.57079
+scale = Vector2(3.20001, 1)
+shape = SubResource("RectangleShape2D_bloyc")
+
+[node name="MovingWall_2x2" parent="Obstacle" instance=ExtResource("8_mhv05")]
+position = Vector2(1521, 197)
+displacement = Vector2(64, 0)
+displacementTime = 0.5
+
+[node name="Boubou" parent="." instance=ExtResource("1_tasia")]
+position = Vector2(883, 313)
+rotation = 1.01578
+bounceDecay = 10.0
+
+[connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]

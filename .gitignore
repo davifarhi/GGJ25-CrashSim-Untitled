@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # dfarhi wtf .tmp
 *.tmp
+
+# exports
+Exports/
