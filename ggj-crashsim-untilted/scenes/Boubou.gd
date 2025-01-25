@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 class_name Boubou
+signal BoubouDie(player: Boubou)
 
 @export var InpulseForce:float = 10
 
@@ -50,3 +51,8 @@ func _process(_delta: float)  -> void:
 	UpdateIndicatorPos()
 	if (Input.is_action_just_pressed("Inpulse")):
 		doInpulse()
+		
+func Die() -> void:
+	BoubouDie.emit(self)
+	queue_free()
+	pass
