@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wakg8ukvu4bk"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/round_bumper.gd" id="1_avqpm"]
-[ext_resource type="Texture2D" uid="uid://cjnlqbua8v2ob" path="res://assets/LessUglyCircle.png" id="2_sj6ov"]
+[ext_resource type="Texture2D" uid="uid://cw7g1xd50akuu" path="res://assets/bumper.png" id="2_47jka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qejpg"]
 radius = 52.2398
@@ -65,11 +65,9 @@ libraries = {
 playback_default_blend_time = 0.1
 speed_scale = 1.5
 
-[node name="Polygon2D" type="Polygon2D" parent="BumperBody"]
-offset = Vector2(-50, -50)
-texture = ExtResource("2_sj6ov")
-polygon = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
-uv = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
+[node name="Sprite2D" type="Sprite2D" parent="BumperBody"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_47jka")
 
 [node name="ImpulseZone" type="Area2D" parent="BumperBody"]
 
