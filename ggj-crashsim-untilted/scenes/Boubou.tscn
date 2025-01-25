@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=31 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
 [ext_resource type="Texture2D" uid="uid://ywll0u7t0nc3" path="res://assets/indicator.png" id="2_ionhn"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
-[ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
+[ext_resource type="PackedScene" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
 [ext_resource type="Texture2D" uid="uid://cyi4y8obgey51" path="res://assets/BoubouBodyMini.png" id="6_pxi0c"]
 [ext_resource type="Script" path="res://scenes/deformation_skel.gd" id="6_x1b53"]
 [ext_resource type="Script" path="res://scenes/dash_particle.gd" id="7_ixgqx"]
@@ -16,6 +16,18 @@
 [ext_resource type="AudioStream" uid="uid://b4e3tfggiq4mp" path="res://assets/sound/bou_death_vo_01.wav" id="14_ihsvq"]
 [ext_resource type="AudioStream" uid="uid://41jolr6cuyxf" path="res://assets/sound/bou_born_01.wav" id="15_57mvn"]
 [ext_resource type="AudioStream" uid="uid://dfcdfstt7xdoe" path="res://assets/sound/bou_born_vo_01.wav" id="16_ctu78"]
+[ext_resource type="AudioStream" uid="uid://ctkyxl4iebbmg" path="res://assets/sound/bou_throw_vo_01.wav" id="17_t0de2"]
+[ext_resource type="AudioStream" uid="uid://6up1dw8sncnc" path="res://assets/sound/bou_throw_vo_02.wav" id="18_3qb7e"]
+[ext_resource type="AudioStream" uid="uid://blh7dofgykiol" path="res://assets/sound/bou_throw_vo_03.wav" id="19_puylg"]
+[ext_resource type="AudioStream" uid="uid://cis2srtr72lgx" path="res://assets/sound/bou_throw_01.wav" id="20_aq6rp"]
+[ext_resource type="AudioStream" uid="uid://dohre7fw8kt55" path="res://assets/sound/bou_throw_02.wav" id="21_snqga"]
+[ext_resource type="AudioStream" uid="uid://cqol3yaxpbv1u" path="res://assets/sound/bou_throw_03.wav" id="22_nfb43"]
+[ext_resource type="AudioStream" uid="uid://buk7kwyhf3sjq" path="res://assets/sound/bou_bounce_01.wav" id="23_rm5oj"]
+[ext_resource type="AudioStream" uid="uid://jyhc8isij4nu" path="res://assets/sound/bou_bounce_02.wav" id="24_yt26e"]
+[ext_resource type="AudioStream" uid="uid://cgvsampqcjk30" path="res://assets/sound/bou_bounce_03.wav" id="25_aoke8"]
+[ext_resource type="AudioStream" uid="uid://cmltphy7xmgur" path="res://assets/sound/bou_bounce_vo_01.wav" id="26_7nt3h"]
+[ext_resource type="AudioStream" uid="uid://c4fqwuwodhgjm" path="res://assets/sound/bou_bounce_vo_02.wav" id="27_w8sol"]
+[ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="28_1bhki"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
@@ -296,6 +308,50 @@ stream = ExtResource("15_57mvn")
 
 [node name="BouBornVo01" type="AudioStreamPlayer2D" parent="BornSFX"]
 stream = ExtResource("16_ctu78")
+
+[node name="InpulseVOSFX" type="Node" parent="."]
+
+[node name="BouThrowVo01" type="AudioStreamPlayer2D" parent="InpulseVOSFX"]
+stream = ExtResource("17_t0de2")
+
+[node name="BouThrowVo02" type="AudioStreamPlayer2D" parent="InpulseVOSFX"]
+stream = ExtResource("18_3qb7e")
+
+[node name="BouThrowVo03" type="AudioStreamPlayer2D" parent="InpulseVOSFX"]
+stream = ExtResource("19_puylg")
+
+[node name="InpulseSFX" type="Node" parent="."]
+
+[node name="BouThrow01" type="AudioStreamPlayer2D" parent="InpulseSFX"]
+stream = ExtResource("20_aq6rp")
+
+[node name="BouThrow02" type="AudioStreamPlayer2D" parent="InpulseSFX"]
+stream = ExtResource("21_snqga")
+
+[node name="BouThrow03" type="AudioStreamPlayer2D" parent="InpulseSFX"]
+stream = ExtResource("22_nfb43")
+
+[node name="BounceSFX" type="Node" parent="."]
+
+[node name="BouBounce01" type="AudioStreamPlayer2D" parent="BounceSFX"]
+stream = ExtResource("23_rm5oj")
+
+[node name="BouBounce02" type="AudioStreamPlayer2D" parent="BounceSFX"]
+stream = ExtResource("24_yt26e")
+
+[node name="BouBounce03" type="AudioStreamPlayer2D" parent="BounceSFX"]
+stream = ExtResource("25_aoke8")
+
+[node name="BounceVOSFX" type="Node" parent="."]
+
+[node name="BouBounceVo01" type="AudioStreamPlayer2D" parent="BounceVOSFX"]
+stream = ExtResource("26_7nt3h")
+
+[node name="BouBounceVo02" type="AudioStreamPlayer2D" parent="BounceVOSFX"]
+stream = ExtResource("27_w8sol")
+
+[node name="BouBounceVo03" type="AudioStreamPlayer2D" parent="BounceVOSFX"]
+stream = ExtResource("28_1bhki")
 
 [connection signal="JuiceOnInpulse" from="." to="." method="_on_juice_on_inpulse"]
 [connection signal="JuiceOnInpulse" from="." to="GPUParticles2D" method="_on_bubble_juice_on_inpulse"]

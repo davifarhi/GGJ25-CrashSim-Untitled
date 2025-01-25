@@ -24,6 +24,10 @@ signal BoubouBumperContact
 @onready var bumper_contact_sfx_collection = SoundCollection.new($BumperContactSFX)
 @onready var boubou_death_sfx_group = SoundCollection.new($DeathSFX)
 @onready var boubou_born_sfx_group = SoundCollection.new($BornSFX)
+@onready var boubou_bounce_sfx_collection = SoundCollection.new($BounceSFX)
+@onready var boubou_bounce_vo_sfx_collection = SoundCollection.new($BounceVOSFX)
+@onready var boubou_inpulse_sfx_collection = SoundCollection.new($InpulseSFX)
+@onready var boubou_inpulse_vo_sfx_collection = SoundCollection.new($InpulseVOSFX)
 
 var impulsionDone = false
 var dead = false
@@ -35,6 +39,8 @@ func doInpulse() -> void:
 	var dir = InputDir()
 	apply_central_impulse(- dir * InpulseForce);
 	JuiceOnInpulse.emit(dir)
+	boubou_inpulse_sfx_collection.play_random()
+	boubou_inpulse_vo_sfx_collection.play_random()
 
 func SpawnGhost():
 	ghost.show()
