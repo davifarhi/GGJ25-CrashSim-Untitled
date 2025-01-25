@@ -12,7 +12,7 @@ var impulsionDone = false
 
 func doInpulse() -> void:
 	apply_central_impulse(- InputDir() * InpulseForce);
-	
+
 func InputDir() -> Vector2:
 	var dir = Input.get_vector("JoypadDirLeft", "JoypadDirRight", "JoypadDirUp", "JoypadDirDown")
 	
@@ -22,7 +22,9 @@ func InputDir() -> Vector2:
 	return dir.normalized()
 
 func UpdateIndicatorPos():
-	Indicator.position = InputDir() * IndicatorDistance
+	Indicator.position = Vector2()
+	Indicator.rotation = -rotation
+	Indicator.global_translate(IndicatorDistance * InputDir())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

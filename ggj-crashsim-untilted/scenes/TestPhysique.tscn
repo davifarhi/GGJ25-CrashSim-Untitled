@@ -9,5 +9,6 @@
 position = Vector2(431, 150)
 
 [node name="Boubou" parent="." instance=ExtResource("1_tasia")]
+position = Vector2(130, 63)
 rotation = 1.01578
-IndicatorDistance = null
+IndicatorDistance = 32.0
