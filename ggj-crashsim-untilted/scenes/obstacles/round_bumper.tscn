@@ -50,6 +50,7 @@ radius = 54.037
 
 [node name="BumperBody" type="RigidBody2D" parent="."]
 freeze = true
+continuous_cd = 1
 script = ExtResource("1_avqpm")
 bump_impulse_multiplier = 1000.0
 
