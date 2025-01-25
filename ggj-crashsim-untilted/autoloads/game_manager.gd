@@ -6,7 +6,7 @@ signal NextLevel
 signal PreviousLevel
 signal GoToMainMenu
 
-const LEVEL_FILES_BASE = "res://scenes/dummy-flow/"
+const LEVEL_FILES_BASE = "res://scenes/levels/"
 const LEVEL_FILES = ["scene1", "scene2"]
 var LAST_LEVEL = LEVEL_FILES.size()
 
@@ -60,7 +60,7 @@ func _launch_main_menu() -> void:
 	
 
 func is_last_scene() -> bool:
-	return next_level_idx > LAST_LEVEL
+	return next_level_idx >= LAST_LEVEL
 	
 	
 func load_bye() -> void:
