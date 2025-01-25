@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://wakg8ukvu4bk"]
+[gd_scene load_steps=11 format=3 uid="uid://wakg8ukvu4bk"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/round_bumper.gd" id="1_avqpm"]
 [ext_resource type="Texture2D" uid="uid://cw7g1xd50akuu" path="res://assets/bumper.png" id="2_47jka"]
+[ext_resource type="AudioStream" uid="uid://ba77k28qo07ka" path="res://assets/sound/env_bumper_01.wav" id="3_aw8l4"]
+[ext_resource type="AudioStream" uid="uid://rxcacxl406wx" path="res://assets/sound/env_bumper_02.wav" id="4_8242f"]
+[ext_resource type="AudioStream" uid="uid://bsitorb8ej123" path="res://assets/sound/env_bumper_03.wav" id="5_mlut8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qejpg"]
 radius = 52.2398
@@ -74,6 +77,17 @@ texture = ExtResource("2_47jka")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumperBody/ImpulseZone"]
 shape = SubResource("CircleShape2D_qpijp")
 debug_color = Color(0.808548, 0.386134, 0.400085, 0.42)
+
+[node name="ContactSFX" type="Node" parent="BumperBody"]
+
+[node name="EnvBumper01" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+stream = ExtResource("3_aw8l4")
+
+[node name="EnvBumper02" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+stream = ExtResource("4_8242f")
+
+[node name="EnvBumper03" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+stream = ExtResource("5_mlut8")
 
 [node name="ActivationZone" type="Area2D" parent="."]
 

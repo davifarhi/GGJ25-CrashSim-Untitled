@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 	GameManager.StartGame.emit()
+
+
+func _on_load_test_level_pressed() -> void:
+	GameManager.load_test_scene()

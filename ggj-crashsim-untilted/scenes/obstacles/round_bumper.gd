@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var sprite = $AnimationPlayer
+@onready var contact_sfx_collection = SoundCollection.new($ContactSFX)
 
 @export var bump_impulse_multiplier: float = 300.
 @export var debug_draw_impulse_arrow = false
@@ -29,6 +30,8 @@ func _on_impulse_zone_body_entered(body: Node2D) -> void:
 	body.apply_impulse(bump_v)
 	
 	boubou.JuiceOnInpulse.emit(normal)
+	boubou.BoubouBumperContact.emit()
+	contact_sfx_collection.select_random().play()
 
 func _on_activation_zone_body_entered(body: Node2D) -> void:
 	if not body is Boubou:

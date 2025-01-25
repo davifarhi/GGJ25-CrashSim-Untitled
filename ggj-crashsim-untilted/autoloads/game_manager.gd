@@ -86,3 +86,8 @@ func load_next_scene():
 	var next_scene_formatted = SCENE_FILES_BASE + "scene"+ str(next_scene) + ".tscn"
 	get_tree().change_scene_to_file(next_scene_formatted)
 	next_scene += 1
+
+
+func load_test_scene():
+	is_scene_pausable = true
+	get_tree().change_scene_to_file("res://scenes/TestPhysique.tscn")

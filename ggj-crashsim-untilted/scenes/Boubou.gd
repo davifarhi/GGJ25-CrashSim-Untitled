@@ -20,6 +20,9 @@ var ghostGlobalPos:Vector2
 @export var IndicatorDistance:float = 32;
 var latestDir = Vector2(1,0)
 
+signal BoubouBumperContact
+@onready var bumper_contact_sfx_collection = SoundCollection.new($BumperContactSFX)
+
 var impulsionDone = false
 var dead = false
 enum InputType { Mouse, Gamepad }
@@ -68,7 +71,8 @@ func UpdateIndicatorPos():
 func _ready() -> void:
 	for child in $DeformationSkel/Root.get_children():
 		child.bounce_decay = bounceDecay
-	pass
+		
+	BoubouBumperContact.connect(_on_bumper_contact)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float)  -> void:
@@ -113,3 +117,6 @@ func _on_death_particles_finished() -> void:
 
 func _on_juice_on_inpulse(_dir: Vector2) -> void:
 	SpawnGhost()
+
+func _on_bumper_contact():
+	bumper_contact_sfx_collection.play_random()
