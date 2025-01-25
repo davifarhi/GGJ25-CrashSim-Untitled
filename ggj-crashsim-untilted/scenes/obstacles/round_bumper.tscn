@@ -1,25 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://wakg8ukvu4bk"]
+[gd_scene load_steps=9 format=3 uid="uid://wakg8ukvu4bk"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/round_bumper.gd" id="1_avqpm"]
 [ext_resource type="Texture2D" uid="uid://cjwdcf1w8f3vv" path="res://assets/UglyCircle.png" id="2_qotjn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kbpx3"]
-bounce = 0.85
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qejpg"]
+radius = 52.2398
 
 [sub_resource type="Animation" id="Animation_hk4g7"]
 resource_name = "Bump"
-length = 1.15
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RoundBumper:scale")
+tracks/0/path = NodePath("BumperBody:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.433333, 0.666667, 0.866667),
+"times": PackedFloat32Array(0, 0.149999, 0.383333, 0.55, 0.75),
 "transitions": PackedFloat32Array(1, 0.574349, 0.482968, 0.615572, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.7, 1.7), Vector2(0.9, 0.9), Vector2(1.3, 1.3), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(2.3, 2.3), Vector2(0.9, 0.9), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_unhkb"]
@@ -27,7 +29,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RoundBumper:scale")
+tracks/0/path = NodePath("BumperBody:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,25 +45,45 @@ _data = {
 "RESET": SubResource("Animation_unhkb")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qejpg"]
-radius = 52.2398
+[sub_resource type="CircleShape2D" id="CircleShape2D_qpijp"]
+radius = 54.037
 
-[node name="RoundBumper" type="StaticBody2D"]
+[node name="RoundBumper" type="Node2D"]
+
+[node name="BumperBody" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_kbpx3")
+freeze = true
 script = ExtResource("1_avqpm")
+bump_impulse_multiplier = 1000.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumperBody"]
+shape = SubResource("CircleShape2D_qejpg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BumperBody"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_okx77")
 }
 speed_scale = 1.5
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="BumperBody"]
 offset = Vector2(-50, -50)
 texture = ExtResource("2_qotjn")
 polygon = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
 uv = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qejpg")
+[node name="ImpulseZone" type="Area2D" parent="BumperBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumperBody/ImpulseZone"]
+shape = SubResource("CircleShape2D_qpijp")
+debug_color = Color(0.808548, 0.386134, 0.400085, 0.42)
+
+[node name="ActivationZone" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationZone"]
+shape = SubResource("CircleShape2D_qpijp")
+debug_color = Color(0.641856, 0.512174, 0.313979, 0.42)
+
+[connection signal="body_entered" from="BumperBody/ImpulseZone" to="BumperBody" method="_on_impulse_zone_body_entered"]
+[connection signal="body_entered" from="ActivationZone" to="BumperBody" method="_on_activation_zone_body_entered"]
