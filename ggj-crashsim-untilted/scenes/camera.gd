@@ -1,6 +1,7 @@
 extends Camera2D
 
 @onready var boubou:Boubou = $"../Boubou" # bof
+@export var lockCam:bool = false
 @export var l_back = 2./3
 @export var l_forw = 1./4 # limit of movement
 
@@ -10,6 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if lockCam:
+		return
+	
 	var d = boubou.position.x - position.x
 	var ratio = d / get_window().get_size().x * 2
 	if boubou.linear_velocity.x < 0:
