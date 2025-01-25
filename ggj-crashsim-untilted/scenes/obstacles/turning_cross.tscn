@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0pchhp267oy1"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/turning_cross.gd" id="1_w5ct8"]
+[ext_resource type="Texture2D" uid="uid://b2gictejfruyp" path="res://assets/TurningCrossProto.png" id="2_8pl1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bloyc"]
+size = Vector2(50.6249, 37.9997)
+
+[node name="TurningCross" type="RigidBody2D"]
+position = Vector2(870, 562)
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_w5ct8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("2_8pl1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.16, 1)
+shape = SubResource("RectangleShape2D_bloyc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+rotation = 1.57079
+scale = Vector2(3.20001, 1)
+shape = SubResource("RectangleShape2D_bloyc")
