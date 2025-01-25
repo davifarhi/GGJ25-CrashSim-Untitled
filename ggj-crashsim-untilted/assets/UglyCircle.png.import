@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjwdcf1w8f3vv"
-path="res://.godot/imported/UglyCircle.png-6da746478911afca1c6bb05182754ac2.ctex"
+path="res://.godot/imported/UglyCircle.png-fea6a9f318ac618a0e9b4ab7589f046d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tests/UglyCircle.png"
-dest_files=["res://.godot/imported/UglyCircle.png-6da746478911afca1c6bb05182754ac2.ctex"]
+source_file="res://assets/UglyCircle.png"
+dest_files=["res://.godot/imported/UglyCircle.png-fea6a9f318ac618a0e9b4ab7589f046d.ctex"]
 
 [params]
 
