@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ywll0u7t0nc3" path="res://assets/indicator.png" id="2_ionhn"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
-[ext_resource type="PackedScene" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
+[ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
 [ext_resource type="Texture2D" uid="uid://cyi4y8obgey51" path="res://assets/BoubouBodyMini.png" id="6_pxi0c"]
 [ext_resource type="Script" path="res://scenes/deformation_skel.gd" id="6_x1b53"]
 [ext_resource type="Script" path="res://scenes/dash_particle.gd" id="7_ixgqx"]
@@ -86,7 +86,6 @@ target_position = Vector2(0, 35)
 
 [node name="WallDetection2" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -0.5236
-scale = Vector2(1, 1)
 target_position = Vector2(0, 35)
 
 [node name="WallDetection3" parent="WallDir" instance=ExtResource("5_bkr48")]
@@ -98,7 +97,6 @@ target_position = Vector2(0, 35)
 
 [node name="WallDetection5" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -2.09439
-scale = Vector2(1, 1)
 target_position = Vector2(0, 35)
 
 [node name="WallDetection6" parent="WallDir" instance=ExtResource("5_bkr48")]
