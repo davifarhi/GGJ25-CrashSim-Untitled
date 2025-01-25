@@ -7,11 +7,15 @@ signal NextLevel
 signal PreviousLevel
 signal GoToMainMenu
 
+signal OnLevelBegin
+
 const LAST_SCENE = 2
 const SCENE_FILES_BASE = "res://scenes/dummy-flow/"
 
 var next_scene: int = 1
 var is_scene_pausable: bool = true
+
+var scene_transition_countdown: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +31,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if scene_transition_countdown > 0:
+		scene_transition_countdown -= 1
 	
 	
 func _start_game() -> void:
@@ -86,6 +91,10 @@ func load_next_scene():
 	var next_scene_formatted = SCENE_FILES_BASE + "scene"+ str(next_scene) + ".tscn"
 	get_tree().change_scene_to_file(next_scene_formatted)
 	next_scene += 1
+	
+	OnLevelBegin.emit()
+	#SEB hack (dfarhi)
+	scene_transition_countdown = 3
 
 
 func load_test_scene():

@@ -17,3 +17,7 @@ func select_random() -> AudioStreamPlayer2D:
 
 func play_random() -> void:
 	select_random().play()
+	
+func play_all() -> void:
+	for child in node.get_children():
+		child.play()

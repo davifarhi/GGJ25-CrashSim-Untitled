@@ -22,6 +22,8 @@ var latestDir = Vector2(1,0)
 
 signal BoubouBumperContact
 @onready var bumper_contact_sfx_collection = SoundCollection.new($BumperContactSFX)
+@onready var boubou_death_sfx_group = SoundCollection.new($DeathSFX)
+@onready var boubou_born_sfx_group = SoundCollection.new($BornSFX)
 
 var impulsionDone = false
 var dead = false
@@ -73,6 +75,7 @@ func _ready() -> void:
 		child.bounce_decay = bounceDecay
 		
 	BoubouBumperContact.connect(_on_bumper_contact)
+	GameManager.OnLevelBegin.connect(_on_level_begin)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float)  -> void:
@@ -90,6 +93,11 @@ func _process(delta: float)  -> void:
 	if Input.is_key_pressed(KEY_DELETE):
 		linear_velocity = Vector2(0, 0)
 		global_position = get_viewport().get_mouse_position()
+		
+	# dfarhi: this is ugly but if you have a better way, feel free to implement it
+	if GameManager.scene_transition_countdown == 1:
+		boubou_born_sfx_group.play_all()
+		
 
 func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("Inpulse")):
@@ -105,6 +113,7 @@ func Die() -> void:
 	set_physics_process(false)
 	dead = true
 	BoubouDie.emit(self)
+	boubou_death_sfx_group.play_all()
 
 
 func _on_death_particles_finished() -> void:
@@ -120,3 +129,9 @@ func _on_juice_on_inpulse(_dir: Vector2) -> void:
 
 func _on_bumper_contact():
 	bumper_contact_sfx_collection.play_random()
+	
+func _on_level_begin():
+	pass
+	#boubou_born_sfx_group.play_all()
+	# dfarhi todo later on scene init play born sfx sound,
+	# doesn't work here as the sound is emitted right before scene change
