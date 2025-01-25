@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://d0pchhp267oy1" path="res://scenes/obstacles/turning_cross.tscn" id="5_rueeh"]
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
-[ext_resource type="Script" path="res://scenes/obstacles/turning_cross.gd" id="6_tib12"]
-[ext_resource type="Texture2D" uid="uid://b2gictejfruyp" path="res://assets/TurningCrossProto.png" id="7_14e2e"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="8_4yfiy"]
+[ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Obstacle" type="Node2D" parent="."]
