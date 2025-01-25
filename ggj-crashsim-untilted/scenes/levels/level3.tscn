@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_1yu5o"]
 [ext_resource type="TileSet" uid="uid://ccjyfmt3w6nr5" path="res://assets/TileSet/BaseMapTileMap.tres" id="3_i28dv"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="4_ee4q3"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/spikes_4.tscn" id="5_vfllr"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="5_vfllr"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="6_wlqbm"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="7_gim07"]
 
