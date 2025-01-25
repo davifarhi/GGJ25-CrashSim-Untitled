@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=29 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
@@ -14,8 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://clb86kxa5skg0" path="res://assets/sound/env_bumper_vo_03.wav" id="12_l2t58"]
 [ext_resource type="AudioStream" uid="uid://c714ijfgvn00y" path="res://assets/sound/bou_death_01.wav" id="13_gliq1"]
 [ext_resource type="AudioStream" uid="uid://b4e3tfggiq4mp" path="res://assets/sound/bou_death_vo_01.wav" id="14_ihsvq"]
-[ext_resource type="AudioStream" uid="uid://41jolr6cuyxf" path="res://assets/sound/bou_born_01.wav" id="15_57mvn"]
-[ext_resource type="AudioStream" uid="uid://dfcdfstt7xdoe" path="res://assets/sound/bou_born_vo_01.wav" id="16_ctu78"]
 [ext_resource type="AudioStream" uid="uid://ctkyxl4iebbmg" path="res://assets/sound/bou_throw_vo_01.wav" id="17_t0de2"]
 [ext_resource type="AudioStream" uid="uid://6up1dw8sncnc" path="res://assets/sound/bou_throw_vo_02.wav" id="18_3qb7e"]
 [ext_resource type="AudioStream" uid="uid://blh7dofgykiol" path="res://assets/sound/bou_throw_vo_03.wav" id="19_puylg"]
@@ -300,14 +298,6 @@ stream = ExtResource("13_gliq1")
 
 [node name="BouDeathVo01" type="AudioStreamPlayer2D" parent="DeathSFX"]
 stream = ExtResource("14_ihsvq")
-
-[node name="BornSFX" type="Node" parent="."]
-
-[node name="BouBorn01" type="AudioStreamPlayer2D" parent="BornSFX"]
-stream = ExtResource("15_57mvn")
-
-[node name="BouBornVo01" type="AudioStreamPlayer2D" parent="BornSFX"]
-stream = ExtResource("16_ctu78")
 
 [node name="InpulseVOSFX" type="Node" parent="."]
 

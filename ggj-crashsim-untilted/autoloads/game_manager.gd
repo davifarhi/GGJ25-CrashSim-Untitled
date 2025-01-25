@@ -15,8 +15,6 @@ const SCENE_FILES_BASE = "res://scenes/dummy-flow/"
 var next_scene: int = 1
 var is_scene_pausable: bool = true
 
-var scene_transition_countdown: int = 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	StartGame.connect(_start_game)
@@ -31,9 +29,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if scene_transition_countdown > 0:
-		scene_transition_countdown -= 1
-	
+	pass
 	
 func _start_game() -> void:
 	load_next_scene()
@@ -93,9 +89,7 @@ func load_next_scene():
 	next_scene += 1
 	
 	OnLevelBegin.emit()
-	
-	#SEB hack (dfarhi)
-	scene_transition_countdown = 3
+	PopIt.StartPOPIt.emit()
 
 
 func load_test_scene():

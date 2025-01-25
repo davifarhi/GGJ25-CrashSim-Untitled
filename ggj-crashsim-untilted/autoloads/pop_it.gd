@@ -9,7 +9,7 @@ func _ready() -> void:
 	StartPOPIt.connect(_start_popit)
 	hide()
 	
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
