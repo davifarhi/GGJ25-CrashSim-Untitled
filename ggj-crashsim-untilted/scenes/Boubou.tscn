@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=12 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://gqqkd4sbswxi" path="res://assets/BubblePrototype.png" id="1_pnkcj"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
 [ext_resource type="Script" path="res://scenes/deformation_skel.gd" id="6_x1b53"]
+[ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
+[ext_resource type="Texture2D" uid="uid://cyi4y8obgey51" path="res://assets/BoubouBodyMini.png" id="6_pxi0c"]
+[ext_resource type="Script" path="res://scenes/dash_particle.gd" id="7_ixgqx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
@@ -29,6 +32,7 @@ linear_damp = 0.1
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
 maxSpeed = 2000.0
+ghostTime = 0.04
 Indicator = NodePath("Visual/DirIndicator")
 IndicatorDistance = 42.0
 
@@ -241,5 +245,20 @@ bone_angle = 30.0
 script = ExtResource("6_x1b53")
 raycaster = NodePath("../../../WallDetection12")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 128
+process_material = ExtResource("5_4oc7x")
+texture = ExtResource("6_pxi0c")
+script = ExtResource("7_ixgqx")
+
+[node name="BoubouGhost" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.301961)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("2_hxvjg")
+
+[connection signal="JuiceOnInpulse" from="." to="." method="_on_juice_on_inpulse"]
+[connection signal="JuiceOnInpulse" from="." to="GPUParticles2D" method="_on_bubble_juice_on_inpulse"]
 [connection signal="finished" from="DeathParticles" to="." method="_on_death_particles_finished"]
 [connection signal="finished" from="DeathParticles/DeathParticles" to="." method="_on_death_particles_finished"]

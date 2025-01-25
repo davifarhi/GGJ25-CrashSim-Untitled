@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr1fnb86o24qg"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_ocxpv"]
-[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="3_u6bp2"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/spikes_4.tscn" id="3_u6bp2"]
 [ext_resource type="PackedScene" uid="uid://cxwk8f467r5uj" path="res://scenes/obstacles/spike_wall.tscn" id="4_5s7me"]
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="5_xx655"]
 
@@ -10,6 +10,8 @@
 [node name="Boubou" parent="." instance=ExtResource("2_ocxpv")]
 position = Vector2(130, 63)
 rotation = 1.01578
+ghostTime = 0.5
+IndicatorDistance = 32.0
 
 [node name="Spikes4" parent="." instance=ExtResource("3_u6bp2")]
 
