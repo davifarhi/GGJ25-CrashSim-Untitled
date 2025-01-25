@@ -6,12 +6,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fpey"]
 radius = 17.0294
 
-[node name="Bubble" type="RigidBody2D"]
+[node name="Bubble" type="RigidBody2D" node_paths=PackedStringArray("Indicator")]
 linear_damp = 1.0
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
+Indicator = NodePath("DirIndicator")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pnkcj")
+
+[node name="DirIndicator" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_pnkcj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
