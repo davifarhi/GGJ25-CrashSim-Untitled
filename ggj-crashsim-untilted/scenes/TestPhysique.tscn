@@ -32,27 +32,9 @@ position = Vector2(6, 600)
 scale = Vector2(1.84, 8.50963)
 texture = ExtResource("2_3b3qt")
 
-[node name="RoundBumper" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(384, 797)
-
-[node name="RoundBumper2" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(605, 797)
-
 [node name="Boubou" parent="." instance=ExtResource("1_tasia")]
 position = Vector2(130, 63)
 rotation = 1.01578
-
-[node name="RoundBumper3" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(341, 511)
-
-[node name="RoundBumper4" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(504, 574)
-
-[node name="RoundBumper5" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(608, 668)
-
-[node name="RoundBumper6" parent="." instance=ExtResource("2_pe7dj")]
-position = Vector2(482, 930)
 
 [node name="LevelDecoration" parent="." instance=ExtResource("6_deit5")]
 
@@ -79,3 +61,23 @@ shape = SubResource("RectangleShape2D_bloyc")
 position = Vector2(1521, 197)
 displacement = Vector2(64, 0)
 displacementTime = 0.5
+
+[node name="Obstacle" type="Node" parent="."]
+
+[node name="RoundBumper" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(384, 797)
+
+[node name="RoundBumper2" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(605, 797)
+
+[node name="RoundBumper3" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(341, 511)
+
+[node name="RoundBumper4" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(504, 574)
+
+[node name="RoundBumper5" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(608, 668)
+
+[node name="RoundBumper6" parent="Obstacle" instance=ExtResource("2_pe7dj")]
+position = Vector2(482, 930)
