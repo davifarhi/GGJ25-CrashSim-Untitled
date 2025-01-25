@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://wakg8ukvu4bk"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/round_bumper.gd" id="1_avqpm"]
-[ext_resource type="Texture2D" uid="uid://cjwdcf1w8f3vv" path="res://assets/UglyCircle.png" id="2_qotjn"]
+[ext_resource type="Texture2D" uid="uid://cjnlqbua8v2ob" path="res://assets/LessUglyCircle.png" id="2_sj6ov"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kbpx3"]
 
@@ -68,7 +68,7 @@ speed_scale = 1.5
 
 [node name="Polygon2D" type="Polygon2D" parent="BumperBody"]
 offset = Vector2(-50, -50)
-texture = ExtResource("2_qotjn")
+texture = ExtResource("2_sj6ov")
 polygon = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
 uv = PackedVector2Array(0.259338, 0.646657, 0.345619, 99.525, 99.7416, 100.129, 99.7416, 0.301532)
 
