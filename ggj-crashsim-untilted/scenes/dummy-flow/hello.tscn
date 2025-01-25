@@ -24,4 +24,13 @@ offset_bottom = 811.0
 scale = Vector2(4.39447, 4.39447)
 text = "Start"
 
+[node name="Load Test Level" type="Button" parent="."]
+offset_left = 721.0
+offset_top = 75.0
+offset_right = 848.0
+offset_bottom = 106.0
+scale = Vector2(4.32, 4.32)
+text = "Load Test Level"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Load Test Level" to="." method="_on_load_test_level_pressed"]

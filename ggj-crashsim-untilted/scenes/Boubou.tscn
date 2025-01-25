@@ -86,7 +86,6 @@ target_position = Vector2(0, 35)
 
 [node name="WallDetection2" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -0.5236
-scale = Vector2(1, 1)
 target_position = Vector2(0, 35)
 
 [node name="WallDetection3" parent="WallDir" instance=ExtResource("5_bkr48")]
@@ -98,7 +97,6 @@ target_position = Vector2(0, 35)
 
 [node name="WallDetection5" parent="WallDir" instance=ExtResource("5_bkr48")]
 rotation = -2.09439
-scale = Vector2(1, 1)
 target_position = Vector2(0, 35)
 
 [node name="WallDetection6" parent="WallDir" instance=ExtResource("5_bkr48")]
