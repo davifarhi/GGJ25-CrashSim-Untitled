@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cb80y1r6c8jsm"]
+
+[node name="WallDetection" type="RayCast2D"]
+rotation = -1.5708
