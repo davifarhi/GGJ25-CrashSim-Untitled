@@ -2,6 +2,7 @@ extends RigidBody2D
 
 class_name Boubou
 signal BoubouDie(player: Boubou)
+signal BoubouFinishedDying(player: Boubou)
 
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
@@ -66,6 +67,7 @@ func _physics_process(_delta: float) -> void:
 	if linear_velocity.length_squared() > maxSpeed * maxSpeed:
 		linear_velocity = linear_velocity.normalized() * maxSpeed
 		
+		
 func Die() -> void:
 	$Visual.hide()
 	$DeathParticles.restart()
@@ -73,4 +75,11 @@ func Die() -> void:
 	set_physics_process(false)
 	dead = true
 	BoubouDie.emit(self)
-	pass
+
+
+func _on_death_particles_finished() -> void:
+	BoubouFinishedDying.emit(self)
+	if GameManager.is_last_scene():
+		GameManager.EndGame.emit()
+	else:
+		GameManager.StartTransition.emit()
