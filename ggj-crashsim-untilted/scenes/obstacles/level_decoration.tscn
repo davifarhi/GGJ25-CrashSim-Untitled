@@ -24,6 +24,7 @@ z_index = 1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_kqdls")
 centered = false
+offset = Vector2(-100, -100)
 
 [node name="LevelWalls" type="Node2D" parent="."]
 

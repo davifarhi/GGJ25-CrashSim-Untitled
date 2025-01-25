@@ -10,6 +10,8 @@
 [node name="Boubou" parent="." instance=ExtResource("2_ocxpv")]
 position = Vector2(130, 63)
 rotation = 1.01578
+ghostTime = 0.5
+IndicatorDistance = 32.0
 
 [node name="Spikes4" parent="." instance=ExtResource("3_u6bp2")]
 

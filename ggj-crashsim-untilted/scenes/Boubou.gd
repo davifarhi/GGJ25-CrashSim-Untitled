@@ -8,6 +8,12 @@ signal JuiceOnInpulse(dir: Vector2)
 @export var InpulseForce:float = 10
 @export var maxSpeed:float = 1
 
+@export var ghostTime:float = 0.5 #sec
+var ghostIsSpawned:bool = false
+var ghostremainingTime:float = 0
+@onready var ghost:Sprite2D = $BoubouGhost
+var ghostGlobalPos:Vector2
+
 @export_category("Indicator")
 @export var Indicator:Node2D
 @export var IndicatorDistance:float = 32;
@@ -15,13 +21,18 @@ signal JuiceOnInpulse(dir: Vector2)
 var impulsionDone = false
 var dead = false
 enum InputType { Mouse, Gamepad }
-@export var currentInputType = InputType.Mouse
+var currentInputType = InputType.Mouse
 
 func doInpulse() -> void:
 	linear_velocity = Vector2()
 	var dir = InputDir()
 	apply_central_impulse(- dir * InpulseForce);
 	JuiceOnInpulse.emit(dir)
+
+func SpawnGhost():
+	ghost.show()
+	ghostGlobalPos = global_position
+	ghostremainingTime = ghostTime
 
 # input handling
 func _input(event: InputEvent) -> void:
@@ -30,7 +41,6 @@ func _input(event: InputEvent) -> void:
 		currentInputType = InputType.Mouse
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		currentInputType = InputType.Gamepad
-	pass
 
 func InputDir() -> Vector2:
 	var dir = Vector2(0, 0)
@@ -54,10 +64,16 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float)  -> void:
+func _process(delta: float)  -> void:
 	if dead:
 		return;
 	UpdateIndicatorPos()
+	
+	if (ghostremainingTime > 0):
+		ghostremainingTime -= delta
+		ghost.global_position = ghostGlobalPos
+	elif (ghost.is_visible_in_tree()):
+		ghost.hide()
 	
 	# TODO: debug code, to remove :)
 	if Input.is_key_pressed(KEY_DELETE):
@@ -86,3 +102,7 @@ func _on_death_particles_finished() -> void:
 		GameManager.EndGame.emit()
 	else:
 		GameManager.StartTransition.emit()
+
+
+func _on_juice_on_inpulse(_dir: Vector2) -> void:
+	SpawnGhost()

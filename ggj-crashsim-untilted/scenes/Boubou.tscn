@@ -30,6 +30,7 @@ linear_damp = 0.1
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
 maxSpeed = 2000.0
+ghostTime = 0.04
 Indicator = NodePath("Visual/DirIndicator")
 
 [node name="Visual" type="Node2D" parent="."]
@@ -66,11 +67,19 @@ one_shot = true
 explosiveness = 1.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 128
 process_material = ExtResource("5_4oc7x")
 texture = ExtResource("6_pxi0c")
 script = ExtResource("7_ixgqx")
 
+[node name="BoubouGhost" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.301961)
+scale = Vector2(0.022, 0.022)
+texture = ExtResource("2_hxvjg")
+
+[connection signal="JuiceOnInpulse" from="." to="." method="_on_juice_on_inpulse"]
 [connection signal="JuiceOnInpulse" from="." to="GPUParticles2D" method="_on_bubble_juice_on_inpulse"]
 [connection signal="finished" from="DeathParticles" to="." method="_on_death_particles_finished"]
 [connection signal="finished" from="DeathParticles/DeathParticles" to="." method="_on_death_particles_finished"]

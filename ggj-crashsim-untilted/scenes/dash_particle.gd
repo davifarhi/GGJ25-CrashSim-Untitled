@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 		emitting = false
 
 
-func _on_bubble_juice_on_inpulse(dir: Vector2) -> void:
+func _on_bubble_juice_on_inpulse(_dir: Vector2) -> void:
 	start()
