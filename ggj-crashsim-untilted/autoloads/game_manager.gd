@@ -6,10 +6,11 @@ signal NextLevel
 signal PreviousLevel
 signal GoToMainMenu
 
-const LAST_SCENE = 2
-const SCENE_FILES_BASE = "res://scenes/dummy-flow/"
+const LEVEL_FILES_BASE = "res://scenes/dummy-flow/"
+const LEVEL_FILES = ["scene1", "scene2"]
+var LAST_LEVEL = LEVEL_FILES.size()
 
-var next_scene: int = 1
+var next_level_idx: int = 0
 var is_scene_pausable: bool = true
 
 enum FADE_TO { BYE, LEVEL, MENU }
@@ -46,7 +47,7 @@ func _launch_next_level() -> void:
 	
 
 func _launch_previous_level() -> void:
-	next_scene -= 1
+	next_level_idx -= 1
 	load_next_scene()
 	
 	
@@ -59,7 +60,7 @@ func _launch_main_menu() -> void:
 	
 
 func is_last_scene() -> bool:
-	return next_scene > LAST_SCENE
+	return next_level_idx > LAST_LEVEL
 	
 	
 func load_bye() -> void:
@@ -100,13 +101,13 @@ func _on_fadein_finished():
 func _on_fadeout_finished():
 	match next_fade_out_to:
 		FADE_TO.LEVEL:
-			var next_scene_formatted = SCENE_FILES_BASE + "scene"+ str(next_scene) + ".tscn"
+			var next_scene_formatted = LEVEL_FILES_BASE + LEVEL_FILES[next_level_idx] + ".tscn"
 			get_tree().change_scene_to_file(next_scene_formatted)
-			next_scene += 1
+			next_level_idx += 1
 		FADE_TO.BYE:
-			get_tree().change_scene_to_file(SCENE_FILES_BASE + "bye.tscn")
+			get_tree().change_scene_to_file(LEVEL_FILES_BASE + "bye.tscn")
 		FADE_TO.MENU:
-			get_tree().change_scene_to_file(SCENE_FILES_BASE + "hello.tscn")
-			next_scene = 1 
+			get_tree().change_scene_to_file(LEVEL_FILES_BASE + "hello.tscn")
+			next_level_idx = 1 
 	
 	Fade.fade_in()
