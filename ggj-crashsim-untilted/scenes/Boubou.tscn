@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
+[ext_resource type="Texture2D" uid="uid://ctkhmlu2q2ic2" path="res://assets/Asset2D/curseur.png" id="2_apo2a"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
-[ext_resource type="Texture2D" uid="uid://ywll0u7t0nc3" path="res://assets/indicator.png" id="2_ionhn"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
 [ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
@@ -56,7 +56,8 @@ IndicatorDistance = 80.0
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="DirIndicator" type="Sprite2D" parent="Visual"]
-texture = ExtResource("2_ionhn")
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_apo2a")
 
 [node name="BodyPolygon" type="Polygon2D" parent="Visual"]
 position = Vector2(29, 39)
