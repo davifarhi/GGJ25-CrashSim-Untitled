@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Boubou
+
 @export var InpulseForce:float = 10
 
 @export_category("Indicator")

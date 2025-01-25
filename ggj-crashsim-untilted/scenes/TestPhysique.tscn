@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc2eu2n0fag1s"]
 
-[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Bubble.tscn" id="1_tasia"]
+[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_tasia")]
-position = Vector2(129, 110)
-
 [node name="RoundBumper" parent="." instance=ExtResource("2_pe7dj")]
 position = Vector2(431, 150)
+
+[node name="Boubou" parent="." instance=ExtResource("1_tasia")]
