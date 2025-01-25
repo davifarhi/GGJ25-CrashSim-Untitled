@@ -25,8 +25,8 @@ scale_max = 0.01
 linear_damp = 0.1
 script = ExtResource("1_kffpd")
 InpulseForce = 1000.0
-Indicator = NodePath("Visual/DirIndicator")
 maxSpeed = 2000.0
+Indicator = NodePath("Visual/DirIndicator")
 
 [node name="Visual" type="Node2D" parent="."]
 
@@ -53,3 +53,13 @@ process_material = SubResource("ParticleProcessMaterial_cdih5")
 texture = ExtResource("2_hxvjg")
 one_shot = true
 explosiveness = 1.0
+
+[node name="DeathParticles" type="GPUParticles2D" parent="DeathParticles"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_cdih5")
+texture = ExtResource("2_hxvjg")
+one_shot = true
+explosiveness = 1.0
+
+[connection signal="finished" from="DeathParticles" to="." method="_on_death_particles_finished"]
+[connection signal="finished" from="DeathParticles/DeathParticles" to="." method="_on_death_particles_finished"]
