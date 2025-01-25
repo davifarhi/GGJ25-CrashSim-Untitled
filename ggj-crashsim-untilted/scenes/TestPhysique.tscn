@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=10 format=3 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
 [ext_resource type="Script" path="res://scenes/obstacles/turning_cross.gd" id="6_tib12"]
 [ext_resource type="Texture2D" uid="uid://b2gictejfruyp" path="res://assets/TurningCrossProto.png" id="7_14e2e"]
+[ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bloyc"]
 size = Vector2(50.6249, 37.9997)
@@ -73,3 +74,8 @@ shape = SubResource("RectangleShape2D_bloyc")
 rotation = 1.57079
 scale = Vector2(3.20001, 1)
 shape = SubResource("RectangleShape2D_bloyc")
+
+[node name="MovingWall_2x2" parent="." instance=ExtResource("8_mhv05")]
+position = Vector2(1521, 197)
+displacement = Vector2(64, 0)
+displacementTime = 0.5
