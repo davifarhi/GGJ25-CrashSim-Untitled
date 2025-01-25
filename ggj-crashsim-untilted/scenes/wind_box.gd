@@ -1,11 +1,12 @@
 extends Area2D
 
-@export var acceleration_amount_per_second: float = 1.0
-@export var pull: bool = false
+var acceleration_amount: float = 1.0
+var pull: bool = false
 
 # TODO: change visual depending on 'pull'
 
 var player: Boubou = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		return
 	var direction_factor: float = -1 if pull else 1;
 	var direction = Vector2(0, 1).rotated(global_rotation)
-	player.apply_central_force(direction_factor * acceleration_amount_per_second * direction)
+	player.apply_central_force(direction_factor * acceleration_amount * direction * 1000)
 
 func _on_windbox_entered(body: Node2D) -> void:
 	if body is Boubou:

@@ -55,6 +55,11 @@ func _process(_delta: float)  -> void:
 	if dead:
 		return;
 	UpdateIndicatorPos()
+	
+	# TODO: debug code, to remove :)
+	if Input.is_key_pressed(KEY_DELETE):
+		linear_velocity = Vector2(0, 0)
+		global_position = get_viewport().get_mouse_position()
 
 func _physics_process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("Inpulse")):
