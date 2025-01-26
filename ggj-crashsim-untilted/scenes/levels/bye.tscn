@@ -22,11 +22,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6raag")
 
 [node name="TimerText" type="RichTextLabel" parent="."]
-offset_left = 299.0
-offset_top = -237.0
-offset_right = 639.0
-offset_bottom = -82.0
-theme_override_font_sizes/normal_font_size = 100
+offset_left = 226.0
+offset_top = -225.0
+offset_right = 694.0
+offset_bottom = -70.0
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[center]12:123[/center]
 "
