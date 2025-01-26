@@ -56,5 +56,5 @@ func _on_level_timer_end():
 func _on_boubou_die(boubou):
 	GameManager.add_level_time(timeout_in_secs - level_timer.time_left)
 	level_timer.stop()
-	level_timer.stop_sfx()
+	timer_widget.stop_sfx()
 	timer_widget.set_normal()
