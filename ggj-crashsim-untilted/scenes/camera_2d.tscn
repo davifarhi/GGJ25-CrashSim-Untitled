@@ -10,5 +10,6 @@ script = ExtResource("1_6y47g")
 [node name="LevelDecoration" parent="." instance=ExtResource("2_vi71n")]
 
 [node name="TimerText" parent="." instance=ExtResource("3_0xc4v")]
+visible = false
 position = Vector2(717, -315)
 scale = Vector2(0.3, 0.3)
