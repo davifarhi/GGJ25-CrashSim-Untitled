@@ -5,7 +5,7 @@ extends Node2D
 @onready var tex_hovered = $BG/Hovered
 
 @export var texture: Texture2D
-@export var bg_scale = Vector2(1., 1.)
+@export var bg_scale = Vector2(2., 0.8)
 
 
 # Called when the node enters the scene tree for the first time.

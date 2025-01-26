@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://0hxqp7vy7b3r"]
+[gd_scene load_steps=9 format=4 uid="uid://0hxqp7vy7b3r"]
 
 [ext_resource type="Script" path="res://scenes/levels/hello.gd" id="1_4ahbp"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_jv5iv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cnm4qwmvnsjop" path="res://assets/menu/Exit.png" id="4_p0do3"]
 [ext_resource type="Texture2D" uid="uid://bwd71u22gvfhp" path="res://assets/menu/menue_start.png" id="5_0w40m"]
 [ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="7_o2y33"]
+[ext_resource type="Texture2D" uid="uid://b04duf7i743l1" path="res://assets/menu/Start.png" id="8_s35cc"]
 
 [node name="Hello" type="Node2D"]
 script = ExtResource("1_4ahbp")
@@ -23,26 +24,6 @@ tile_map_data = PackedByteArray("AAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAA
 enabled = false
 script = null
 
-[node name="Start" type="Button" parent="."]
-z_index = 400
-offset_left = -797.0
-offset_top = 9.0
-offset_right = -665.0
-offset_bottom = 65.0
-scale = Vector2(4.39447, 4.39447)
-text = "Start"
-metadata/_edit_use_anchors_ = true
-
-[node name="Load Test Level" type="Button" parent="."]
-z_index = 400
-offset_left = -785.0
-offset_top = -315.0
-offset_right = -658.0
-offset_bottom = -284.0
-scale = Vector2(1.65228, 1.65228)
-text = "Load Test Level"
-metadata/_edit_use_anchors_ = true
-
 [node name="Camera2D" parent="." instance=ExtResource("4_l42yb")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -55,7 +36,9 @@ texture = ExtResource("5_0w40m")
 position = Vector2(1, 112)
 texture = ExtResource("4_p0do3")
 
-[node name="Exit" parent="." instance=ExtResource("7_o2y33")]
+[node name="Start" parent="." instance=ExtResource("7_o2y33")]
+position = Vector2(0, 10)
+texture = ExtResource("8_s35cc")
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Load Test Level" to="." method="_on_load_test_level_pressed"]
+[node name="Exit" parent="." instance=ExtResource("7_o2y33")]
+position = Vector2(0, 140)

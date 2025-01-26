@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/levels/button.gd" id="1_j4nbw"]
 [ext_resource type="Texture2D" uid="uid://cnm4qwmvnsjop" path="res://assets/menu/Exit.png" id="2_h0xl2"]
-[ext_resource type="Texture2D" uid="uid://1sy8qfd64vra" path="res://assets/menu/ButtonBG.png" id="3_2m63y"]
-[ext_resource type="Texture2D" uid="uid://b0v38pxgvfspy" path="res://assets/menu/ButtonBGHovered.png" id="4_1mxg7"]
+[ext_resource type="Texture2D" uid="uid://2ixnw1qbxivi" path="res://assets/menu/fond text.png" id="3_ek4a0"]
+[ext_resource type="Texture2D" uid="uid://c4dnbfymxpi4i" path="res://assets/menu/fond text2.png" id="4_73kf7"]
 
 [node name="Button" type="Node2D"]
 z_index = 400
@@ -23,11 +23,11 @@ offset_bottom = 100.0
 
 [node name="Normal" type="Sprite2D" parent="BG"]
 visible = false
-texture = ExtResource("3_2m63y")
+texture = ExtResource("3_ek4a0")
 
 [node name="Hovered" type="Sprite2D" parent="BG"]
 visible = false
-texture = ExtResource("4_1mxg7")
+texture = ExtResource("4_73kf7")
 
 [connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
 [connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
