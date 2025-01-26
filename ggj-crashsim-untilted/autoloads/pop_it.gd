@@ -26,6 +26,7 @@ func _start_popit() -> void:
 	show()
 	animation.play("popit!!")
 	$SFX.play()
+	$VO.play()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
