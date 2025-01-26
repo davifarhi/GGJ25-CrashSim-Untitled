@@ -20,7 +20,11 @@ func _ready() -> void:
 	text.append_text(str)
 	
 	if GameManager.is_best_time():
+		print("Got best time: " + str(GameManager.get_completion_time()) + ", old: " + str(GameManager.session_best_time))
 		GameManager.set_best_time()
+		$BestTime.show()
+	else:
+		$BestTime.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
