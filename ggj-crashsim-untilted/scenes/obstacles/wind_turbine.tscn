@@ -1,31 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://dr8qcb8xad7lc"]
+[gd_scene load_steps=16 format=3 uid="uid://dr8qcb8xad7lc"]
 
-[ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_7hnom"]
 [ext_resource type="Script" path="res://scenes/obstacles/wind_turbine.gd" id="1_dcvhy"]
-[ext_resource type="Script" path="res://classes/sound_collection.gd" id="3_5jkhk"]
 [ext_resource type="Texture2D" uid="uid://br70pgc83pbgn" path="res://assets/Asset2D/pal.png" id="3_c36w8"]
 [ext_resource type="Texture2D" uid="uid://dhw441y1378qh" path="res://assets/Asset2D/Ventilateur_base.png" id="3_i7uf1"]
 [ext_resource type="AudioStream" uid="uid://tswsu28d8s8t" path="res://assets/sound/env_wind_01.wav" id="4_6ghe2"]
+[ext_resource type="Texture2D" uid="uid://cjrf23uc4nop" path="res://assets/particleWind.png" id="4_n5gnm"]
 [ext_resource type="AudioStream" uid="uid://dxy5san8apj28" path="res://assets/sound/env_wind_02.wav" id="5_ds80a"]
 [ext_resource type="AudioStream" uid="uid://bsymfus0jm2yi" path="res://assets/sound/env_wind_03.wav" id="6_15ucp"]
 [ext_resource type="AudioStream" uid="uid://cykg1p3nictsy" path="res://assets/sound/env_wind_vo_01.wav" id="7_1hllk"]
 [ext_resource type="AudioStream" uid="uid://cy3xydn0mbk0t" path="res://assets/sound/env_wind_vo_02.wav" id="8_4o0qu"]
 [ext_resource type="AudioStream" uid="uid://b68jsmih5fof3" path="res://assets/sound/env_wind_vo_03.wav" id="9_l5050"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqg1w"]
-size = Vector2(256, 269)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_451e1"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -16, 0)
-emission_shape = 3
-emission_box_extents = Vector3(64, 64, 0)
-gravity = Vector3(0, 98, 0)
-scale_min = 2.0
-scale_max = 2.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
-size = Vector2(128, 49.5)
+size = Vector2(128, 48.75)
 
 [sub_resource type="Animation" id="Animation_ugnw0"]
 tracks/0/type = "value"
@@ -63,67 +50,40 @@ _data = {
 "ventilateur_animation": SubResource("Animation_kx3fi")
 }
 
-[node name="WindTurbine" type="Node2D"]
-position = Vector2(123, 76)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c3xsu"]
+lifetime_randomness = 0.01
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -45, 0)
+emission_shape = 3
+emission_box_extents = Vector3(100, 50, 1)
+direction = Vector3(0, 1, 0)
+spread = 10.0
+flatness = 1.0
+initial_velocity_min = 90.0
+initial_velocity_max = 110.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.2
+
+[node name="WindTurbine" type="Area2D"]
 script = ExtResource("1_dcvhy")
-
-[node name="WindBox" type="Area2D" parent="." node_paths=PackedStringArray("animPlayer")]
-script = ExtResource("1_7hnom")
-animPlayer = NodePath("../StaticPart/AnimationPlayer")
-
-[node name="WindBoxShape" type="CollisionShape2D" parent="WindBox"]
-position = Vector2(3, 171)
-shape = SubResource("RectangleShape2D_iqg1w")
-
-[node name="Particles" type="GPUParticles2D" parent="WindBox/WindBoxShape"]
-amount = 5
-process_material = SubResource("ParticleProcessMaterial_451e1")
-explosiveness = 0.33
-trail_enabled = true
-trail_lifetime = 1.01
-
-[node name="ContactSFX" type="Node" parent="WindBox"]
-script = ExtResource("3_5jkhk")
-
-[node name="Env01" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
-stream = ExtResource("4_6ghe2")
-
-[node name="Env02" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
-stream = ExtResource("5_ds80a")
-
-[node name="Env03" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
-stream = ExtResource("6_15ucp")
-
-[node name="ContactVO" type="Node" parent="WindBox"]
-script = ExtResource("3_5jkhk")
-
-[node name="Env01" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
-stream = ExtResource("7_1hllk")
-
-[node name="Env02" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
-stream = ExtResource("8_4o0qu")
-
-[node name="Env03" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
-stream = ExtResource("9_l5050")
 
 [node name="StaticPart" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
 
 [node name="Sprite2" type="Sprite2D" parent="StaticPart"]
-position = Vector2(2, -22)
 rotation = 3.14159
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_c36w8")
 offset = Vector2(-1.72992, -32.6131)
 
 [node name="Sprite" type="Sprite2D" parent="StaticPart"]
-position = Vector2(2, 0)
 rotation = -3.14159
 scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_i7uf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPart"]
-position = Vector2(3, -12.5)
+position = Vector2(0, -14.25)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_rx405")
 
@@ -132,5 +92,38 @@ libraries = {
 "": SubResource("AnimationLibrary_fmtpl")
 }
 
-[connection signal="body_entered" from="WindBox" to="WindBox" method="_on_windbox_entered"]
-[connection signal="body_exited" from="WindBox" to="WindBox" method="_on_windbox_exited"]
+[node name="particlesOffset" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="particlesOffset"]
+position = Vector2(0, 96)
+scale = Vector2(1.275, 1)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_c3xsu")
+texture = ExtResource("4_n5gnm")
+trail_enabled = true
+trail_lifetime = 0.2
+
+[node name="ContactSFX" type="Node" parent="."]
+
+[node name="EnvWind01" type="AudioStreamPlayer" parent="ContactSFX"]
+stream = ExtResource("4_6ghe2")
+
+[node name="EnvWind02" type="AudioStreamPlayer" parent="ContactSFX"]
+stream = ExtResource("5_ds80a")
+
+[node name="EnvWind03" type="AudioStreamPlayer" parent="ContactSFX"]
+stream = ExtResource("6_15ucp")
+
+[node name="ContactVO" type="Node" parent="."]
+
+[node name="EnvWindVo01" type="AudioStreamPlayer" parent="ContactVO"]
+stream = ExtResource("7_1hllk")
+
+[node name="EnvWindVo02" type="AudioStreamPlayer" parent="ContactVO"]
+stream = ExtResource("8_4o0qu")
+
+[node name="EnvWindVo03" type="AudioStreamPlayer" parent="ContactVO"]
+stream = ExtResource("9_l5050")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
