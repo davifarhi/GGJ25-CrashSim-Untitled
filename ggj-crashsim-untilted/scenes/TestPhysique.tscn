@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=12 format=3 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
-[ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://d0pchhp267oy1" path="res://scenes/obstacles/turning_cross.tscn" id="5_rueeh"]
@@ -9,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
 [ext_resource type="Script" path="res://scenes/obstacles/booster.gd" id="9_rkmhl"]
 [ext_resource type="Texture2D" uid="uid://l1jin7xkx4ru" path="res://assets/booster.png" id="10_fr4ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_718xj"]
+size = Vector2(240, 488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgjqr"]
+size = Vector2(258.918, 1343.95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sq1p"]
 size = Vector2(64, 128)
@@ -36,24 +41,21 @@ position = Vector2(608, 668)
 [node name="RoundBumper6" parent="Obstacle" instance=ExtResource("2_pe7dj")]
 position = Vector2(482, 930)
 
-[node name="WindTurbine" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
+[node name="WindTurbine" parent="Obstacle" instance=ExtResource("4_mii5k")]
 position = Vector2(452, 207)
-windbox_shape = NodePath("WindTurbineShape")
 
-[node name="WindTurbineShape" type="Sprite2D" parent="Obstacle/WindTurbine"]
-visible = false
-position = Vector2(2, 63)
-texture = ExtResource("2_3b3qt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/WindTurbine"]
+position = Vector2(0, 211)
+shape = SubResource("RectangleShape2D_718xj")
 
-[node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
-position = Vector2(1304, -29)
+[node name="WindTurbine2" parent="Obstacle" instance=ExtResource("4_mii5k")]
+position = Vector2(1109, 58)
+rotation = -0.523599
 acceleration_amount = 2.0
-windbox_shape = NodePath("WindTurbineShape2")
 
-[node name="WindTurbineShape2" type="Sprite2D" parent="Obstacle/WindTurbine2"]
-position = Vector2(6, 600)
-scale = Vector2(1.84, 8.50963)
-texture = ExtResource("2_3b3qt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/WindTurbine2"]
+position = Vector2(-0.728449, 609.261)
+shape = SubResource("RectangleShape2D_vgjqr")
 
 [node name="TurningCross" parent="Obstacle" instance=ExtResource("5_rueeh")]
 position = Vector2(2110, 262)
