@@ -81,13 +81,13 @@ debug_color = Color(0.808548, 0.386134, 0.400085, 0.42)
 
 [node name="ContactSFX" type="Node" parent="BumperBody"]
 
-[node name="EnvBumper01" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+[node name="EnvBumper01" type="AudioStreamPlayer" parent="BumperBody/ContactSFX"]
 stream = ExtResource("3_aw8l4")
 
-[node name="EnvBumper02" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+[node name="EnvBumper02" type="AudioStreamPlayer" parent="BumperBody/ContactSFX"]
 stream = ExtResource("4_8242f")
 
-[node name="EnvBumper03" type="AudioStreamPlayer2D" parent="BumperBody/ContactSFX"]
+[node name="EnvBumper03" type="AudioStreamPlayer" parent="BumperBody/ContactSFX"]
 stream = ExtResource("5_mlut8")
 
 [node name="ActivationZone" type="Area2D" parent="."]

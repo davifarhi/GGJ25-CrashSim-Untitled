@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	
 	
 func open_timeout_menu():
+	global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 	get_tree().paused = true
 

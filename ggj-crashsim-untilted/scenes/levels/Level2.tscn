@@ -1,0 +1,240 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk2kfvi3tkxbk"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_6q3w1"]
+[ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="2_3cy08"]
+[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="3_30424"]
+[ext_resource type="PackedScene" uid="uid://ycj1s8f21go5" path="res://scenes/obstacles/block1.tscn" id="4_pjvsw"]
+[ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="5_nvuq0"]
+[ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="6_i7gcl"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="7_jtqhh"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_6q3w1")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_3cy08")]
+rightLimite = 2808.0
+
+[node name="Boubou" parent="." instance=ExtResource("3_30424")]
+position = Vector2(-832, 0)
+
+[node name="obstacke" type="Node2D" parent="."]
+
+[node name="Block" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-881, -159)
+
+[node name="Block18" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-758, -160)
+
+[node name="Block2" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-496, 380)
+rotation = -0.785398
+
+[node name="Block20" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-399, 472)
+rotation = -0.785398
+
+[node name="RoundBumper" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-248, 448)
+
+[node name="RoundBumper2" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-48, 456)
+
+[node name="RoundBumper3" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-144, 264)
+
+[node name="RoundBumper4" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-224, -376)
+
+[node name="RoundBumper5" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-40, -376)
+
+[node name="Block3" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-884, 136)
+
+[node name="Block17" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-756, 138)
+
+[node name="RoundBumper6" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-633, 138)
+
+[node name="RoundBumper7" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-523, 235)
+
+[node name="RoundBumper8" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-641, -117)
+
+[node name="RoundBumper9" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(-528, -212)
+
+[node name="Block21" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(37, 222)
+rotation = 1.03299
+
+[node name="Block5" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(162, 147)
+rotation = -0.459445
+
+[node name="Block22" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(291, 85)
+rotation = -0.378036
+
+[node name="Block6" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(427, 42)
+rotation = -0.199609
+
+[node name="Block7" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(568, 30)
+
+[node name="Block9" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-473, -346)
+rotation = -0.667479
+
+[node name="Block19" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(-377, -422)
+rotation = -0.667479
+
+[node name="Block10" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(103, -455)
+
+[node name="Block25" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(229, -454)
+
+[node name="Block26" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(229, -323)
+
+[node name="Block27" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(102, -323)
+
+[node name="Block11" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1307, -174)
+
+[node name="Block29" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1307, -42)
+
+[node name="Block12" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1307, -310)
+
+[node name="Block13" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1304, -440)
+
+[node name="Block14" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1428, -42)
+
+[node name="Block28" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1554, -42)
+
+[node name="Block34" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1681, -42)
+
+[node name="Block35" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1681, -172)
+
+[node name="Block36" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1683, -304)
+
+[node name="Block37" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1683, -434)
+
+[node name="Block15" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1307, 88)
+
+[node name="Block30" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1307, 217)
+
+[node name="RoundBumper10" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(928, 384)
+scale = Vector2(1.68, 1.68)
+
+[node name="Block16" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1862, 376)
+scale = Vector2(1, 0.984358)
+
+[node name="Block31" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1739, 376)
+scale = Vector2(1, 0.984358)
+
+[node name="Block32" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1739, 504)
+scale = Vector2(1, 0.984358)
+
+[node name="Block33" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(1862, 504)
+scale = Vector2(1, 0.984358)
+
+[node name="RoundBumper11" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(1888, 216)
+
+[node name="MovingWall_2x2" parent="obstacke" instance=ExtResource("6_i7gcl")]
+position = Vector2(2125, -400)
+scale = Vector2(1.40825, 1.40825)
+displacement = Vector2(0, 800)
+displacementTime = 0.5
+
+[node name="Block8" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(694, 32)
+
+[node name="Block23" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(824, 30)
+
+[node name="Block24" parent="obstacke" instance=ExtResource("4_pjvsw")]
+position = Vector2(954, 30)
+
+[node name="RoundBumper12" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2533, -544)
+
+[node name="RoundBumper13" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2605, -448)
+
+[node name="RoundBumper14" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2669, -360)
+
+[node name="RoundBumper15" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2741, -264)
+
+[node name="RoundBumper16" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2717, 496)
+
+[node name="RoundBumper17" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2773, 400)
+
+[node name="RoundBumper18" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2861, 312)
+
+[node name="RoundBumper19" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2965, 248)
+
+[node name="RoundBumper20" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3101, 272)
+
+[node name="RoundBumper21" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3213, 328)
+
+[node name="RoundBumper22" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3317, 392)
+
+[node name="RoundBumper23" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3413, 320)
+
+[node name="RoundBumper24" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2829, -184)
+
+[node name="RoundBumper25" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2893, -112)
+
+[node name="RoundBumper26" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(2997, -56)
+
+[node name="RoundBumper27" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3093, 0)
+
+[node name="RoundBumper28" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3205, 48)
+
+[node name="RoundBumper29" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3325, 112)
+
+[node name="RoundBumper30" parent="obstacke" instance=ExtResource("5_nvuq0")]
+position = Vector2(3381, 200)
+
+[node name="Spikes4" parent="obstacke" instance=ExtResource("7_jtqhh")]
+position = Vector2(3277, 232)

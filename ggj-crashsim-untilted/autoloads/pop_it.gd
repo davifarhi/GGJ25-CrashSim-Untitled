@@ -22,6 +22,7 @@ func is_active() -> bool:
 	
 
 func _start_popit() -> void:
+	global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 	animation.play("popit!!")
 	$SFX.play()
