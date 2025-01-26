@@ -65,7 +65,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = 800
+z_index = 1400
 offset_left = -3923.0
 offset_top = -3488.0
 offset_right = -3883.0

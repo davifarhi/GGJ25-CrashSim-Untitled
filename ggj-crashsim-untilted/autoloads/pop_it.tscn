@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgdf315lwiovg"]
+[gd_scene load_steps=9 format=3 uid="uid://cgdf315lwiovg"]
 
 [ext_resource type="Script" path="res://autoloads/pop_it.gd" id="1_gaair"]
 [ext_resource type="Texture2D" uid="uid://c62poqgxjn5ix" path="res://assets/menu/bulle_pop.png" id="2_cxu43"]
 [ext_resource type="Texture2D" uid="uid://bmpjyl7vvxgj1" path="res://assets/menu/texte_pop.png" id="3_xs6jj"]
+[ext_resource type="AudioStream" uid="uid://b45q1uflvwwwd" path="res://assets/sound/env_popit.wav" id="4_e7875"]
+[ext_resource type="AudioStream" uid="uid://bk1tx24dy683v" path="res://assets/sound/env_popit_vo.wav" id="5_wvpkc"]
 
 [sub_resource type="Animation" id="Animation_uxkbu"]
 length = 0.001
@@ -63,6 +65,10 @@ position = Vector2(0, 69.2308)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("3_xs6jj")
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_e7875")
+
+[node name="VO" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wvpkc")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

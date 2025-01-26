@@ -25,21 +25,34 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v21uy")
 
 [node name="Resume" parent="." instance=ExtResource("3_7a1nm")]
-position = Vector2(960, 300)
+offset_left = 960.0
+offset_top = 284.0
+offset_right = 1547.0
+offset_bottom = 484.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_e4hyq")
+focus_neighbor_bottom = NodePath("../Restart")
+texture_normal = ExtResource("4_e4hyq")
 bg_scale = Vector2(6, 1.2)
 
 [node name="Restart" parent="." instance=ExtResource("3_7a1nm")]
-position = Vector2(960, 445)
+offset_left = 960.0
+offset_top = 434.0
+offset_right = 2274.0
+offset_bottom = 634.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_iqd03")
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Main Menu")
+texture_normal = ExtResource("7_iqd03")
 bg_scale = Vector2(6, 1.2)
 
 [node name="Main Menu" parent="." instance=ExtResource("3_7a1nm")]
-position = Vector2(960, 580)
+offset_left = 960.0
+offset_top = 584.0
+offset_right = 2274.0
+offset_bottom = 784.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_jrsx7")
+focus_neighbor_top = NodePath("../Restart")
+texture_normal = ExtResource("6_jrsx7")
 bg_scale = Vector2(6, 1.2)
 
 [node name="BackgroundBlur" type="ColorRect" parent="."]

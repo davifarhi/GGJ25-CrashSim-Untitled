@@ -1,12 +1,9 @@
-extends Node2D
-
+extends TextureButton
 
 @onready var tex_normal = $BG/Normal
 @onready var tex_hovered = $BG/Hovered
 
-@export var texture: Texture2D
 @export var bg_scale = Vector2(2., 0.8)
-
 
 signal ButtonClick
 
@@ -15,13 +12,13 @@ signal ButtonClick
 func _ready() -> void:
 	tex_normal.show()
 	tex_hovered.hide()
-	$TextureButton.texture_normal = texture
 	$BG.scale = bg_scale
 	
-	var button_pos = $TextureButton.position
-	button_pos.x =- texture.get_size().x / 2
-	$TextureButton.position = button_pos
-
+	if texture_normal:
+		var pos_x_offset = texture_normal.get_size().x  / 2
+		position.x -= pos_x_offset * scale.x
+		$BG.position.x += pos_x_offset
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,5 +45,5 @@ func _on_texture_button_mouse_exited() -> void:
 	tex_hovered.hide()
 
 
-func _on_texture_button_pressed() -> void:
+func _on_pressed() -> void:
 	ButtonClick.emit()
