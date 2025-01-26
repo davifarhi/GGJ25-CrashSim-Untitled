@@ -105,7 +105,11 @@ func _process(delta: float)  -> void:
 	# TODO: debug code, to remove :)
 	if Input.is_key_pressed(KEY_DELETE):
 		linear_velocity = Vector2(0, 0)
-		global_position = get_viewport().get_mouse_position()
+		
+		var offset = Vector2(0, 0)
+		if camera != null:
+			offset = camera.global_position - Vector2(get_viewport().size)/2
+		global_position = get_viewport().get_mouse_position() + offset
 		
 
 func _physics_process(_delta: float) -> void:
