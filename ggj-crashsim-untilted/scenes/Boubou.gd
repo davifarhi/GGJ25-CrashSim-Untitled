@@ -114,8 +114,9 @@ func _process(delta: float)  -> void:
 		return;
 	if GameManager.are_game_animations_active():
 		return
-	if currentInputType == InputType.Mouse:
+	if currentInputType == InputType.Mouse and not freeze:
 		Indicator.z_index = mouseAimHelper.z_index
+		
 		mouseAimHelper.show()
 	else:
 		Indicator.z_index = z_index
