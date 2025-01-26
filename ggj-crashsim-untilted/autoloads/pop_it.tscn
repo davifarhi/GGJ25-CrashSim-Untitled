@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgdf315lwiovg"]
 
 [ext_resource type="Script" path="res://autoloads/pop_it.gd" id="1_gaair"]
-[ext_resource type="Texture2D" uid="uid://dopbjqs237ybb" path="res://assets/SpeechBubble.png" id="2_st4vg"]
-[ext_resource type="Texture2D" uid="uid://17xphld7ys" path="res://assets/PopItText.png" id="3_3uv33"]
+[ext_resource type="Texture2D" uid="uid://c62poqgxjn5ix" path="res://assets/menu/bulle_pop.png" id="2_cxu43"]
+[ext_resource type="Texture2D" uid="uid://bmpjyl7vvxgj1" path="res://assets/menu/texte_pop.png" id="3_xs6jj"]
 
 [sub_resource type="Animation" id="Animation_uxkbu"]
 length = 0.001
@@ -28,7 +28,7 @@ tracks/0/path = NodePath("Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.633367, 1),
+"times": PackedFloat32Array(0, 0.333367, 0.733333),
 "transitions": PackedFloat32Array(1, 0.517632, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1), Vector2(0.706667, 0.706667)]
@@ -55,11 +55,13 @@ position = Vector2(963, 532)
 scale = Vector2(1e-05, 1e-05)
 
 [node name="Bubble" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("2_st4vg")
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_cxu43")
 
 [node name="Text" type="Sprite2D" parent="Node2D"]
 position = Vector2(0, 69.2308)
-texture = ExtResource("3_3uv33")
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("3_xs6jj")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 
