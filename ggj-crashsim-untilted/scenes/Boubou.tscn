@@ -78,7 +78,6 @@ texture = ExtResource("3_xldl1")
 shape = SubResource("CircleShape2D_2fpey")
 
 [node name="DeathParticles" type="GPUParticles2D" parent="."]
-visible = false
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_cdih5")
 texture = ExtResource("2_hxvjg")
