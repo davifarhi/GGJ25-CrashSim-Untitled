@@ -22,6 +22,10 @@ func _ready() -> void:
 	particles.amount *= sqrt(ratio)
 	particles.preprocess = particles.lifetime
 	particles.speed_scale *= acceleration_amount
+	var duplicatedMat = particles.process_material.duplicate() as ParticleProcessMaterial
+	duplicatedMat.angle_min = 180-global_rotation_degrees
+	duplicatedMat.angle_max = 180-global_rotation_degrees
+	particles.process_material = duplicatedMat
 	if ratio > 1:
 		var oldSize = particles.visibility_rect.size.y
 		var newSize = oldSize * ratio
