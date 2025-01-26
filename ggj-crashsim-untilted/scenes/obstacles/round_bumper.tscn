@@ -55,7 +55,7 @@ radius = 54.037
 freeze = true
 continuous_cd = 1
 script = ExtResource("1_avqpm")
-bump_impulse_multiplier = 1000.0
+bump_impulse_multiplier = 2000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumperBody"]
 shape = SubResource("CircleShape2D_qejpg")
