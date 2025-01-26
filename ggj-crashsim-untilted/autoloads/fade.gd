@@ -21,11 +21,19 @@ func is_active():
 
 
 func fade_in():
+	if (UiManager.Camera == null):
+		global_position = Vector2()
+	else:
+		global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 	animation.play("FadeFromBlack")
 	
 	
 func fade_out():
+	if (UiManager.Camera == null):
+		global_position = Vector2()
+	else:
+		global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 	animation.play("FadeToBlack")
 
