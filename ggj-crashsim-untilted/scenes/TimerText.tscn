@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtr2g4tpcntc"]
+
+[ext_resource type="Script" path="res://scenes/timer_text.gd" id="1_rp8ti"]
+[ext_resource type="Texture2D" uid="uid://dg5n2cqkjwrja" path="res://assets/menu/nuage_timer.png" id="1_wem5l"]
+
+[node name="TimerText" type="Node2D"]
+z_index = 800
+script = ExtResource("1_rp8ti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wem5l")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = -361.0
+offset_top = -140.0
+offset_right = 369.0
+offset_bottom = -3.0
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center] 12:123 [/center] "
+fit_content = true

@@ -7,9 +7,15 @@ extends Camera2D
 @export var leftLimite:float = 0
 @export var rightLimite:float = 3960
 
+
+@onready var timer_widget = $TimerText
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	timer_widget.hide()
 	UiManager.Camera = self
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
