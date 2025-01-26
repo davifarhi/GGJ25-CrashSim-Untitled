@@ -7,6 +7,9 @@ class_name Level
 @onready var level_timer = Timer.new()
 
 
+@onready var timer_widget = UiManager.Camera.timer_widget
+
+
 func _ready():
 	boubou.dir_indicator.hide()
 	PopIt.POPItDone.connect(_on_popit_done)
@@ -18,21 +21,23 @@ func _ready():
 	
 	boubou.BoubouDie.connect(_on_boubou_die)
 	
-	#timer_text.show()
-	#timer_text.set_timer(timeout_in_secs)
+	timer_widget.show()
+	timer_widget.set_timer(timeout_in_secs)
 	
 	
 func _process(delta: float):
 	if GameManager.are_game_animations_active():
 		return
+	if boubou.dead:
+		return
 	
-	#timer_text.global_position 
-	#timer_text.set_text(level_timer.time_left)
+	timer_widget.set_timer(level_timer.time_left)
 	
 	
 func _on_popit_done():
 	boubou.dir_indicator.show()
 	level_timer.start()
+	
 
 	
 func _on_level_timer_end():
@@ -45,3 +50,4 @@ func _on_level_timer_end():
 
 func _on_boubou_die():
 	level_timer.stop()
+	timer_widget.hide()

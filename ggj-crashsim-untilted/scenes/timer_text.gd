@@ -4,9 +4,12 @@ class_name TimerText
 @onready var text = $Text
 
 
-const DANGER_COLOR = Vector4(1., 1., 1., 1.)
-const NORMAL_COLOR = Vector4(1., 0., 0., 1.)
+const NORMAL_COLOR = Color(1., 1., 1., 1.)
+const DANGER_COLOR = Color(1., 0., 0., 1.)
+const format_str = "[center]%02d:%03d[/center]"
 
+
+var color = NORMAL_COLOR
 
 func _ready() -> void:
 	pass
@@ -17,10 +20,17 @@ func _process(delta: float) -> void:
 
 
 func set_timer(time: float):
-	var secs = int(round(time))
-	var msecs = int(round((time - secs)*1000))
-	text.add_text("[center]" + str(secs) + ":" + str(msecs) + "[/center]")
-
-
-func set_color(color: Vector4):
+	var rounded = floor(time)
+	var secs = int(rounded)
+	var msecs = int((time - rounded)*1000)
+	
+	var str = format_str % [secs, msecs]
+	
+	text.clear()
+	text.push_context()
 	text.push_color(color)
+	text.append_text(str)
+
+
+func set_color(color: Color):
+	self.color = color
