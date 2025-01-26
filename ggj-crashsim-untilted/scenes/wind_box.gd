@@ -6,10 +6,12 @@ var pull: bool = false
 # TODO: change visual depending on 'pull'
 
 var player: Boubou = null
-
+@export var animPlayer: AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	animPlayer.play("ventilateur_animation")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
