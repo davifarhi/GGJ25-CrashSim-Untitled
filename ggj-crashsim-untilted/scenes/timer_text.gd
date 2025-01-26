@@ -24,6 +24,13 @@ func _process(delta: float) -> void:
 	pass
 
 
+func set_zen():
+	text.clear()
+	text.push_context()
+	text.push_color(NORMAL_COLOR)
+	text.append_text("[center]ZEN[/center]")
+
+
 func set_timer(time: float):
 	var rounded = floor(time)
 	var secs = int(rounded)

@@ -4,8 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.is_scene_pausable = false
-	#$Start.grab_focus()
-	pass
+	$ZenModeToggle.button_pressed = GameManager.zen_mode_on
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,3 +50,7 @@ func _on_start_button_click() -> void:
 
 func _on_exit_button_click() -> void:
 	get_tree().quit()
+
+
+func _on_zen_mode_toggled(toggled_on: bool) -> void:
+	GameManager.zen_mode_on = toggled_on

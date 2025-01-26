@@ -7,7 +7,7 @@ signal PreviousLevel
 signal GoToMainMenu
 
 const LEVEL_FILES_BASE = "res://scenes/levels/"
-#const LEVEL_FILES = ["scene1", "scene2"]
+#const LEVEL_FILES = ["dummy-level1", "dummy-level2"]
 
 # !! be careful about case, wrong case will not work in exports!!
 const LEVEL_FILES = ["level1", "Level2", "Level3"]
@@ -20,7 +20,9 @@ enum FADE_TO { BYE, LEVEL, MENU }
 
 var next_fade_out_to: FADE_TO = FADE_TO.LEVEL
 
+var zen_mode_on: bool = false
 var time_to_completion: float = 0.
+var session_best_time: float = 99999
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,6 +50,16 @@ func add_level_time(time: float):
 
 func get_completion_time() -> float:
 	return time_to_completion
+	
+	
+func is_best_time():
+	return time_to_completion < session_best_time
+	
+
+func set_best_time():
+	assert(is_best_time())
+	session_best_time = time_to_completion
+	time_to_completion = 0.
 	
 	
 func _start_game() -> void:

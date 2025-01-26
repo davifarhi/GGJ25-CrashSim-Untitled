@@ -1,8 +1,11 @@
 extends Node2D
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var mouseHelper = $Camera2D/MouseAimHelper
+	mouseHelper.hide()
 	var time = GameManager.get_completion_time()
 	var rounded = floor(time)
 	var secs = int(rounded)
@@ -15,10 +18,22 @@ func _ready() -> void:
 	text.push_context()
 	text.push_color(TimerText.NORMAL_COLOR)
 	text.append_text(str)
+	
+	if GameManager.is_best_time():
+		print("Got best time: " + str(GameManager.get_completion_time()) + ", old: " + str(GameManager.session_best_time))
+		GameManager.set_best_time()
+		$BestTime.show()
+	else:
+		$BestTime.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var boubou = $Boubou as Boubou
+	if boubou.currentInputType == Boubou.InputType.Mouse:
+		boubou.dir_indicator.hide()
+	else:
+		boubou.dir_indicator.show()
 	pass
 
 
