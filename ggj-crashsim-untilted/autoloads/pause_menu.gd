@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 
 func _on_game_pause() -> void:
 	global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
+	$Resume.grab_focus()
 	show()
 
 	
