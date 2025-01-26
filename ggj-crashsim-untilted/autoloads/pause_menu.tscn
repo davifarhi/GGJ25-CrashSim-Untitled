@@ -33,7 +33,7 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="PauseButtons" type="Node2D" parent="."]
-position = Vector2(975, 539)
+position = Vector2(974, 538)
 
 [node name="Resume" parent="PauseButtons" instance=ExtResource("3_7a1nm")]
 offset_left = 0.0
