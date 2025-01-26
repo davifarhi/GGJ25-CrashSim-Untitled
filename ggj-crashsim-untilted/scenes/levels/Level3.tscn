@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdnms0pwfad7r"]
+[gd_scene load_steps=31 format=3 uid="uid://bdnms0pwfad7r"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_wkf88"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_oswnc"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="5_h7vng"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="6_4ic5g"]
 [ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="7_gu1vk"]
-[ext_resource type="PackedScene" uid="uid://b11vvamp0epe3" path="res://scenes/obstacles/InvisibleWall.tscn" id="8_16hpb"]
+[ext_resource type="PackedScene" path="res://scenes/obstacles/InvisibleWall.tscn" id="8_16hpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43fx0"]
 size = Vector2(256, 368.562)
@@ -56,6 +56,9 @@ size = Vector2(256, 752.66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbrmp"]
 size = Vector2(256, 775.286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pexo0"]
+size = Vector2(97, 617)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mbn5"]
 size = Vector2(310.344, 189.539)
@@ -835,6 +838,13 @@ polygon = PackedVector2Array(-640, -168, -648, 192, -592, 344, 472, 416, 616, 34
 
 [node name="Block120" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(12896, 576)
+
+[node name="InvisibleWall3" parent="Obstacles" instance=ExtResource("8_16hpb")]
+position = Vector2(13229, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/InvisibleWall3"]
+position = Vector2(-140.5, 128.5)
+shape = SubResource("RectangleShape2D_pexo0")
 
 [node name="Block121" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(13024, 576)
