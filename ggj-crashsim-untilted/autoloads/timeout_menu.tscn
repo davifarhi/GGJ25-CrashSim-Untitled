@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyofyympj28by"]
+
+[ext_resource type="Shader" path="res://shaders/blur.frag.gdshader" id="1_8gpxt"]
+[ext_resource type="Script" path="res://autoloads/timeout_menu.gd" id="1_yvdfl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87nds"]
+shader = ExtResource("1_8gpxt")
+shader_parameter/sigma = 2.0
+
+[node name="TimeoutMenu" type="Node2D"]
+z_index = 1000
+script = ExtResource("1_yvdfl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = 737.0
+offset_top = 210.0
+offset_right = 777.0
+offset_bottom = 250.0
+scale = Vector2(10.6958, 15.7012)
+color = Color(0.97004, 0.637026, 0.581147, 0.517647)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 799.0
+offset_top = 298.0
+offset_right = 1055.0
+offset_bottom = 338.0
+scale = Vector2(2.07456, 2.07456)
+text = "You ran out of time"
+
+[node name="Restart Level" type="Button" parent="."]
+offset_left = 892.0
+offset_top = 483.0
+offset_right = 1001.0
+offset_bottom = 514.0
+text = "Restart Level"
+
+[node name="Back to Main Menu" type="Button" parent="."]
+offset_left = 878.0
+offset_top = 605.0
+offset_right = 1035.0
+offset_bottom = 636.0
+text = "Back to Main Menu"
+
+[node name="BackgroundBlur" type="ColorRect" parent="."]
+z_index = 50
+z_as_relative = false
+material = SubResource("ShaderMaterial_87nds")
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(77.0366, 43.4822)
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="Restart Level" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]
