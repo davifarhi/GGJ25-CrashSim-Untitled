@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cepknqnmyjg6x" path="res://assets/Asset2D/Cube02.png" id="3_2r4r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bloyc"]
-size = Vector2(58.7498, 64)
+size = Vector2(63.1667, 64)
 
 [node name="TurningCross" type="RigidBody2D"]
 position = Vector2(870, 562)
@@ -14,39 +14,39 @@ freeze_mode = 1
 script = ExtResource("1_w5ct8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("2_8sk73")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(64, 0)
+position = Vector2(124, 0)
 rotation = 1.5708
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_2r4r4")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(-63, 0)
+position = Vector2(-125, 0)
 rotation = -1.5708
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_2r4r4")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(0, -64)
-scale = Vector2(0.32, 0.32)
+position = Vector2(0, -127)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_2r4r4")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(0, 62)
+position = Vector2(0, 127)
 rotation = 3.14159
-scale = Vector2(0.32, 0.32)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_2r4r4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.499939, 0)
-scale = Vector2(3.16, 1)
+position = Vector2(-1, 0)
+scale = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_bloyc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -0.5)
 rotation = 1.57079
-scale = Vector2(3.20001, 1)
+scale = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_bloyc")
