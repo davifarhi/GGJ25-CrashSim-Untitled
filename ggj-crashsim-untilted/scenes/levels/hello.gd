@@ -10,11 +10,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
 
-
-func _on_start_pressed() -> void:
+func _on_start_button_click() -> void:
 	GameManager.StartGame.emit()
 
 
-func _on_load_test_level_pressed() -> void:
-	GameManager.load_test_scene()
+func _on_exit_button_click() -> void:
+	get_tree().quit()

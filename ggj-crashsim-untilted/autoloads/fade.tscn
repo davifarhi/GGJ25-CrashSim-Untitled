@@ -66,9 +66,11 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 800
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(70.5375, 70.5375)
+offset_left = -3923.0
+offset_top = -3488.0
+offset_right = -3883.0
+offset_bottom = -3448.0
+scale = Vector2(190.847, 184.429)
 color = Color(0, 0, 0, 1)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

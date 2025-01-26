@@ -20,14 +20,15 @@ func _on_game_unpause() -> void:
 	hide()
 
 
-func _on_resume_pressed() -> void:
-	UiManager.Unpause.emit()
-
-func _on_restart_level_pressed() -> void:
-	GameManager.PreviousLevel.emit()
+func _on_resume_button_click() -> void:
 	UiManager.Unpause.emit()
 
 
-func _on_back_to_main_menu_pressed() -> void:
+func _on_main_menu_button_click() -> void:
 	GameManager.GoToMainMenu.emit()
+	UiManager.Unpause.emit()
+
+
+func _on_restart_button_click() -> void:
+	GameManager.PreviousLevel.emit()
 	UiManager.Unpause.emit()

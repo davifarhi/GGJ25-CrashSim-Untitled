@@ -18,6 +18,14 @@ var currentStep:Step = Step.Idle
 var nextStep:Step = Step.Aller
 var time:float = 0
 
+@onready var bounceSFXCollection = SoundCollection.new($BounceCollection)
+@onready var bounceVOCollection = SoundCollection.new($BounceVOCollection)
+
+func _on_body_entered(body: Node) -> void:
+	if body is Boubou:
+		bounceSFXCollection.play_random()
+		bounceVOCollection.play_random()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

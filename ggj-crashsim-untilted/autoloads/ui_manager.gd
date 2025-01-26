@@ -29,8 +29,8 @@ func _unpause_game() -> void:
 	
 
 func toggle_pause() -> void:
-	# dfarhi todo disable pause in main-menu / end-menu
-	if get_tree().paused:
-		Unpause.emit()
-	elif GameManager.is_scene_pausable:
-		Pause.emit()
+	if not TimeoutMenu.is_opened():
+		if get_tree().paused:
+			Unpause.emit()
+		elif GameManager.is_scene_pausable:
+			Pause.emit()
