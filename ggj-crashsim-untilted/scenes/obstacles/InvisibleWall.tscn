@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://b11vvamp0epe3"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cuwk5enyeau8u" path="res://assets/PhysicMaterials/bouncy_walls.tres" id="1_i1bmk"]
+[ext_resource type="Script" path="res://scenes/obstacles/bounce_sound_producer.gd" id="1_m8wop"]
+[ext_resource type="AudioStream" uid="uid://buk7kwyhf3sjq" path="res://assets/sound/bou_bounce_01.wav" id="3_d5mmj"]
+[ext_resource type="AudioStream" uid="uid://jyhc8isij4nu" path="res://assets/sound/bou_bounce_02.wav" id="4_sip6v"]
+[ext_resource type="AudioStream" uid="uid://cgvsampqcjk30" path="res://assets/sound/bou_bounce_03.wav" id="5_2i8ay"]
+[ext_resource type="AudioStream" uid="uid://cmltphy7xmgur" path="res://assets/sound/bou_bounce_vo_01.wav" id="6_wunfy"]
+[ext_resource type="AudioStream" uid="uid://c4fqwuwodhgjm" path="res://assets/sound/bou_bounce_vo_02.wav" id="7_cmeh1"]
+[ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="8_16vxc"]
+
+[node name="InvisibleWall" type="StaticBody2D"]
+physics_material_override = ExtResource("1_i1bmk")
+script = ExtResource("1_m8wop")
+
+[node name="BounceCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("3_d5mmj")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("4_sip6v")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("5_2i8ay")
+
+[node name="BounceVOCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("6_wunfy")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("7_cmeh1")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("8_16vxc")
