@@ -37,9 +37,11 @@ enum InputType { Mouse, Gamepad }
 var currentInputType = InputType.Mouse
 
 func doInpulse() -> void:
-	linear_velocity = Vector2()
+	var currentSpeed = linear_velocity.length()/3000
+	var speedFactor = exp(currentSpeed * 1.01)
+	linear_velocity = Vector2(0, 0)
 	var dir = InputDir()
-	apply_central_impulse(- dir * InpulseForce);
+	apply_central_impulse(- dir * InpulseForce * speedFactor);
 	JuiceOnInpulse.emit(dir)
 	boubou_inpulse_sfx_collection.play_random()
 	boubou_inpulse_vo_sfx_collection.play_random()
