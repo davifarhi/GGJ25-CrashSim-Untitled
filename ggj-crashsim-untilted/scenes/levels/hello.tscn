@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://0hxqp7vy7b3r"]
+[gd_scene load_steps=9 format=3 uid="uid://0hxqp7vy7b3r"]
 
 [ext_resource type="Script" path="res://scenes/levels/hello.gd" id="1_4ahbp"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_jv5iv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnm4qwmvnsjop" path="res://assets/menu/Exit.png" id="4_p0do3"]
 [ext_resource type="Texture2D" uid="uid://bwd71u22gvfhp" path="res://assets/menu/menue_start.png" id="5_0w40m"]
 [ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="7_o2y33"]
+[ext_resource type="FontFile" uid="uid://bbktyr8by7oci" path="res://assets/Marker Felt.ttf" id="8_bc5ck"]
 [ext_resource type="Texture2D" uid="uid://b04duf7i743l1" path="res://assets/menu/Start.png" id="8_s35cc"]
 
 [node name="Hello" type="Node2D"]
@@ -55,6 +56,11 @@ offset_right = 747.0
 offset_bottom = 401.0
 focus_neighbor_left = NodePath("../MenuButtons/Exit")
 focus_neighbor_top = NodePath("../MenuButtons/Exit")
+theme_override_colors/font_hover_pressed_color = Color(0.847486, 0.973172, 0.922868, 1)
+theme_override_colors/font_hover_color = Color(0.847059, 0.972549, 0.921569, 1)
+theme_override_colors/font_focus_color = Color(0.847059, 0.972549, 0.921569, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_bc5ck")
 theme_override_font_sizes/font_size = 30
 text = "ZenMode"
 
