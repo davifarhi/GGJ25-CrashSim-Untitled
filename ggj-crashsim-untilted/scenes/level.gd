@@ -31,6 +31,8 @@ func _process(delta: float):
 	if boubou.dead:
 		return
 	
+	if level_timer.time_left < timeout_in_secs * 0.7:
+		timer_widget.set_danger()
 	timer_widget.set_timer(level_timer.time_left)
 	
 	
@@ -44,10 +46,10 @@ func _on_level_timer_end():
 	if GameManager.are_game_animations_active():
 		return
 	TimeoutMenu.open_timeout_menu()
-	# dfarhi todo here level failed screen
-	# back to main menu / restart
+	timer_widget.reset()
+	timer_widget.set_danger()
 
 
-func _on_boubou_die():
+func _on_boubou_die(boubou):
 	level_timer.stop()
-	timer_widget.hide()
+	timer_widget.set_normal()
