@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="4_l42yb"]
 [ext_resource type="Texture2D" uid="uid://cnm4qwmvnsjop" path="res://assets/menu/Exit.png" id="4_p0do3"]
 [ext_resource type="Texture2D" uid="uid://bwd71u22gvfhp" path="res://assets/menu/menue_start.png" id="5_0w40m"]
-[ext_resource type="Texture2D" uid="uid://1sy8qfd64vra" path="res://assets/menu/ButtonBG.png" id="7_6r0qy"]
-[ext_resource type="Texture2D" uid="uid://b0v38pxgvfspy" path="res://assets/menu/ButtonBGHovered.png" id="8_f21um"]
+[ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="7_o2y33"]
+[ext_resource type="Texture2D" uid="uid://b04duf7i743l1" path="res://assets/menu/Start.png" id="8_s35cc"]
 
 [node name="Hello" type="Node2D"]
 script = ExtResource("1_4ahbp")
@@ -24,26 +24,6 @@ tile_map_data = PackedByteArray("AAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAA
 enabled = false
 script = null
 
-[node name="Start" type="Button" parent="."]
-z_index = 400
-offset_left = -797.0
-offset_top = 9.0
-offset_right = -665.0
-offset_bottom = 65.0
-scale = Vector2(4.39447, 4.39447)
-text = "Start"
-metadata/_edit_use_anchors_ = true
-
-[node name="Load Test Level" type="Button" parent="."]
-z_index = 400
-offset_left = -785.0
-offset_top = -315.0
-offset_right = -658.0
-offset_bottom = -284.0
-scale = Vector2(1.65228, 1.65228)
-text = "Load Test Level"
-metadata/_edit_use_anchors_ = true
-
 [node name="Camera2D" parent="." instance=ExtResource("4_l42yb")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,26 +36,12 @@ texture = ExtResource("5_0w40m")
 position = Vector2(1, 112)
 texture = ExtResource("4_p0do3")
 
-[node name="Node" type="Node2D" parent="."]
-z_index = 400
-position = Vector2(-2, 143)
-scale = Vector2(0.6, 0.6)
+[node name="Start" parent="." instance=ExtResource("7_o2y33")]
+position = Vector2(0, 10)
+texture = ExtResource("8_s35cc")
 
-[node name="TextureButton" type="TextureButton" parent="Node"]
-z_index = 100
-offset_left = -200.0
-offset_top = -100.0
-offset_right = 200.0
-offset_bottom = 100.0
-texture_normal = ExtResource("4_p0do3")
+[node name="Exit" parent="." instance=ExtResource("7_o2y33")]
+position = Vector2(0, 140)
 
-[node name="BG" type="Node2D" parent="Node"]
-
-[node name="Normal" type="Sprite2D" parent="Node/BG"]
-texture = ExtResource("7_6r0qy")
-
-[node name="Hovered" type="Sprite2D" parent="Node/BG"]
-texture = ExtResource("8_f21um")
-
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Load Test Level" to="." method="_on_load_test_level_pressed"]
+[connection signal="ButtonClick" from="Start" to="." method="_on_start_button_click"]
+[connection signal="ButtonClick" from="Exit" to="." method="_on_exit_button_click"]
