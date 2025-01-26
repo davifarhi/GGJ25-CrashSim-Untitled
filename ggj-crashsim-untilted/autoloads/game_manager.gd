@@ -18,6 +18,8 @@ enum FADE_TO { BYE, LEVEL, MENU }
 
 var next_fade_out_to: FADE_TO = FADE_TO.LEVEL
 
+var time_to_completion: float = 0.
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,6 +38,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+	
+	
+func add_level_time(time: float):
+	time_to_completion += time
+	
+
+func get_completion_time() -> float:
+	return time_to_completion
 	
 	
 func _start_game() -> void:
@@ -75,6 +85,7 @@ func load_menu() -> void:
 	Fade.fade_out()
 	PopIt.hide()
 	next_fade_out_to = FADE_TO.MENU
+	time_to_completion = 0.
 
 
 func load_next_scene():
