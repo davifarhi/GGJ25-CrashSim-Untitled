@@ -30,7 +30,7 @@ func _on_popit_done():
 func _on_level_timer_end():
 	if GameManager.are_game_animations_active():
 		return
-	pass
+	TimeoutMenu.open_timeout_menu()
 	# dfarhi todo here level failed screen
 	# back to main menu / restart
 

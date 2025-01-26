@@ -19,8 +19,12 @@ func open_timeout_menu():
 
 
 func _on_restart_level_pressed() -> void:
-	pass # Replace with function body.
+	GameManager.PreviousLevel.emit()
+	hide()
+	get_tree().paused = false
 
 
 func _on_back_to_main_menu_pressed() -> void:
-	pass # Replace with function body.
+	GameManager.GoToMainMenu.emit()
+	hide()
+	get_tree().paused = false
