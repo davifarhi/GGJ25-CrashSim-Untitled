@@ -20,9 +20,9 @@ config/icon="res://icon.svg"
 GameManager="*res://autoloads/game_manager.gd"
 UiManager="*res://autoloads/ui_manager.gd"
 PauseMenu="*res://autoloads/pause_menu.tscn"
-TimeoutMenu="*res://autoloads/timeout_menu.tscn"
 PopIt="*res://autoloads/pop_it.tscn"
 Fade="*res://autoloads/fade.tscn"
+TimeoutMenu="*res://autoloads/timeout_menu.tscn"
 
 [display]
 
