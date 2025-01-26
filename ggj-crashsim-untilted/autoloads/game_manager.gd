@@ -109,6 +109,6 @@ func _on_fadeout_finished():
 			get_tree().change_scene_to_file(LEVEL_FILES_BASE + "bye.tscn")
 		FADE_TO.MENU:
 			get_tree().change_scene_to_file(LEVEL_FILES_BASE + "hello.tscn")
-			next_level_idx = 1 
+			next_level_idx = 0
 	
 	Fade.fade_in()
