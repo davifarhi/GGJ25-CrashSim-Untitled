@@ -58,7 +58,7 @@ size = Vector2(256, 775.286)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_wkf88")
-timeout_in_secs = 600.0
+timeout_in_secs = 50.0
 
 [node name="Boubou" parent="." instance=ExtResource("2_oswnc")]
 position = Vector2(-877, 0)

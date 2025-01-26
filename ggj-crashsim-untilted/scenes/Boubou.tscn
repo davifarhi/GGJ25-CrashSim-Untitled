@@ -67,6 +67,7 @@ IndicatorDistance = 80.0
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="DirIndicator" type="Sprite2D" parent="Visual"]
+z_index = 400
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_apo2a")
 
