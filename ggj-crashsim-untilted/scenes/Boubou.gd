@@ -130,11 +130,6 @@ func _process(delta: float)  -> void:
 		ghost.global_position = ghostGlobalPos
 	elif (ghost.is_visible_in_tree()):
 		ghost.hide()
-	
-	# TODO: debug code, to remove :)
-	if Input.is_key_pressed(KEY_DELETE):
-		linear_velocity = Vector2(0, 0)
-		global_position = GetMousePosInWorld()
 		
 
 func _physics_process(_delta: float) -> void:
