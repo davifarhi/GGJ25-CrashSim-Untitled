@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://be2dhfbxe65hk" path="res://assets/Asset2D/Cube01.png" id="2_64smd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dpma"]
-size = Vector2(200, 200)
+size = Vector2(122, 129)
 
 [node name="Block" type="RigidBody2D"]
 physics_material_override = ExtResource("1_6xao7")
@@ -13,7 +13,9 @@ freeze = true
 continuous_cd = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("2_64smd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_6dpma")
