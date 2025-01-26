@@ -18,6 +18,9 @@ func _ready() -> void:
 	
 	if GameManager.is_best_time():
 		GameManager.set_best_time()
+		$BestTime.show()
+	else:
+		$BestTime.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

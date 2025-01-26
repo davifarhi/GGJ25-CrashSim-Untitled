@@ -22,7 +22,7 @@ var next_fade_out_to: FADE_TO = FADE_TO.LEVEL
 
 var zen_mode_on: bool = false
 var time_to_completion: float = 0.
-var session_best_time: float = 0
+var session_best_time: float = 99999
 
 
 # Called when the node enters the scene tree for the first time.
