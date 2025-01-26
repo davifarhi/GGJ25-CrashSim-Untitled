@@ -30,6 +30,7 @@ func _ready() -> void:
 		var oldSize = particles.visibility_rect.size.y
 		var newSize = oldSize * ratio
 		particles.visibility_rect.size.y *= ratio * ratio
+	particles.emitting = true
 
 func _process(_delta: float) -> void:
 	pass
