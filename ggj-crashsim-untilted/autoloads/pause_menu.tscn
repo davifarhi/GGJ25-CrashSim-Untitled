@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7pys7pmryb7p"]
+[gd_scene load_steps=9 format=3 uid="uid://b7pys7pmryb7p"]
 
 [ext_resource type="Script" path="res://autoloads/pause_menu.gd" id="1_7ci1p"]
 [ext_resource type="Shader" path="res://shaders/blur.frag.gdshader" id="1_diulj"]
+[ext_resource type="Texture2D" uid="uid://b8mduvlkaeubs" path="res://assets/menu/menue_pause.png" id="2_v21uy"]
+[ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="3_7a1nm"]
+[ext_resource type="Texture2D" uid="uid://cxm4sypqhx5ng" path="res://assets/menu/resume.png" id="4_e4hyq"]
+[ext_resource type="Texture2D" uid="uid://bp5fbpqtqqxyd" path="res://assets/menu/BTMM.png" id="6_jrsx7"]
+[ext_resource type="Texture2D" uid="uid://c12k40nioiigs" path="res://assets/menu/restartlevel.png" id="7_iqd03"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy1xw"]
 shader = ExtResource("1_diulj")
@@ -13,39 +18,31 @@ z_index = 1000
 position = Vector2(-960, -540)
 script = ExtResource("1_7ci1p")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_left = 737.0
-offset_top = 210.0
-offset_right = 777.0
-offset_bottom = 250.0
-scale = Vector2(10.6958, 15.7012)
-color = Color(0.901961, 0.694118, 0.415686, 0.517647)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_v21uy")
 
-[node name="Resume" type="Button" parent="."]
-offset_left = 910.0
-offset_top = 366.0
-offset_right = 980.0
-offset_bottom = 397.0
-text = "Resume"
+[node name="Resume" parent="." instance=ExtResource("3_7a1nm")]
+position = Vector2(960, 300)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_e4hyq")
+bg_scale = Vector2(6, 1.2)
 
-[node name="Restart Level" type="Button" parent="."]
-offset_left = 892.0
-offset_top = 483.0
-offset_right = 1001.0
-offset_bottom = 514.0
-text = "Restart Level"
+[node name="Restart" parent="." instance=ExtResource("3_7a1nm")]
+position = Vector2(960, 445)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_iqd03")
+bg_scale = Vector2(6, 1.2)
 
-[node name="Back to Main Menu" type="Button" parent="."]
-offset_left = 878.0
-offset_top = 605.0
-offset_right = 1035.0
-offset_bottom = 636.0
-text = "Back to Main Menu"
+[node name="Main Menu" parent="." instance=ExtResource("3_7a1nm")]
+position = Vector2(960, 580)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_jrsx7")
+bg_scale = Vector2(6, 1.2)
 
 [node name="BackgroundBlur" type="ColorRect" parent="."]
-z_index = 50
-z_as_relative = false
 material = SubResource("ShaderMaterial_iy1xw")
 offset_right = 40.0
 offset_bottom = 40.0
@@ -53,6 +50,6 @@ scale = Vector2(77.0366, 43.4822)
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Restart Level" to="." method="_on_restart_level_pressed"]
-[connection signal="pressed" from="Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="ButtonClick" from="Resume" to="." method="_on_resume_button_click"]
+[connection signal="ButtonClick" from="Restart" to="." method="_on_restart_button_click"]
+[connection signal="ButtonClick" from="Main Menu" to="." method="_on_main_menu_button_click"]

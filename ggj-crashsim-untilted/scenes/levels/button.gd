@@ -17,6 +17,10 @@ func _ready() -> void:
 	tex_hovered.hide()
 	$TextureButton.texture_normal = texture
 	$BG.scale = bg_scale
+	
+	var button_pos = $TextureButton.position
+	button_pos.x =- texture.get_size().x / 2
+	$TextureButton.position = button_pos
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

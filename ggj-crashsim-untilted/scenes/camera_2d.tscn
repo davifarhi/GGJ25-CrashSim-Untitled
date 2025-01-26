@@ -11,5 +11,6 @@ script = ExtResource("1_6y47g")
 
 [node name="TimerText" parent="." instance=ExtResource("3_0xc4v")]
 visible = false
+z_index = 1200
 position = Vector2(717, -315)
 scale = Vector2(0.3, 0.3)
