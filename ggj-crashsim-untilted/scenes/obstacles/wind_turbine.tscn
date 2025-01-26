@@ -116,6 +116,8 @@ stream = ExtResource("8_4o0qu")
 stream = ExtResource("9_l5050")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -10
+z_as_relative = false
 position = Vector2(0, -1)
 scale = Vector2(1.275, 1)
 amount = 50
