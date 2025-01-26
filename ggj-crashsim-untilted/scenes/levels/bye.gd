@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@onready var best_time_sfx_collection = SoundCollection.new($BestTimeSFX)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +25,8 @@ func _ready() -> void:
 		print("Got best time: " + str(GameManager.get_completion_time()) + ", old: " + str(GameManager.session_best_time))
 		GameManager.set_best_time()
 		$BestTime.show()
+		# dfarhi todo here play new best time sounds
+		#best_time_sfx_collection.play_all()
 	else:
 		$BestTime.hide()
 
