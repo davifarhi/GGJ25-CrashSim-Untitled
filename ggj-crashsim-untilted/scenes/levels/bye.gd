@@ -1,8 +1,11 @@
 extends Node2D
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var mouseHelper = $Camera2D/MouseAimHelper
+	mouseHelper.hide()
 	var time = GameManager.get_completion_time()
 	var rounded = floor(time)
 	var secs = int(rounded)
