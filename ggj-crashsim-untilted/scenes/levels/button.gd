@@ -8,6 +8,9 @@ extends Node2D
 @export var bg_scale = Vector2(2., 0.8)
 
 
+signal ButtonClick
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tex_normal.show()
@@ -39,3 +42,7 @@ func _on_texture_button_focus_exited() -> void:
 func _on_texture_button_mouse_exited() -> void:
 	tex_normal.show()
 	tex_hovered.hide()
+
+
+func _on_texture_button_pressed() -> void:
+	ButtonClick.emit()

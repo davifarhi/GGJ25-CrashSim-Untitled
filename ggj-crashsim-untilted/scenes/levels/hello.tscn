@@ -42,3 +42,6 @@ texture = ExtResource("8_s35cc")
 
 [node name="Exit" parent="." instance=ExtResource("7_o2y33")]
 position = Vector2(0, 140)
+
+[connection signal="ButtonClick" from="Start" to="." method="_on_start_button_click"]
+[connection signal="ButtonClick" from="Exit" to="." method="_on_exit_button_click"]
