@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://l1jin7xkx4ru" path="res://assets/booster.png" id="10_fr4ql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_718xj"]
-size = Vector2(240, 488)
+size = Vector2(256, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgjqr"]
-size = Vector2(258.918, 1343.95)
+size = Vector2(258.918, 1288.16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sq1p"]
 size = Vector2(64, 128)
@@ -45,7 +45,6 @@ position = Vector2(482, 930)
 position = Vector2(452, 207)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/WindTurbine"]
-position = Vector2(0, 211)
 shape = SubResource("RectangleShape2D_718xj")
 
 [node name="WindTurbine2" parent="Obstacle" instance=ExtResource("4_mii5k")]
@@ -54,7 +53,7 @@ rotation = -0.523599
 acceleration_amount = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle/WindTurbine2"]
-position = Vector2(-0.728449, 609.261)
+position = Vector2(-0.728485, 637.154)
 shape = SubResource("RectangleShape2D_vgjqr")
 
 [node name="TurningCross" parent="Obstacle" instance=ExtResource("5_rueeh")]

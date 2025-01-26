@@ -53,14 +53,15 @@ _data = {
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c3xsu"]
 lifetime_randomness = 0.01
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -45, 0)
+emission_shape_offset = Vector3(0, -100, 0)
 emission_shape = 3
-emission_box_extents = Vector3(100, 50, 1)
+emission_box_extents = Vector3(100, 1, 1)
 direction = Vector3(0, 1, 0)
-spread = 10.0
-flatness = 1.0
-initial_velocity_min = 90.0
-initial_velocity_max = 110.0
+spread = 0.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
 gravity = Vector3(0, 0, 0)
 scale_min = 0.2
 scale_max = 0.2
@@ -69,7 +70,7 @@ scale_max = 0.2
 script = ExtResource("1_dcvhy")
 
 [node name="StaticPart" type="StaticBody2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -96)
 
 [node name="Sprite2" type="Sprite2D" parent="StaticPart"]
 rotation = 3.14159
@@ -92,17 +93,6 @@ libraries = {
 "": SubResource("AnimationLibrary_fmtpl")
 }
 
-[node name="particlesOffset" type="Node2D" parent="."]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="particlesOffset"]
-position = Vector2(0, 96)
-scale = Vector2(1.275, 1)
-amount = 50
-process_material = SubResource("ParticleProcessMaterial_c3xsu")
-texture = ExtResource("4_n5gnm")
-trail_enabled = true
-trail_lifetime = 0.2
-
 [node name="ContactSFX" type="Node" parent="."]
 
 [node name="EnvWind01" type="AudioStreamPlayer" parent="ContactSFX"]
@@ -124,6 +114,18 @@ stream = ExtResource("8_4o0qu")
 
 [node name="EnvWindVo03" type="AudioStreamPlayer" parent="ContactVO"]
 stream = ExtResource("9_l5050")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1.275, 1)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_c3xsu")
+texture = ExtResource("4_n5gnm")
+lifetime = 2.0
+preprocess = 1.0
+trail_enabled = true
+trail_lifetime = 0.2
+trail_sections = 10
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
