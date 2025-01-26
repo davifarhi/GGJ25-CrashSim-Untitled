@@ -5,12 +5,10 @@ class_name Level
 
 @onready var boubou = $Boubou as Boubou
 @onready var level_timer = Timer.new()
-
-
 @onready var timer_widget = UiManager.Camera.timer_widget
 
 var timed_out = false
-
+var level_start_timestamp: float = 0. # in seconds
 
 func _ready():
 	boubou.dir_indicator.hide()
@@ -24,7 +22,11 @@ func _ready():
 	boubou.BoubouDie.connect(_on_boubou_die)
 	
 	timer_widget.show()
-	timer_widget.set_timer(timeout_in_secs)
+	# ZenMode
+	if GameManager.zen_mode_on:
+		timer_widget.set_zen()
+	else:
+		timer_widget.set_timer(timeout_in_secs)
 	
 	
 func _process(delta: float):
@@ -33,19 +35,27 @@ func _process(delta: float):
 	if boubou.dead:
 		return
 	
-	if level_timer.time_left < 8.:
-		timer_widget.set_danger(not timed_out)
-	timer_widget.set_timer(level_timer.time_left)
+	# ZenMode
+	if not GameManager.zen_mode_on:
+		if level_timer.time_left < 8.:
+			timer_widget.set_danger(not timed_out)
+		timer_widget.set_timer(level_timer.time_left)
 	
 	
 func _on_popit_done():
 	boubou.dir_indicator.show()
 	level_timer.start()
-
+	level_start_timestamp = Time.get_unix_time_from_system()
+	
 	
 func _on_level_timer_end():
 	if GameManager.are_game_animations_active():
 		return
+		
+	# ZenMode
+	if GameManager.zen_mode_on:
+		return
+		
 	TimeoutMenu.open_timeout_menu()
 	timer_widget.reset()
 	timer_widget.set_danger(false)
@@ -54,7 +64,10 @@ func _on_level_timer_end():
 
 
 func _on_boubou_die(boubou):
-	GameManager.add_level_time(timeout_in_secs - level_timer.time_left)
+	var level_end_timestamp = Time.get_unix_time_from_system()
+	var player_time_in_level = level_end_timestamp - level_start_timestamp
+	GameManager.add_level_time(player_time_in_level)
+	
 	level_timer.stop()
 	timer_widget.stop_sfx()
 	timer_widget.set_normal()
