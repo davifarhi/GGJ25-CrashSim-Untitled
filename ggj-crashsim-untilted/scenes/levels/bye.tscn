@@ -22,18 +22,18 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6raag")
 
 [node name="TimerText" type="RichTextLabel" parent="."]
-offset_left = 299.0
-offset_top = -237.0
-offset_right = 639.0
-offset_bottom = -82.0
-theme_override_font_sizes/normal_font_size = 100
+offset_left = 226.0
+offset_top = -225.0
+offset_right = 694.0
+offset_bottom = -70.0
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[center]12:123[/center]
 "
 
 [node name="ByeButtons" type="Node2D" parent="."]
 
-[node name="TextureButton" parent="ByeButtons" instance=ExtResource("5_x1rjh")]
+[node name="MainMenu" parent="ByeButtons" instance=ExtResource("5_x1rjh")]
 offset_left = 0.0
 offset_top = 245.0
 offset_right = 1314.0
@@ -42,4 +42,4 @@ scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("6_xy7ur")
 bg_scale = Vector2(7, 1.2)
 
-[connection signal="ButtonClick" from="ByeButtons/TextureButton" to="." method="_on_texture_button_button_click"]
+[connection signal="ButtonClick" from="ByeButtons/MainMenu" to="." method="_on_texture_button_button_click"]
