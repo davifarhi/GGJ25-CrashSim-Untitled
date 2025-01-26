@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="11_sh7ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxmmg"]
-size = Vector2(1982, 65)
+size = Vector2(1982, 512)
 
 [node name="LevelDecoration" type="Node2D"]
 script = ExtResource("1_l8qv7")
@@ -43,7 +43,7 @@ contact_monitor = true
 max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/UpperWall"]
-position = Vector2(959, -23)
+position = Vector2(959, -248)
 shape = SubResource("RectangleShape2D_xxmmg")
 
 [node name="LowerWall" type="RigidBody2D" parent="LevelWalls"]
@@ -51,11 +51,12 @@ position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
 freeze = true
 freeze_mode = 1
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LowerWall"]
-position = Vector2(954, -11)
+position = Vector2(954, 214)
 shape = SubResource("RectangleShape2D_xxmmg")
 
 [node name="RightWall" type="RigidBody2D" parent="LevelWalls"]
@@ -63,11 +64,12 @@ position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
 freeze = true
 freeze_mode = 1
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/RightWall"]
-position = Vector2(1932, -755)
+position = Vector2(2157, -735)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")
 
@@ -76,11 +78,12 @@ position = Vector2(-1915, 1113)
 physics_material_override = ExtResource("3_i76to")
 freeze = true
 freeze_mode = 1
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LeftWall"]
-position = Vector2(1891, -753)
+position = Vector2(1670, -753)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")
 
