@@ -21,8 +21,9 @@ speed = SubResource("Curve_88api")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 4
 position = Vector2(0.140303, -2.80142e-06)
-scale = Vector2(-0.32, -0.32)
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("2_a1tw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_vpay0")

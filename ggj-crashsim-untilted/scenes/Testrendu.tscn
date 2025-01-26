@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwafvapxbmir6"]
+[gd_scene load_steps=9 format=3 uid="uid://dwafvapxbmir6"]
 
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="1_go4x4"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_vn4j0"]
@@ -7,33 +7,35 @@
 [ext_resource type="PackedScene" uid="uid://d0pchhp267oy1" path="res://scenes/obstacles/turning_cross.tscn" id="5_u5jxl"]
 [ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="6_xdww1"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="7_cjdlw"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="8_vr01d"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(960, 543)
 
 [node name="LevelDecoration" parent="." instance=ExtResource("1_go4x4")]
 
 [node name="Obstacle" type="Node2D" parent="."]
 
 [node name="RoundBumper" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(384, 797)
+position = Vector2(-657, -206)
 
 [node name="RoundBumper2" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(605, 797)
+position = Vector2(202, -152)
 
 [node name="RoundBumper3" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(341, 511)
+position = Vector2(-721, 136)
 
 [node name="RoundBumper4" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(504, 574)
+position = Vector2(-529, 300)
 
 [node name="RoundBumper5" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(608, 668)
+position = Vector2(-283, 387)
 
 [node name="RoundBumper6" parent="Obstacle" instance=ExtResource("2_vn4j0")]
-position = Vector2(482, 930)
+position = Vector2(-93, 254)
 
 [node name="WindTurbine" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("3_wh2c7")]
-position = Vector2(451, 183)
+position = Vector2(-449, -463)
 windbox_shape = NodePath("WindTurbineShape")
 
 [node name="WindTurbineShape" type="Sprite2D" parent="Obstacle/WindTurbine"]
@@ -41,7 +43,8 @@ position = Vector2(1.90735e-06, 52)
 texture = ExtResource("4_jp0rf")
 
 [node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("3_wh2c7")]
-position = Vector2(1099, 92)
+position = Vector2(631, 476)
+rotation = 3.14159
 acceleration_amount = 2.0
 windbox_shape = NodePath("WindTurbineShape2")
 
@@ -51,15 +54,18 @@ scale = Vector2(1.84, 8.50963)
 texture = ExtResource("4_jp0rf")
 
 [node name="TurningCross" parent="Obstacle" instance=ExtResource("5_u5jxl")]
+position = Vector2(-237, -42)
 
 [node name="MovingWall_2x2" parent="Obstacle" instance=ExtResource("6_xdww1")]
-position = Vector2(1521, 197)
+position = Vector2(194, 176)
 displacement = Vector2(64, 0)
 displacementTime = 0.5
 
 [node name="Boubou" parent="." instance=ExtResource("7_cjdlw")]
-position = Vector2(883, 313)
+position = Vector2(59, -163)
 rotation = 1.01578
-bounceDecay = 10.0
+
+[node name="Spikes4" parent="." instance=ExtResource("8_vr01d")]
+position = Vector2(-517, 135)
 
 [connection signal="JuiceOnInpulse" from="Boubou" to="LevelDecoration" method="_on_boubou_juice_on_inpulse"]

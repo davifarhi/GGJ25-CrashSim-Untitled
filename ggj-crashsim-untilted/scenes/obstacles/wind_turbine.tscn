@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr8qcb8xad7lc"]
+[gd_scene load_steps=11 format=3 uid="uid://dr8qcb8xad7lc"]
 
 [ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_7hnom"]
 [ext_resource type="Script" path="res://scenes/obstacles/wind_turbine.gd" id="1_dcvhy"]
+[ext_resource type="Texture2D" uid="uid://br70pgc83pbgn" path="res://assets/Asset2D/pal.png" id="3_c36w8"]
 [ext_resource type="Texture2D" uid="uid://dhw441y1378qh" path="res://assets/Asset2D/Ventilateur_base.png" id="3_i7uf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqg1w"]
-size = Vector2(126, 138)
+size = Vector2(256, 269)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_451e1"]
 particle_flag_disable_z = true
@@ -17,7 +18,43 @@ scale_min = 2.0
 scale_max = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
-size = Vector2(128, 64)
+size = Vector2(128, 49.5)
+
+[sub_resource type="Animation" id="Animation_ugnw0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_kx3fi"]
+resource_name = "ventilateur_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fmtpl"]
+_data = {
+"RESET": SubResource("Animation_ugnw0"),
+"ventilateur_animation": SubResource("Animation_kx3fi")
+}
 
 [node name="WindTurbine" type="Node2D"]
 position = Vector2(123, 76)
@@ -27,7 +64,7 @@ script = ExtResource("1_dcvhy")
 script = ExtResource("1_7hnom")
 
 [node name="WindBoxShape" type="CollisionShape2D" parent="WindBox"]
-position = Vector2(1, 68)
+position = Vector2(3, 171)
 shape = SubResource("RectangleShape2D_iqg1w")
 
 [node name="Particles" type="GPUParticles2D" parent="WindBox/WindBoxShape"]
@@ -40,19 +77,28 @@ trail_lifetime = 1.01
 [node name="StaticPart" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
 
-[node name="Sprite" type="Sprite2D" parent="StaticPart"]
-position = Vector2(-30, -32)
-scale = Vector2(-0.32, -0.32)
-texture = ExtResource("3_i7uf1")
-
 [node name="Sprite2" type="Sprite2D" parent="StaticPart"]
-position = Vector2(32, -31)
-scale = Vector2(-0.32, -0.32)
+position = Vector2(2, -22)
+rotation = 3.14159
+scale = Vector2(0.64, 0.64)
+texture = ExtResource("3_c36w8")
+offset = Vector2(-1.72992, -32.6131)
+
+[node name="Sprite" type="Sprite2D" parent="StaticPart"]
+position = Vector2(2, 0)
+rotation = -3.14159
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("3_i7uf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPart"]
-position = Vector2(1, -32)
+position = Vector2(3, -12.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_rx405")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticPart"]
+libraries = {
+"": SubResource("AnimationLibrary_fmtpl")
+}
 
 [connection signal="body_entered" from="WindBox" to="WindBox" method="_on_windbox_entered"]
 [connection signal="body_exited" from="WindBox" to="WindBox" method="_on_windbox_exited"]

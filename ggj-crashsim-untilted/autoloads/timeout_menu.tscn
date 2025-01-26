@@ -9,6 +9,7 @@ shader_parameter/sigma = 2.0
 
 [node name="TimeoutMenu" type="Node2D"]
 z_index = 1000
+position = Vector2(-960, -540)
 script = ExtResource("1_yvdfl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
