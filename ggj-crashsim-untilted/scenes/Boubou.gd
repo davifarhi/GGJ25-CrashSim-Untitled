@@ -57,13 +57,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		currentInputType = InputType.Gamepad
 
+func GetMousePosInWorld() -> Vector2:
+	return get_global_mouse_position()
+
 func InputDir() -> Vector2:
 	var dir = Vector2(0, 0)
 	if currentInputType == InputType.Mouse:
-		var screen_pos = global_position
-		if camera != null:
-			screen_pos = global_position - camera.global_position + Vector2(get_viewport().size)/2
-		dir = get_viewport().get_mouse_position() - screen_pos
+		dir = GetMousePosInWorld() - global_position
 	elif currentInputType == InputType.Gamepad:
 		dir = Input.get_vector("JoypadDirLeft", "JoypadDirRight", "JoypadDirUp", "JoypadDirDown")
 	
@@ -105,11 +105,7 @@ func _process(delta: float)  -> void:
 	# TODO: debug code, to remove :)
 	if Input.is_key_pressed(KEY_DELETE):
 		linear_velocity = Vector2(0, 0)
-		
-		var offset = Vector2(0, 0)
-		if camera != null:
-			offset = camera.global_position - Vector2(get_viewport().size)/2
-		global_position = get_viewport().get_mouse_position() + offset
+		global_position = GetMousePosInWorld()
 		
 
 func _physics_process(_delta: float) -> void:
