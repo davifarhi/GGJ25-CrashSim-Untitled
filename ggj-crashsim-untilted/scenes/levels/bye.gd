@@ -15,6 +15,9 @@ func _ready() -> void:
 	text.push_context()
 	text.push_color(TimerText.NORMAL_COLOR)
 	text.append_text(str)
+	
+	if GameManager.is_best_time():
+		GameManager.set_best_time()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

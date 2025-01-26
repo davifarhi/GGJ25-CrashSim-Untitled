@@ -43,7 +43,21 @@ offset_right = 400.0
 offset_bottom = 268.0
 scale = Vector2(0.6, 0.6)
 focus_neighbor_top = NodePath("../Start")
+focus_neighbor_right = NodePath("../../ZenModeToggle")
+focus_neighbor_bottom = NodePath("../../ZenModeToggle")
 texture_normal = ExtResource("4_p0do3")
+
+[node name="ZenModeToggle" type="CheckButton" parent="."]
+z_index = 800
+offset_left = 563.0
+offset_top = 351.0
+offset_right = 747.0
+offset_bottom = 401.0
+focus_neighbor_left = NodePath("../MenuButtons/Exit")
+focus_neighbor_top = NodePath("../MenuButtons/Exit")
+theme_override_font_sizes/font_size = 30
+text = "ZenMode"
 
 [connection signal="ButtonClick" from="MenuButtons/Start" to="." method="_on_start_button_click"]
 [connection signal="ButtonClick" from="MenuButtons/Exit" to="." method="_on_exit_button_click"]
+[connection signal="toggled" from="ZenModeToggle" to="." method="_on_zen_mode_toggled"]
