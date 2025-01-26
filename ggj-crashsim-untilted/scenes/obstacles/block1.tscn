@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="9_fifxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dpma"]
-size = Vector2(122, 129)
+size = Vector2(128, 128)
 
 [node name="Block" type="RigidBody2D"]
 physics_material_override = ExtResource("1_6xao7")
@@ -28,7 +28,6 @@ scale = Vector2(0.64, 0.64)
 texture = ExtResource("2_64smd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_6dpma")
 
 [node name="BounceCollection" type="Node" parent="."]
