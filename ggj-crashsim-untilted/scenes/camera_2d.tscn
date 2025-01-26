@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgsnmul1dmmnk"]
+[gd_scene load_steps=4 format=3 uid="uid://cgsnmul1dmmnk"]
 
 [ext_resource type="Script" path="res://scenes/camera.gd" id="1_6y47g"]
 [ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="2_vi71n"]
+[ext_resource type="PackedScene" uid="uid://dtr2g4tpcntc" path="res://scenes/TimerText.tscn" id="3_0xc4v"]
 
 [node name="Camera2D" type="Camera2D"]
 script = ExtResource("1_6y47g")
 
 [node name="LevelDecoration" parent="." instance=ExtResource("2_vi71n")]
+
+[node name="TimerText" parent="." instance=ExtResource("3_0xc4v")]
+position = Vector2(-736, -323)
+scale = Vector2(0.3, 0.3)
