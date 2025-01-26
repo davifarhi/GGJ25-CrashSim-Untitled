@@ -13,6 +13,20 @@ signal JuiceOnInpulse(dir: Vector2)
 var ghostIsSpawned:bool = false
 var ghostremainingTime:float = 0
 @onready var ghost:Sprite2D = $BoubouGhost
+
+@export_category("Eyes")
+@export var eyesNormal: Texture2D
+@export var eyesBlink: Texture2D
+@export var eyesBounce: Texture2D
+@export var eyesFast: Texture2D
+@export var blinkPeriod: float = 1.0
+@export var blinkDuration: float = 0.2
+@export var eyesBounceTextureDuration: float = 1
+@onready var eyesSprite = $Visual/BodyPolygon/Eyes
+var blinking: bool = false
+var timeBeforeBlinkChange: float = 0
+var eyesTextureLockTime: float = 0
+
 var ghostGlobalPos:Vector2
 
 @export_category("Indicator")
@@ -95,7 +109,8 @@ func _process(delta: float)  -> void:
 		return;
 	if GameManager.are_game_animations_active():
 		return
-		
+	
+	UpdateEyes(delta)
 	UpdateIndicatorPos()
 	
 	if (ghostremainingTime > 0):
@@ -141,6 +156,8 @@ func _on_juice_on_inpulse(_dir: Vector2) -> void:
 	SpawnGhost()
 
 func _on_bumper_contact():
+	eyesTextureLockTime = eyesBounceTextureDuration
+	eyesSprite.texture = eyesBounce
 	bumper_contact_sfx_collection.play_random()
 	
 func _on_level_begin():
@@ -148,3 +165,28 @@ func _on_level_begin():
 	#boubou_born_sfx_group.play_all()
 	# dfarhi todo later on scene init play born sfx sound,
 	# doesn't work here as the sound is emitted right before scene change
+	
+func UpdateEyes(delta: float):
+	if eyesTextureLockTime > 0:
+		eyesTextureLockTime -= delta
+		if eyesTextureLockTime < 0:
+			timeBeforeBlinkChange = 0
+		else:
+			return
+
+	var wantedEyeTexture = eyesNormal
+	if linear_velocity.length() > 1000:
+		wantedEyeTexture = eyesFast
+	
+	# blink
+	if timeBeforeBlinkChange >= 0:
+		timeBeforeBlinkChange -= delta
+		if timeBeforeBlinkChange < 0:
+			if blinking:
+				timeBeforeBlinkChange = blinkPeriod
+				blinking = false
+				eyesSprite.texture = wantedEyeTexture
+			else:
+				timeBeforeBlinkChange = blinkDuration
+				blinking = true
+				eyesSprite.texture = eyesBlink
