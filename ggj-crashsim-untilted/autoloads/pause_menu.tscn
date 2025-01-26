@@ -24,37 +24,6 @@ position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_v21uy")
 
-[node name="Resume" parent="." instance=ExtResource("3_7a1nm")]
-offset_left = 960.0
-offset_top = 284.0
-offset_right = 1547.0
-offset_bottom = 484.0
-scale = Vector2(0.4, 0.4)
-focus_neighbor_bottom = NodePath("../Restart")
-texture_normal = ExtResource("4_e4hyq")
-bg_scale = Vector2(6, 1.2)
-
-[node name="Restart" parent="." instance=ExtResource("3_7a1nm")]
-offset_left = 960.0
-offset_top = 434.0
-offset_right = 2274.0
-offset_bottom = 634.0
-scale = Vector2(0.4, 0.4)
-focus_neighbor_top = NodePath("../Resume")
-focus_neighbor_bottom = NodePath("../Main Menu")
-texture_normal = ExtResource("7_iqd03")
-bg_scale = Vector2(6, 1.2)
-
-[node name="Main Menu" parent="." instance=ExtResource("3_7a1nm")]
-offset_left = 960.0
-offset_top = 584.0
-offset_right = 2274.0
-offset_bottom = 784.0
-scale = Vector2(0.4, 0.4)
-focus_neighbor_top = NodePath("../Restart")
-texture_normal = ExtResource("6_jrsx7")
-bg_scale = Vector2(6, 1.2)
-
 [node name="BackgroundBlur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_iy1xw")
 offset_right = 40.0
@@ -63,6 +32,40 @@ scale = Vector2(77.0366, 43.4822)
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[connection signal="ButtonClick" from="Resume" to="." method="_on_resume_button_click"]
-[connection signal="ButtonClick" from="Restart" to="." method="_on_restart_button_click"]
-[connection signal="ButtonClick" from="Main Menu" to="." method="_on_main_menu_button_click"]
+[node name="PauseButtons" type="Node2D" parent="."]
+position = Vector2(975, 539)
+
+[node name="Resume" parent="PauseButtons" instance=ExtResource("3_7a1nm")]
+offset_left = 0.0
+offset_top = -256.0
+offset_right = 587.0
+offset_bottom = -56.0
+scale = Vector2(0.4, 0.4)
+focus_neighbor_bottom = NodePath("../Restart")
+texture_normal = ExtResource("4_e4hyq")
+bg_scale = Vector2(6, 1.2)
+
+[node name="Restart" parent="PauseButtons" instance=ExtResource("3_7a1nm")]
+offset_left = 0.0
+offset_top = -106.0
+offset_right = 1314.0
+offset_bottom = 94.0
+scale = Vector2(0.4, 0.4)
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../MainMenu")
+texture_normal = ExtResource("7_iqd03")
+bg_scale = Vector2(6, 1.2)
+
+[node name="MainMenu" parent="PauseButtons" instance=ExtResource("3_7a1nm")]
+offset_left = 0.0
+offset_top = 44.0
+offset_right = 1314.0
+offset_bottom = 244.0
+scale = Vector2(0.4, 0.4)
+focus_neighbor_top = NodePath("../Restart")
+texture_normal = ExtResource("6_jrsx7")
+bg_scale = Vector2(6, 1.2)
+
+[connection signal="ButtonClick" from="PauseButtons/Resume" to="." method="_on_resume_button_click"]
+[connection signal="ButtonClick" from="PauseButtons/Restart" to="." method="_on_restart_button_click"]
+[connection signal="ButtonClick" from="PauseButtons/MainMenu" to="." method="_on_main_menu_button_click"]
