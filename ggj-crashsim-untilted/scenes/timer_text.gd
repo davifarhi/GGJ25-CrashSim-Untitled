@@ -5,7 +5,8 @@ class_name TimerText
 
 
 const NORMAL_COLOR = Color(1., 1., 1., 1.)
-const DANGER_COLOR = Color(1., 0., 0., 1.)
+const DANGER_COLOR = Color(216./255.0, 69./255.0, 69./255.0, 1.)
+#const DANGER_COLOR = Color(1.0, 0.0, 0.0, 1.)
 const format_str = "[center]%02d:%03d[/center]"
 
 
