@@ -1,24 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://djbu8d5lmxdd1"]
+[gd_scene load_steps=7 format=3 uid="uid://djbu8d5lmxdd1"]
 
 [ext_resource type="Script" path="res://scenes/levels/bye.gd" id="1_vm3el"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_3rw3v"]
+[ext_resource type="Texture2D" uid="uid://dprsp5fhe42w6" path="res://assets/menu/menue_thanks.png" id="4_6raag"]
 [ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="4_jyxn7"]
+[ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="5_x1rjh"]
+[ext_resource type="Texture2D" uid="uid://bp5fbpqtqqxyd" path="res://assets/menu/BTMM.png" id="6_xy7ur"]
 
 [node name="Bye" type="Node2D"]
 script = ExtResource("1_vm3el")
 
 [node name="Boubou" parent="." instance=ExtResource("2_3rw3v")]
-position = Vector2(191, -96)
+position = Vector2(644, 270)
 rotation = 1.01578
 freeze = true
 
-[node name="Main Menu" type="Button" parent="."]
-offset_left = -231.0
-offset_top = 306.0
-offset_right = 330.0
-offset_bottom = 487.0
-text = "Main Menu"
-
 [node name="Camera2D" parent="." instance=ExtResource("4_jyxn7")]
 
-[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6raag")
+
+[node name="TimerText" type="RichTextLabel" parent="."]
+offset_left = 299.0
+offset_top = -237.0
+offset_right = 639.0
+offset_bottom = -82.0
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]12:123[/center]
+"
+
+[node name="ByeButtons" type="Node2D" parent="."]
+
+[node name="TextureButton" parent="ByeButtons" instance=ExtResource("5_x1rjh")]
+offset_left = 0.0
+offset_top = 245.0
+offset_right = 1314.0
+offset_bottom = 445.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_xy7ur")
+bg_scale = Vector2(7, 1.2)
+
+[connection signal="ButtonClick" from="ByeButtons/TextureButton" to="." method="_on_texture_button_button_click"]
