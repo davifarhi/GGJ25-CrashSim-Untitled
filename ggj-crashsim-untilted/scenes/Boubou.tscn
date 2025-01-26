@@ -1,11 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6j1f4wg7fctp"]
+[gd_scene load_steps=32 format=3 uid="uid://b6j1f4wg7fctp"]
 
 [ext_resource type="Script" path="res://scenes/Boubou.gd" id="1_kffpd"]
 [ext_resource type="Texture2D" uid="uid://ctkhmlu2q2ic2" path="res://assets/Asset2D/curseur.png" id="2_apo2a"]
 [ext_resource type="Texture2D" uid="uid://ct8dag40r7520" path="res://assets/BoubouBody.png" id="2_hxvjg"]
+[ext_resource type="Texture2D" uid="uid://bo3a15usorr0f" path="res://assets/Asset2D/Oeil01.png" id="3_ag4w6"]
 [ext_resource type="Texture2D" uid="uid://vdm5en4uga6i" path="res://assets/BoubouEyes.png" id="3_xldl1"]
+[ext_resource type="Texture2D" uid="uid://dspj64fo4k4ha" path="res://assets/Asset2D/Oeil04.png" id="4_6j02u"]
 [ext_resource type="Material" uid="uid://dwxuicitqt8wh" path="res://particles/DashParticles.tres" id="5_4oc7x"]
 [ext_resource type="PackedScene" uid="uid://cb80y1r6c8jsm" path="res://scenes/wall_detection.tscn" id="5_bkr48"]
+[ext_resource type="Texture2D" uid="uid://bf6cyxsgljffr" path="res://assets/Asset2D/Oeil05.png" id="5_ck0wf"]
 [ext_resource type="Texture2D" uid="uid://cyi4y8obgey51" path="res://assets/BoubouBodyMini.png" id="6_pxi0c"]
 [ext_resource type="Script" path="res://scenes/deformation_skel.gd" id="6_x1b53"]
 [ext_resource type="Script" path="res://scenes/dash_particle.gd" id="7_ixgqx"]
@@ -51,6 +54,13 @@ InpulseForce = 800.0
 maxSpeed = 2000.0
 bounceDecay = 10.0
 ghostTime = 0.04
+eyesNormal = ExtResource("3_xldl1")
+eyesBlink = ExtResource("3_ag4w6")
+eyesBounce = ExtResource("5_ck0wf")
+eyesFast = ExtResource("4_6j02u")
+blinkPeriod = 3.0
+blinkDuration = 0.1
+eyesBounceTextureDuration = 0.5
 Indicator = NodePath("Visual/DirIndicator")
 IndicatorDistance = 80.0
 
