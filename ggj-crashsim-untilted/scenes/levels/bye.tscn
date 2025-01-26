@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djbu8d5lmxdd1"]
+[gd_scene load_steps=10 format=3 uid="uid://djbu8d5lmxdd1"]
 
 [ext_resource type="Script" path="res://scenes/levels/bye.gd" id="1_vm3el"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_3rw3v"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="5_x1rjh"]
 [ext_resource type="Texture2D" uid="uid://bp5fbpqtqqxyd" path="res://assets/menu/BTMM.png" id="6_xy7ur"]
 [ext_resource type="Texture2D" uid="uid://bj0nq62h6hmfy" path="res://assets/menu/BestTime.png" id="7_tya22"]
-[ext_resource type="AudioStream" uid="uid://41jolr6cuyxf" path="res://assets/sound/bou_born_01.wav" id="8_kxjvt"]
+[ext_resource type="AudioStream" uid="uid://dpprd6502lx4" path="res://assets/sound/env_besttime.wav" id="8_kvs1m"]
+[ext_resource type="AudioStream" uid="uid://dg7v133wpuk53" path="res://assets/sound/env_besttime_vo.wav" id="9_1nq04"]
 
 [node name="Bye" type="Node2D"]
 script = ExtResource("1_vm3el")
@@ -53,7 +54,10 @@ texture = ExtResource("7_tya22")
 
 [node name="BestTimeSFX" type="Node" parent="."]
 
-[node name="BouBorn01" type="AudioStreamPlayer" parent="BestTimeSFX"]
-stream = ExtResource("8_kxjvt")
+[node name="EnvBesttime" type="AudioStreamPlayer" parent="BestTimeSFX"]
+stream = ExtResource("8_kvs1m")
+
+[node name="EnvBesttimeVo" type="AudioStreamPlayer" parent="BestTimeSFX"]
+stream = ExtResource("9_1nq04")
 
 [connection signal="ButtonClick" from="ByeButtons/MainMenu" to="." method="_on_texture_button_button_click"]
