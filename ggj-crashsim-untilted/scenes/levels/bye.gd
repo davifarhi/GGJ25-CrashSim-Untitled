@@ -19,6 +19,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var boubou = $Boubou as Boubou
+	if boubou.currentInputType == Boubou.InputType.Mouse:
+		boubou.dir_indicator.hide()
+	else:
+		boubou.dir_indicator.show()
 	pass
 
 

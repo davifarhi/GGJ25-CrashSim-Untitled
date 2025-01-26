@@ -44,6 +44,7 @@ signal BoubouBumperContact
 
 @onready var dir_indicator = $Visual/DirIndicator
 @onready var camera = get_parent().get_node("Camera2D") as Camera2D
+@onready var mouseAimHelper = camera.get_node("MouseAimHelper") as Node2D
 
 var impulsionDone = false
 var dead = false
@@ -79,7 +80,7 @@ func GetMousePosInWorld() -> Vector2:
 func InputDir() -> Vector2:
 	var dir = Vector2(0, 0)
 	if currentInputType == InputType.Mouse:
-		dir = GetMousePosInWorld() - global_position
+		dir = Vector2(DisplayServer.mouse_get_position()-DisplayServer.window_get_position()) - Vector2(DisplayServer.window_get_size())/2 + Vector2(0.5, 0.5)
 	elif currentInputType == InputType.Gamepad:
 		dir = Input.get_vector("JoypadDirLeft", "JoypadDirRight", "JoypadDirUp", "JoypadDirDown")
 	
@@ -90,10 +91,14 @@ func InputDir() -> Vector2:
 	return latestDir
 
 func UpdateIndicatorPos():
-	Indicator.position = Vector2()
+	Indicator.global_position = global_position
 	Indicator.rotation = -rotation
 	var dir = InputDir()
-	Indicator.global_translate(IndicatorDistance * dir)
+	var distScale = 1.0
+	if currentInputType == InputType.Mouse:
+		Indicator.global_position = mouseAimHelper.global_position
+		distScale = 0.5
+	Indicator.global_translate(distScale * IndicatorDistance * dir)
 	Indicator.rotate(dir.angle())
 
 # Called when the node enters the scene tree for the first time.
@@ -109,6 +114,12 @@ func _process(delta: float)  -> void:
 		return;
 	if GameManager.are_game_animations_active():
 		return
+	if currentInputType == InputType.Mouse:
+		Indicator.z_index = mouseAimHelper.z_index
+		mouseAimHelper.show()
+	else:
+		Indicator.z_index = z_index
+		mouseAimHelper.hide()
 	
 	UpdateEyes(delta)
 	UpdateIndicatorPos()
