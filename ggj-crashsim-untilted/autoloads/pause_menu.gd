@@ -34,7 +34,7 @@ func select_first_button() -> bool:
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if not get_tree().paused:
+	if not get_tree().paused or TimeoutMenu.is_opened():
 		return
 	if event is InputEventMouseMotion:
 		if not mouse_navigation:
@@ -52,6 +52,7 @@ func _on_game_pause() -> void:
 
 	
 func _on_game_unpause() -> void:
+	release_all_focus()
 	hide()
 
 

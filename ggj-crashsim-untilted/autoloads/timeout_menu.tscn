@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyofyympj28by"]
+[gd_scene load_steps=8 format=3 uid="uid://dyofyympj28by"]
 
 [ext_resource type="Shader" path="res://shaders/blur.frag.gdshader" id="1_8gpxt"]
 [ext_resource type="Script" path="res://autoloads/timeout_menu.gd" id="1_yvdfl"]
+[ext_resource type="PackedScene" uid="uid://5o8s6k2pnsvy" path="res://scenes/button.tscn" id="3_1n78w"]
+[ext_resource type="Texture2D" uid="uid://c12k40nioiigs" path="res://assets/menu/restartlevel.png" id="4_hw2f8"]
+[ext_resource type="Texture2D" uid="uid://bp5fbpqtqqxyd" path="res://assets/menu/BTMM.png" id="5_qnwlf"]
+[ext_resource type="Texture2D" uid="uid://cet2ra030fhai" path="res://assets/menu/menue_timeout.png" id="6_or2qq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_87nds"]
 shader = ExtResource("1_8gpxt")
@@ -12,46 +16,46 @@ z_index = 1000
 position = Vector2(-960, -540)
 script = ExtResource("1_yvdfl")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_left = 737.0
-offset_top = 210.0
-offset_right = 777.0
-offset_bottom = 250.0
-scale = Vector2(10.6958, 15.7012)
-color = Color(0.97004, 0.637026, 0.581147, 0.517647)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(960, 540)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_or2qq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 799.0
-offset_top = 298.0
-offset_right = 1055.0
-offset_bottom = 338.0
-scale = Vector2(2.07456, 2.07456)
-text = "You ran out of time"
+[node name="TimeoutButtons" type="Node2D" parent="."]
+z_index = 400
+position = Vector2(1053, 538)
 
-[node name="Restart Level" type="Button" parent="."]
-offset_left = 892.0
-offset_top = 483.0
-offset_right = 1001.0
-offset_bottom = 514.0
-text = "Restart Level"
+[node name="RestartLevel" parent="TimeoutButtons" instance=ExtResource("3_1n78w")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1314.0
+offset_bottom = 200.0
+scale = Vector2(0.4, 0.4)
+focus_neighbor_bottom = NodePath("../MainMenu")
+texture_normal = ExtResource("4_hw2f8")
+bg_scale = Vector2(6, 1.2)
 
-[node name="Back to Main Menu" type="Button" parent="."]
-offset_left = 878.0
-offset_top = 605.0
-offset_right = 1035.0
-offset_bottom = 636.0
-text = "Back to Main Menu"
+[node name="MainMenu" parent="TimeoutButtons" instance=ExtResource("3_1n78w")]
+offset_left = 0.0
+offset_top = 120.0
+offset_right = 1314.0
+offset_bottom = 320.0
+scale = Vector2(0.4, 0.4)
+focus_neighbor_top = NodePath("../RestartLevel")
+texture_normal = ExtResource("5_qnwlf")
+bg_scale = Vector2(6, 1.2)
 
 [node name="BackgroundBlur" type="ColorRect" parent="."]
-z_index = 50
 z_as_relative = false
 material = SubResource("ShaderMaterial_87nds")
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(77.0366, 43.4822)
+offset_left = -1929.0
+offset_top = -2581.0
+offset_right = -1889.0
+offset_bottom = -2541.0
+scale = Vector2(142.766, 182.345)
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
-[connection signal="pressed" from="Restart Level" to="." method="_on_restart_level_pressed"]
-[connection signal="pressed" from="Back to Main Menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="ButtonClick" from="TimeoutButtons/RestartLevel" to="." method="_on_restart_level_button_click"]
+[connection signal="ButtonClick" from="TimeoutButtons/MainMenu" to="." method="_on_main_menu_button_click"]
