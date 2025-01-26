@@ -36,7 +36,9 @@ texture = ExtResource("5_0w40m")
 position = Vector2(1, 112)
 texture = ExtResource("4_p0do3")
 
-[node name="Start" parent="." instance=ExtResource("7_o2y33")]
+[node name="MenuButtons" type="Node2D" parent="."]
+
+[node name="Start" parent="MenuButtons" instance=ExtResource("7_o2y33")]
 offset_left = 2.0
 offset_top = -59.0
 offset_right = 402.0
@@ -45,7 +47,7 @@ scale = Vector2(0.6, 0.6)
 focus_neighbor_bottom = NodePath("../Exit")
 texture_normal = ExtResource("8_s35cc")
 
-[node name="Exit" parent="." instance=ExtResource("7_o2y33")]
+[node name="Exit" parent="MenuButtons" instance=ExtResource("7_o2y33")]
 offset_left = 0.0
 offset_top = 68.0
 offset_right = 400.0
@@ -54,5 +56,5 @@ scale = Vector2(0.6, 0.6)
 focus_neighbor_top = NodePath("../Start")
 texture_normal = ExtResource("4_p0do3")
 
-[connection signal="ButtonClick" from="Start" to="." method="_on_start_button_click"]
-[connection signal="ButtonClick" from="Exit" to="." method="_on_exit_button_click"]
+[connection signal="ButtonClick" from="MenuButtons/Start" to="." method="_on_start_button_click"]
+[connection signal="ButtonClick" from="MenuButtons/Exit" to="." method="_on_exit_button_click"]

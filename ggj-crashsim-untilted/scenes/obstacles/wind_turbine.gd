@@ -16,8 +16,16 @@ func _ready() -> void:
 		if child is CollisionShape2D:
 			shape = child as CollisionShape2D
 			
-	var ratio:float = shape.shape.get_rect().size.y / 256
-	$particlesOffset.scale.y = ratio
+	var ratio:float = shape.shape.get_rect().size.y / 200
+	var particles:GPUParticles2D = $GPUParticles2D
+	particles.lifetime *= ratio
+	particles.amount *= sqrt(ratio)
+	particles.preprocess = particles.lifetime
+	particles.speed_scale *= acceleration_amount
+	if ratio > 1:
+		var oldSize = particles.visibility_rect.size.y
+		var newSize = oldSize * ratio
+		particles.visibility_rect.size.y *= ratio * ratio
 
 func _process(_delta: float) -> void:
 	pass
