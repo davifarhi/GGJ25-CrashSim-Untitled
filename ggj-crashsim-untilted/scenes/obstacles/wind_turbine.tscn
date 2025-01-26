@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr8qcb8xad7lc"]
+[gd_scene load_steps=18 format=3 uid="uid://dr8qcb8xad7lc"]
 
 [ext_resource type="Script" path="res://scenes/wind_box.gd" id="1_7hnom"]
 [ext_resource type="Script" path="res://scenes/obstacles/wind_turbine.gd" id="1_dcvhy"]
@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://tswsu28d8s8t" path="res://assets/sound/env_wind_01.wav" id="4_6ghe2"]
 [ext_resource type="AudioStream" uid="uid://dxy5san8apj28" path="res://assets/sound/env_wind_02.wav" id="5_ds80a"]
 [ext_resource type="AudioStream" uid="uid://bsymfus0jm2yi" path="res://assets/sound/env_wind_03.wav" id="6_15ucp"]
+[ext_resource type="AudioStream" uid="uid://cykg1p3nictsy" path="res://assets/sound/env_wind_vo_01.wav" id="7_1hllk"]
+[ext_resource type="AudioStream" uid="uid://cy3xydn0mbk0t" path="res://assets/sound/env_wind_vo_02.wav" id="8_4o0qu"]
+[ext_resource type="AudioStream" uid="uid://b68jsmih5fof3" path="res://assets/sound/env_wind_vo_03.wav" id="9_l5050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqg1w"]
 size = Vector2(256, 269)
@@ -82,14 +85,26 @@ trail_lifetime = 1.01
 [node name="ContactSFX" type="Node" parent="WindBox"]
 script = ExtResource("3_5jkhk")
 
-[node name="Env01" type="AudioStreamPlayer2D" parent="WindBox/ContactSFX"]
+[node name="Env01" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
 stream = ExtResource("4_6ghe2")
 
-[node name="Env02" type="AudioStreamPlayer2D" parent="WindBox/ContactSFX"]
+[node name="Env02" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
 stream = ExtResource("5_ds80a")
 
-[node name="Env03" type="AudioStreamPlayer2D" parent="WindBox/ContactSFX"]
+[node name="Env03" type="AudioStreamPlayer" parent="WindBox/ContactSFX"]
 stream = ExtResource("6_15ucp")
+
+[node name="ContactVO" type="Node" parent="WindBox"]
+script = ExtResource("3_5jkhk")
+
+[node name="Env01" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
+stream = ExtResource("7_1hllk")
+
+[node name="Env02" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
+stream = ExtResource("8_4o0qu")
+
+[node name="Env03" type="AudioStreamPlayer" parent="WindBox/ContactVO"]
+stream = ExtResource("9_l5050")
 
 [node name="StaticPart" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)

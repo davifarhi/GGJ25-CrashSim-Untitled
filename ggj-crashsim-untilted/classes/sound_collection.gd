@@ -9,7 +9,7 @@ func _init(collection_node: Node) -> void:
 	assert(node.get_child_count() > 0)
 
 
-func select_random() -> AudioStreamPlayer2D:
+func select_random() -> AudioStreamPlayer:
 	var children = node.get_children()
 	var random = children[randi() % children.size()]
 	
