@@ -28,6 +28,8 @@ signal BoubouBumperContact
 @onready var boubou_inpulse_sfx_collection = SoundCollection.new($InpulseSFX)
 @onready var boubou_inpulse_vo_sfx_collection = SoundCollection.new($InpulseVOSFX)
 
+@onready var dir_indicator = $Visual/DirIndicator
+
 var impulsionDone = false
 var dead = false
 enum InputType { Mouse, Gamepad }
@@ -85,7 +87,7 @@ func _ready() -> void:
 func _process(delta: float)  -> void:
 	if dead:
 		return;
-	if PopIt.is_active():
+	if GameManager.are_game_animations_active():
 		return
 		
 	UpdateIndicatorPos()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://yeonx2g4rge6"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_bcq54"]
+[ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="1_dljyx"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="2_025s6"]
+[ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="3_if43k"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_bcq54")
+
+[node name="Camera2D" parent="." instance=ExtResource("1_dljyx")]
+position = Vector2(-15, -1)
+lockCam = true
+
+[node name="Boubou" parent="." instance=ExtResource("3_if43k")]
+position = Vector2(-384, 1)
+
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="Spikes4" parent="." instance=ExtResource("2_025s6")]
+position = Vector2(320, 1)

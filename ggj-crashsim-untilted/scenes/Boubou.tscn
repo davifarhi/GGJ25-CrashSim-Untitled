@@ -49,6 +49,7 @@ linear_damp = 0.1
 script = ExtResource("1_kffpd")
 InpulseForce = 800.0
 maxSpeed = 2000.0
+bounceDecay = 10.0
 ghostTime = 0.04
 Indicator = NodePath("Visual/DirIndicator")
 IndicatorDistance = 80.0

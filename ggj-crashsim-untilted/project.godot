@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ-CrashSim-Untilted"
-run/main_scene="res://scenes/dummy-flow/hello.tscn"
+run/main_scene="res://scenes/levels/hello.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://autoloads/game_manager.gd"
 UiManager="*res://autoloads/ui_manager.gd"
 PauseMenu="*res://autoloads/pause_menu.tscn"
+TimeoutMenu="*res://autoloads/timeout_menu.tscn"
 PopIt="*res://autoloads/pop_it.tscn"
 Fade="*res://autoloads/fade.tscn"
 

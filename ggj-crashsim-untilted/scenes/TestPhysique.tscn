@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc2eu2n0fag1s"]
+[gd_scene load_steps=11 format=3 uid="uid://cc2eu2n0fag1s"]
 
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="1_tasia"]
 [ext_resource type="Texture2D" uid="uid://c5onrtjhnjcfu" path="res://assets/WindCollision.png" id="2_3b3qt"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="2_pe7dj"]
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="4_mii5k"]
 [ext_resource type="PackedScene" uid="uid://d0pchhp267oy1" path="res://scenes/obstacles/turning_cross.tscn" id="5_rueeh"]
-[ext_resource type="PackedScene" uid="uid://bqtpxlro4lj3d" path="res://scenes/obstacles/level_decoration.tscn" id="6_deit5"]
-[ext_resource type="Script" path="res://scenes/camera.gd" id="8_4yfiy"]
+[ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="7_7kobi"]
 [ext_resource type="PackedScene" uid="uid://cj4gw1uwfjl7x" path="res://scenes/obstacles/moving_wall_2x_2.tscn" id="8_mhv05"]
+[ext_resource type="Script" path="res://scenes/obstacles/booster.gd" id="9_rkmhl"]
+[ext_resource type="Texture2D" uid="uid://l1jin7xkx4ru" path="res://assets/booster.png" id="10_fr4ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sq1p"]
+size = Vector2(64, 128)
 
 [node name="Node2D" type="Node2D"]
 
@@ -42,7 +46,7 @@ position = Vector2(2, 63)
 texture = ExtResource("2_3b3qt")
 
 [node name="WindTurbine2" parent="Obstacle" node_paths=PackedStringArray("windbox_shape") instance=ExtResource("4_mii5k")]
-position = Vector2(1093, -29)
+position = Vector2(1304, -29)
 acceleration_amount = 2.0
 windbox_shape = NodePath("WindTurbineShape2")
 
@@ -52,6 +56,7 @@ scale = Vector2(1.84, 8.50963)
 texture = ExtResource("2_3b3qt")
 
 [node name="TurningCross" parent="Obstacle" instance=ExtResource("5_rueeh")]
+position = Vector2(2110, 262)
 
 [node name="MovingWall_2x2" parent="Obstacle" instance=ExtResource("8_mhv05")]
 position = Vector2(1521, 197)
@@ -61,11 +66,17 @@ displacementTime = 0.5
 [node name="Boubou" parent="." instance=ExtResource("1_tasia")]
 position = Vector2(-106, -249)
 rotation = 1.01578
-bounceDecay = 10.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("8_4yfiy")
+[node name="Camera2D" parent="." instance=ExtResource("7_7kobi")]
 
-[node name="LevelDecoration" parent="Camera2D" instance=ExtResource("6_deit5")]
+[node name="Booster" type="Area2D" parent="."]
+position = Vector2(1, 0)
+script = ExtResource("9_rkmhl")
 
-[connection signal="JuiceOnInpulse" from="Boubou" to="Camera2D/LevelDecoration" method="_on_boubou_juice_on_inpulse"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Booster"]
+shape = SubResource("RectangleShape2D_8sq1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Booster"]
+texture = ExtResource("10_fr4ql")
+
+[connection signal="body_entered" from="Booster" to="Booster" method="_on_body_entered"]
