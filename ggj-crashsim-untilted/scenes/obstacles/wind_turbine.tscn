@@ -20,21 +20,6 @@ scale_max = 2.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx405"]
 size = Vector2(128, 49.5)
 
-[sub_resource type="Animation" id="Animation_kx3fi"]
-resource_name = "ventilateur_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [3.14159, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_ugnw0"]
 length = 0.001
 tracks/0/type = "value"
@@ -48,6 +33,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_kx3fi"]
+resource_name = "ventilateur_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.14159, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fmtpl"]
