@@ -29,6 +29,7 @@ signal BoubouBumperContact
 @onready var boubou_inpulse_vo_sfx_collection = SoundCollection.new($InpulseVOSFX)
 
 @onready var dir_indicator = $Visual/DirIndicator
+@onready var camera = get_parent().get_node("Camera2D") as Camera2D
 
 var impulsionDone = false
 var dead = false
@@ -59,7 +60,10 @@ func _input(event: InputEvent) -> void:
 func InputDir() -> Vector2:
 	var dir = Vector2(0, 0)
 	if currentInputType == InputType.Mouse:
-		dir = get_viewport().get_mouse_position() - global_position
+		var screen_pos = global_position
+		if camera != null:
+			screen_pos = global_position - camera.global_position + Vector2(get_viewport().size)/2
+		dir = get_viewport().get_mouse_position() - screen_pos
 	elif currentInputType == InputType.Gamepad:
 		dir = Input.get_vector("JoypadDirLeft", "JoypadDirRight", "JoypadDirUp", "JoypadDirDown")
 	
@@ -101,7 +105,11 @@ func _process(delta: float)  -> void:
 	# TODO: debug code, to remove :)
 	if Input.is_key_pressed(KEY_DELETE):
 		linear_velocity = Vector2(0, 0)
-		global_position = get_viewport().get_mouse_position()
+		
+		var offset = Vector2(0, 0)
+		if camera != null:
+			offset = camera.global_position - Vector2(get_viewport().size)/2
+		global_position = get_viewport().get_mouse_position() + offset
 		
 
 func _physics_process(_delta: float) -> void:

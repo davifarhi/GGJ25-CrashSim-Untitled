@@ -3,6 +3,8 @@ extends Node
 signal Pause
 signal Unpause
 
+var Camera:Camera2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Pause.connect(_pause_game)

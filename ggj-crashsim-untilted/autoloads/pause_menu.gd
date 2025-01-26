@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	UiManager.Pause.connect(_on_game_pause)
@@ -8,11 +7,12 @@ func _ready() -> void:
 	hide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_game_pause() -> void:
+	global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 
 	
@@ -22,7 +22,6 @@ func _on_game_unpause() -> void:
 
 func _on_resume_pressed() -> void:
 	UiManager.Unpause.emit()
-
 
 func _on_restart_level_pressed() -> void:
 	GameManager.PreviousLevel.emit()

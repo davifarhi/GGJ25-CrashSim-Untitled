@@ -8,7 +8,7 @@ signal GoToMainMenu
 
 const LEVEL_FILES_BASE = "res://scenes/levels/"
 #const LEVEL_FILES = ["scene1", "scene2"]
-const LEVEL_FILES = ["level1"]
+const LEVEL_FILES = ["level1", "level2"]
 var LAST_LEVEL = LEVEL_FILES.size()
 
 var next_level_idx: int = 0
