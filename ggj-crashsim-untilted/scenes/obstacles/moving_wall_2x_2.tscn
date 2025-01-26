@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj4gw1uwfjl7x"]
+[gd_scene load_steps=11 format=3 uid="uid://cj4gw1uwfjl7x"]
 
 [ext_resource type="Script" path="res://scenes/obstacles/moving_wall_2x2.gd" id="1_ffmwb"]
 [ext_resource type="Texture2D" uid="uid://be2dhfbxe65hk" path="res://assets/Asset2D/Cube01.png" id="2_a1tw1"]
+[ext_resource type="AudioStream" uid="uid://buk7kwyhf3sjq" path="res://assets/sound/bou_bounce_01.wav" id="3_pcnj6"]
+[ext_resource type="AudioStream" uid="uid://jyhc8isij4nu" path="res://assets/sound/bou_bounce_02.wav" id="4_7yoel"]
+[ext_resource type="AudioStream" uid="uid://cgvsampqcjk30" path="res://assets/sound/bou_bounce_03.wav" id="5_hkdpo"]
+[ext_resource type="AudioStream" uid="uid://cmltphy7xmgur" path="res://assets/sound/bou_bounce_vo_01.wav" id="6_owc8g"]
+[ext_resource type="AudioStream" uid="uid://c4fqwuwodhgjm" path="res://assets/sound/bou_bounce_vo_02.wav" id="7_je2d1"]
+[ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="8_xhrc0"]
 
 [sub_resource type="Curve" id="Curve_88api"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -15,6 +21,8 @@ lock_rotation = true
 freeze = true
 freeze_mode = 1
 continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_ffmwb")
 speed = SubResource("Curve_88api")
 
@@ -27,3 +35,27 @@ texture = ExtResource("2_a1tw1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_vpay0")
+
+[node name="BounceCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("3_pcnj6")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("4_7yoel")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("5_hkdpo")
+
+[node name="BounceVOCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("6_owc8g")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("7_je2d1")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("8_xhrc0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
