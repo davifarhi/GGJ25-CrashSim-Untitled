@@ -1,9 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqtpxlro4lj3d"]
+[gd_scene load_steps=13 format=3 uid="uid://bqtpxlro4lj3d"]
 
 [ext_resource type="Script" path="res://scenes/decoration_juice.gd" id="1_l8qv7"]
 [ext_resource type="Texture2D" uid="uid://b4eapeecriep4" path="res://assets/Asset2D/Fond.png" id="2_mh4vl"]
 [ext_resource type="PhysicsMaterial" uid="uid://cuwk5enyeau8u" path="res://assets/PhysicMaterials/bouncy_walls.tres" id="3_i76to"]
 [ext_resource type="Texture2D" uid="uid://ce70jpc6mesdb" path="res://assets/Asset2D/contour.png" id="3_ws6yw"]
+[ext_resource type="Script" path="res://scenes/obstacles/bounce_sound_producer.gd" id="4_i836b"]
+[ext_resource type="AudioStream" uid="uid://buk7kwyhf3sjq" path="res://assets/sound/bou_bounce_01.wav" id="6_r3h78"]
+[ext_resource type="AudioStream" uid="uid://jyhc8isij4nu" path="res://assets/sound/bou_bounce_02.wav" id="7_p7uab"]
+[ext_resource type="AudioStream" uid="uid://cgvsampqcjk30" path="res://assets/sound/bou_bounce_03.wav" id="8_82cyi"]
+[ext_resource type="AudioStream" uid="uid://cmltphy7xmgur" path="res://assets/sound/bou_bounce_vo_01.wav" id="9_tqw8w"]
+[ext_resource type="AudioStream" uid="uid://c4fqwuwodhgjm" path="res://assets/sound/bou_bounce_vo_02.wav" id="10_i5wqv"]
+[ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="11_sh7ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxmmg"]
 size = Vector2(1982, 65)
@@ -25,36 +32,81 @@ texture = ExtResource("3_ws6yw")
 
 [node name="LevelWalls" type="Node2D" parent="."]
 position = Vector2(-954, -540)
+script = ExtResource("4_i836b")
 
-[node name="UpperWall" type="StaticBody2D" parent="LevelWalls"]
+[node name="UpperWall" type="RigidBody2D" parent="LevelWalls"]
 physics_material_override = ExtResource("3_i76to")
+freeze = true
+freeze_mode = 1
+continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/UpperWall"]
 position = Vector2(959, -23)
 shape = SubResource("RectangleShape2D_xxmmg")
 
-[node name="LowerWall" type="StaticBody2D" parent="LevelWalls"]
+[node name="LowerWall" type="RigidBody2D" parent="LevelWalls"]
 position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LowerWall"]
 position = Vector2(954, -11)
 shape = SubResource("RectangleShape2D_xxmmg")
 
-[node name="RightWall" type="StaticBody2D" parent="LevelWalls"]
+[node name="RightWall" type="RigidBody2D" parent="LevelWalls"]
 position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/RightWall"]
 position = Vector2(1932, -755)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")
 
-[node name="LeftWall" type="StaticBody2D" parent="LevelWalls"]
+[node name="LeftWall" type="RigidBody2D" parent="LevelWalls"]
 position = Vector2(-1915, 1113)
 physics_material_override = ExtResource("3_i76to")
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LeftWall"]
 position = Vector2(1891, -753)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")
+
+[node name="BounceCollection" type="Node" parent="LevelWalls"]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="LevelWalls/BounceCollection"]
+stream = ExtResource("6_r3h78")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="LevelWalls/BounceCollection"]
+stream = ExtResource("7_p7uab")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="LevelWalls/BounceCollection"]
+stream = ExtResource("8_82cyi")
+
+[node name="BounceVOCollection" type="Node" parent="LevelWalls"]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="LevelWalls/BounceVOCollection"]
+stream = ExtResource("9_tqw8w")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="LevelWalls/BounceVOCollection"]
+stream = ExtResource("10_i5wqv")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="LevelWalls/BounceVOCollection"]
+stream = ExtResource("11_sh7ny")
+
+[connection signal="body_entered" from="LevelWalls/UpperWall" to="LevelWalls" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelWalls/LowerWall" to="LevelWalls" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelWalls/RightWall" to="LevelWalls" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelWalls/LeftWall" to="LevelWalls" method="_on_body_entered"]

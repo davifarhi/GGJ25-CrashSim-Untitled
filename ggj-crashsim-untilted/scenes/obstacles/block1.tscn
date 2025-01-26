@@ -1,19 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://ycj1s8f21go5"]
+[gd_scene load_steps=11 format=3 uid="uid://ycj1s8f21go5"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://cuwk5enyeau8u" path="res://assets/PhysicMaterials/bouncy_walls.tres" id="1_6xao7"]
 [ext_resource type="Texture2D" uid="uid://be2dhfbxe65hk" path="res://assets/Asset2D/Cube01.png" id="2_64smd"]
+[ext_resource type="Script" path="res://scenes/obstacles/bounce_sound_producer.gd" id="2_pr1pe"]
+[ext_resource type="AudioStream" uid="uid://buk7kwyhf3sjq" path="res://assets/sound/bou_bounce_01.wav" id="4_gg34g"]
+[ext_resource type="AudioStream" uid="uid://jyhc8isij4nu" path="res://assets/sound/bou_bounce_02.wav" id="5_5mcl5"]
+[ext_resource type="AudioStream" uid="uid://cgvsampqcjk30" path="res://assets/sound/bou_bounce_03.wav" id="6_3fnk3"]
+[ext_resource type="AudioStream" uid="uid://cmltphy7xmgur" path="res://assets/sound/bou_bounce_vo_01.wav" id="7_fjpmx"]
+[ext_resource type="AudioStream" uid="uid://c4fqwuwodhgjm" path="res://assets/sound/bou_bounce_vo_02.wav" id="8_g74yn"]
+[ext_resource type="AudioStream" uid="uid://mvn1g5uvghl4" path="res://assets/sound/bou_bounce_vo_03.wav" id="9_fifxy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dpma"]
-size = Vector2(200, 200)
+size = Vector2(122, 129)
 
 [node name="Block" type="RigidBody2D"]
 physics_material_override = ExtResource("1_6xao7")
 lock_rotation = true
 freeze = true
+freeze_mode = 1
 continuous_cd = 1
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("2_pr1pe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.64, 0.64)
 texture = ExtResource("2_64smd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
 shape = SubResource("RectangleShape2D_6dpma")
+
+[node name="BounceCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("4_gg34g")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("5_5mcl5")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceCollection"]
+stream = ExtResource("6_3fnk3")
+
+[node name="BounceVOCollection" type="Node" parent="."]
+
+[node name="Bounce1" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("7_fjpmx")
+
+[node name="Bounce2" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("8_g74yn")
+
+[node name="Bounce3" type="AudioStreamPlayer" parent="BounceVOCollection"]
+stream = ExtResource("9_fifxy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
