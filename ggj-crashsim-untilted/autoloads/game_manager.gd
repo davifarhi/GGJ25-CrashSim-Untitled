@@ -22,7 +22,7 @@ var next_fade_out_to: FADE_TO = FADE_TO.LEVEL
 
 var zen_mode_on: bool = false
 var time_to_completion: float = 0.
-var session_best_time: float = 99999
+var best_time: float = 99999
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,10 +38,26 @@ func _ready() -> void:
 	
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	load_best_time()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+	
+	
+func load_best_time():
+	var file = FileAccess.open("user://bouboupop.best_time.save", FileAccess.READ)
+	if file != null:
+		var content = file.get_as_text()
+		print("read: " + str(float(content)))
+		best_time = float(content)
+	
+
+func save_best_time():
+	var file = FileAccess.open("user://bouboupop.best_time.save", FileAccess.WRITE)
+	if file != null:
+		file.store_string(str(best_time))
 	
 	
 func add_level_time(time: float):
@@ -53,13 +69,14 @@ func get_completion_time() -> float:
 	
 	
 func is_best_time():
-	return time_to_completion < session_best_time
+	return time_to_completion < best_time
 	
 
 func set_best_time():
 	assert(is_best_time())
-	session_best_time = time_to_completion
+	best_time = time_to_completion
 	time_to_completion = 0.
+	save_best_time()
 	
 	
 func _start_game() -> void:
