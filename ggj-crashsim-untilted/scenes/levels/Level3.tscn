@@ -58,7 +58,7 @@ size = Vector2(256, 775.286)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_wkf88")
-timeout_in_secs = 30.0
+timeout_in_secs = 600.0
 
 [node name="Boubou" parent="." instance=ExtResource("2_oswnc")]
 position = Vector2(-877, 0)
@@ -224,7 +224,6 @@ acceleration_amount = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine2/WindTurbine"]
 position = Vector2(0, 84.2803)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_43fx0")
 
 [node name="Block7" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
@@ -466,12 +465,10 @@ shape = SubResource("RectangleShape2D_llvtu")
 [node name="WindTurbine8" parent="Obstacles" instance=ExtResource("5_h7vng")]
 position = Vector2(8888, -368)
 rotation = -1.57079
-scale = Vector2(1, 1)
 acceleration_amount = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine8"]
 position = Vector2(0, 894.001)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7yj1i")
 
 [node name="WindTurbine7" parent="Obstacles" instance=ExtResource("5_h7vng")]
@@ -481,7 +478,6 @@ acceleration_amount = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine7"]
 position = Vector2(0.00195313, 546.269)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ymgxx")
 
 [node name="WindTurbine9" parent="Obstacles" instance=ExtResource("5_h7vng")]
@@ -748,7 +744,6 @@ acceleration_amount = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine12"]
 position = Vector2(0.129883, 277.87)
 rotation = -0.00134501
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ptpvn")
 
 [node name="WindTurbine13" parent="Obstacles" instance=ExtResource("5_h7vng")]
