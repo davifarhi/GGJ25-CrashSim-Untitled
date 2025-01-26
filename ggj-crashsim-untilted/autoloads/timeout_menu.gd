@@ -17,6 +17,11 @@ func open_timeout_menu():
 	global_position = UiManager.Camera.global_position - get_viewport_rect().size / 2
 	show()
 	get_tree().paused = true
+	GameManager.is_scene_pausable = false
+
+
+func is_opened():
+	return is_visible()
 
 
 func _on_restart_level_pressed() -> void:
