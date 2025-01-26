@@ -11,7 +11,8 @@ func _ready() -> void:
 	
 	windbox_shape.hide()
 	var size = windbox_shape.global_scale
-	var particleMat = $WindBox/WindBoxShape/Particles.process_material as ParticleProcessMaterial
+	var particleMat = ($WindBox/WindBoxShape/Particles.process_material.duplicate() as ParticleProcessMaterial)
+	$WindBox/WindBoxShape/Particles.process_material = particleMat
 	particleMat.gravity = Vector3(0, 98, 0).rotated(Vector3(0,0,1), global_rotation)
 	$WindBox/WindBoxShape/Particles.amount *= size.x*size.y
 	$WindBox/WindBoxShape.global_transform = windbox_shape.global_transform
