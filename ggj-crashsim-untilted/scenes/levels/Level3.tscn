@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdnms0pwfad7r"]
+[gd_scene load_steps=30 format=3 uid="uid://bdnms0pwfad7r"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_wkf88"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="2_oswnc"]
@@ -7,21 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://dr8qcb8xad7lc" path="res://scenes/obstacles/wind_turbine.tscn" id="5_h7vng"]
 [ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="6_4ic5g"]
 [ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="7_gu1vk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2wv6"]
-size = Vector2(256, 6920)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryh64"]
-size = Vector2(256, 6925)
+[ext_resource type="PackedScene" uid="uid://b11vvamp0epe3" path="res://scenes/obstacles/InvisibleWall.tscn" id="8_16hpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43fx0"]
 size = Vector2(256, 368.562)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt4kn"]
-size = Vector2(256, 6410)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca1xt"]
+size = Vector2(272.012, 6972)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jebj4"]
-size = Vector2(256, 6410)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m1mp"]
+size = Vector2(256, 6970)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy0a5"]
+size = Vector2(263.989, 6500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ervl"]
+size = Vector2(261.011, 6500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivyib"]
 size = Vector2(256, 2103.42)
@@ -56,6 +57,21 @@ size = Vector2(256, 752.66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbrmp"]
 size = Vector2(256, 775.286)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mbn5"]
+size = Vector2(310.344, 189.539)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah7yy"]
+size = Vector2(307.402, 468.58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h2um"]
+size = Vector2(328.973, 181.387)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwj0e"]
+size = Vector2(2640, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rukys"]
+size = Vector2(240, 512)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_wkf88")
 timeout_in_secs = 600.0
@@ -64,228 +80,249 @@ timeout_in_secs = 600.0
 position = Vector2(-877, 0)
 
 [node name="Camera2D" parent="." instance=ExtResource("3_f5cii")]
-rightLimite = 13500.0
+rightLimite = 13400.0
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Block" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-862, -448)
-rotation = -0.889671
+position = Vector2(-897, -417)
+rotation = -1.10249
 
 [node name="Block2" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-762, -372)
-rotation = -0.889671
+position = Vector2(-782, -358)
+rotation = -1.10249
 
 [node name="Block3" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-665, -293)
-rotation = -0.889671
+position = Vector2(-667, -300)
+rotation = -1.10249
 
 [node name="Block4" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-565, -210)
-rotation = -0.889671
+position = Vector2(-552, -242)
+rotation = -1.10249
 
 [node name="Block5" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-465, -129)
-rotation = -0.889671
+position = Vector2(-438, -184)
+rotation = -1.10249
 
 [node name="Block6" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-860, 441)
-rotation = -0.668754
+position = Vector2(-880, 416)
+rotation = -0.523598
 
 [node name="Block7" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-764, 362)
-rotation = -0.668754
+position = Vector2(-769, 351)
+rotation = -0.523598
 
 [node name="Block8" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-665, 286)
-rotation = -0.668754
+position = Vector2(-658, 287)
+rotation = -0.523598
 
 [node name="Block9" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-565, 210)
-rotation = -0.668754
+position = Vector2(-546, 222)
+rotation = -0.523598
 
 [node name="Block10" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-466, 132)
-rotation = -0.668754
+position = Vector2(-436, 158)
+rotation = -0.523598
 
 [node name="Block11" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-170, -66)
+position = Vector2(-173, -65)
 
 [node name="Block12" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-42, -66)
+position = Vector2(-45, -65)
 
 [node name="Block13" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-172, 67)
+position = Vector2(-174, 63)
 
 [node name="Block13" parent="Obstacles/Block13" instance=ExtResource("4_dvoel")]
 position = Vector2(129, 0)
 
 [node name="Block14" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-168, -200)
+position = Vector2(-173, -193)
 
 [node name="Block15" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-40, -200)
+position = Vector2(-45, -193)
 
 [node name="Block16" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-168, 200)
+position = Vector2(-173, 191)
 
 [node name="Block17" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(-40, 200)
+position = Vector2(-45, 191)
 scale = Vector2(1.00891, 1)
 
+[node name="RoundBumper36" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7026, 523)
+rotation = -1.5708
+
+[node name="Block101" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8010, -453)
+rotation = -1.0472
+
+[node name="Block102" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8122, -389)
+rotation = -1.0472
+
+[node name="Block103" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8234, -325)
+rotation = -1.0472
+
+[node name="RoundBumper37" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7786, 90.9996)
+rotation = -1.5708
+
+[node name="RoundBumper38" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7994, 243)
+rotation = -1.5708
+
+[node name="RoundBumper39" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7794, 299)
+rotation = -1.5708
+
+[node name="RoundBumper40" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(8098, 35.0005)
+rotation = -1.5708
+
+[node name="Block104" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(7938, 27)
+rotation = -1.309
+
+[node name="RoundBumper41" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(8146, 395)
+rotation = -1.5708
+
+[node name="RoundBumper42" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(8298, 26.9997)
+rotation = -1.5708
+
+[node name="RoundBumper43" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(8330, 251)
+rotation = -1.5708
+
+[node name="RoundBumper44" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7586, 387)
+rotation = -1.5708
+
+[node name="RoundBumper45" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(6970, -93.0005)
+rotation = -1.5708
+
+[node name="RoundBumper46" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(6730, -125)
+rotation = -1.5708
+
+[node name="RoundBumper47" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7322, -261)
+rotation = -1.5708
+
+[node name="RoundBumper48" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(7258, -4.99951)
+rotation = -1.5708
+
+[node name="RoundBumper49" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(6914, -357)
+rotation = -1.5708
+
+[node name="Block105" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(7146, -237)
+rotation = -1.8326
+
+[node name="Block106" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(6890, 139)
+rotation = -1.309
+
+[node name="Block107" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9130, 203.001)
+rotation = -1.0472
+
+[node name="RoundBumper50" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(8778, -21)
+rotation = -1.5708
+
+[node name="Block108" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8810, -157)
+rotation = -1.5708
+
+[node name="Block109" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8530, -213)
+rotation = -1.309
+
+[node name="Block110" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(8458, -390)
+rotation = -1.8326
+
+[node name="Block111" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9242, 267)
+rotation = -1.0472
+
+[node name="RoundBumper51" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(9226, 17.0004)
+rotation = -1.5708
+
+[node name="RoundBumper52" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(9250, -84.9997)
+rotation = -1.5708
+
+[node name="RoundBumper53" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(9322, -165)
+rotation = -1.5708
+
+[node name="RoundBumper54" parent="Obstacles" instance=ExtResource("6_4ic5g")]
+position = Vector2(9410, -221)
+rotation = -1.5708
+
+[node name="Block112" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9890, -525)
+rotation = -1.309
+
+[node name="Block113" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(10042, -221)
+rotation = -1.309
+
+[node name="Block114" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9530, -181)
+rotation = -1.5708
+
+[node name="Block115" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9674, -172.999)
+rotation = -2.0944
+
+[node name="Block116" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9842, -173)
+rotation = 0.78539
+
+[node name="Block117" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9354, 331)
+rotation = -1.0472
+
+[node name="Block118" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(9178, 75.0005)
+rotation = -1.309
+
+[node name="WindTurbine16" parent="Obstacles" instance=ExtResource("5_h7vng")]
+position = Vector2(9218, 470)
+rotation = 2.0944
+acceleration_amount = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine16"]
+position = Vector2(0, 84.2803)
+shape = SubResource("RectangleShape2D_43fx0")
+
 [node name="WindTurbine" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(-384, -384)
+position = Vector2(-344, -408)
 rotation = -1.5708
 acceleration_amount = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine"]
-position = Vector2(-0.00454712, 3452)
-shape = SubResource("RectangleShape2D_e2wv6")
+position = Vector2(-8.00616, 3386)
+shape = SubResource("RectangleShape2D_ca1xt")
 
 [node name="WindTurbine2" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(-384, 376)
+position = Vector2(-342, 395)
 rotation = -1.5708
 acceleration_amount = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine2"]
-position = Vector2(-16.0045, 3449.5)
-shape = SubResource("RectangleShape2D_ryh64")
-
-[node name="RoundBumper" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(-128.027, 7368)
-
-[node name="Block" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(847.97, 8352)
-rotation = 0.523598
-
-[node name="Block2" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(783.969, 8464)
-rotation = 0.523598
-
-[node name="Block3" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(719.969, 8576)
-rotation = 0.523598
-
-[node name="RoundBumper2" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(303.971, 8128)
-
-[node name="RoundBumper3" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(151.97, 8336)
-
-[node name="RoundBumper4" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(95.9705, 8136)
-
-[node name="RoundBumper5" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(359.969, 8440)
-
-[node name="Block4" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(367.97, 8280)
-rotation = 0.261799
-
-[node name="RoundBumper6" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(-0.0307312, 8488)
-
-[node name="RoundBumper7" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(367.969, 8640)
-
-[node name="RoundBumper8" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(143.969, 8672)
-
-[node name="RoundBumper9" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(7.97128, 7928)
-
-[node name="RoundBumper10" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(487.974, 7312)
-
-[node name="RoundBumper11" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(519.974, 7072)
-
-[node name="RoundBumper12" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(655.972, 7664)
-
-[node name="RoundBumper13" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(399.972, 7600)
-
-[node name="RoundBumper14" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(751.974, 7256)
-
-[node name="Block5" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(631.973, 7488)
-rotation = -0.261799
-
-[node name="Block6" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(255.974, 7232)
-rotation = 0.261799
-
-[node name="WindTurbine" parent="Obstacles/WindTurbine2" instance=ExtResource("5_h7vng")]
-position = Vector2(-75.0348, 9560)
-rotation = -2.61799
-acceleration_amount = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine2/WindTurbine"]
-position = Vector2(0, 84.2803)
-shape = SubResource("RectangleShape2D_43fx0")
-
-[node name="Block7" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(191.965, 9472)
-rotation = 0.523598
-
-[node name="RoundBumper15" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(415.967, 9120)
-
-[node name="Block8" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(551.967, 9152)
-
-[node name="Block9" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(607.968, 8872)
-rotation = 0.261799
-
-[node name="Block10" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(784.968, 8800)
-rotation = -0.261799
-
-[node name="Block11" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(127.965, 9584)
-rotation = 0.523598
-
-[node name="RoundBumper16" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(377.965, 9568)
-
-[node name="RoundBumper17" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(479.965, 9592)
-
-[node name="RoundBumper18" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(559.965, 9664)
-
-[node name="RoundBumper19" parent="Obstacles/WindTurbine2" instance=ExtResource("6_4ic5g")]
-position = Vector2(615.965, 9752)
-
-[node name="Block12" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(919.963, 10232)
-rotation = 0.261799
-
-[node name="Block13" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(615.962, 10384)
-rotation = 0.261799
-
-[node name="Block14" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(575.964, 9872)
-
-[node name="Block15" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(567.963, 10016)
-rotation = -0.523598
-
-[node name="Block16" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(567.963, 10184)
-rotation = 2.35619
-
-[node name="Block17" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(63.965, 9696)
-rotation = 0.523598
-
-[node name="Block18" parent="Obstacles/WindTurbine2" instance=ExtResource("4_dvoel")]
-position = Vector2(319.965, 9520)
-rotation = 0.261799
+position = Vector2(0, 3385)
+shape = SubResource("RectangleShape2D_6m1mp")
 
 [node name="WindTurbine3" parent="Obstacles" instance=ExtResource("5_h7vng")]
 position = Vector2(128, -128)
@@ -293,8 +330,8 @@ rotation = -1.5708
 acceleration_amount = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine3"]
-position = Vector2(0, 3195)
-shape = SubResource("RectangleShape2D_kt4kn")
+position = Vector2(3.9943, 3150)
+shape = SubResource("RectangleShape2D_jy0a5")
 
 [node name="WindTurbine4" parent="Obstacles" instance=ExtResource("5_h7vng")]
 position = Vector2(128, 131)
@@ -302,8 +339,8 @@ rotation = -1.5708
 acceleration_amount = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/WindTurbine4"]
-position = Vector2(-3.05176e-05, 3195)
-shape = SubResource("RectangleShape2D_jebj4")
+position = Vector2(-2.5058, 3150)
+shape = SubResource("RectangleShape2D_7ervl")
 
 [node name="RoundBumper" parent="Obstacles" instance=ExtResource("6_4ic5g")]
 position = Vector2(1328, 456)
@@ -406,25 +443,25 @@ rotation = 0.261799
 position = Vector2(5952, -66)
 
 [node name="Block27" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, -448)
+position = Vector2(6529, -472)
 
 [node name="Block28" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, -320)
+position = Vector2(6529, -344)
 
 [node name="Block29" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, -192)
+position = Vector2(6529, -216)
 
 [node name="Block30" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, -64)
+position = Vector2(6529, -88)
 
 [node name="Block31" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6527, 67)
+position = Vector2(6528, 43)
 
 [node name="Block32" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, 200)
+position = Vector2(6529, 176)
 
 [node name="Block33" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(6528, 331)
+position = Vector2(6529, 307)
 
 [node name="RoundBumper23" parent="Obstacles" instance=ExtResource("6_4ic5g")]
 position = Vector2(5856, 227)
@@ -544,9 +581,6 @@ position = Vector2(11360, 579)
 [node name="Block52" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(11816, 320)
 
-[node name="RoundBumper34" parent="Obstacles" instance=ExtResource("6_4ic5g")]
-position = Vector2(12008, 280)
-
 [node name="Block53" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(11944, 320)
 
@@ -566,15 +600,15 @@ position = Vector2(12456, 320)
 position = Vector2(12584, 320)
 
 [node name="Block59" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(11048, 56)
+position = Vector2(11008, 48)
 rotation = 0.261799
 
 [node name="Block60" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(11248, 24)
+position = Vector2(11304, 16)
 rotation = -0.523598
 
 [node name="RoundBumper33" parent="Obstacles" instance=ExtResource("6_4ic5g")]
-position = Vector2(11536, 56)
+position = Vector2(11576, 56)
 
 [node name="Block35" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(10566, 320)
@@ -583,7 +617,7 @@ position = Vector2(10566, 320)
 position = Vector2(10688, 320)
 
 [node name="Spikes4" parent="Obstacles" instance=ExtResource("7_gu1vk")]
-position = Vector2(13928, -0.000244141)
+position = Vector2(13824, 3.7835e-10)
 rotation = -1.57079
 
 [node name="WindTurbine11" parent="Obstacles" instance=ExtResource("5_h7vng")]
@@ -637,7 +671,7 @@ position = Vector2(10952, 336)
 rotation = 0.261799
 
 [node name="Block61" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(11408, 8)
+position = Vector2(11456, 8)
 
 [node name="Block62" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(11696, 32)
@@ -650,11 +684,11 @@ position = Vector2(11952, 48.0002)
 rotation = 0.261799
 
 [node name="Block65" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(12288, 112)
-rotation = 0.523598
+position = Vector2(12248, 86)
+rotation = 0.493858
 
 [node name="RoundBumper35" parent="Obstacles" instance=ExtResource("6_4ic5g")]
-position = Vector2(12128, -32)
+position = Vector2(12096, -24)
 
 [node name="Block66" parent="Obstacles" instance=ExtResource("4_dvoel")]
 position = Vector2(11088, 563)
@@ -715,29 +749,26 @@ position = Vector2(12512, 579)
 position = Vector2(12640, 579)
 
 [node name="Block93" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, 336)
+position = Vector2(13144, 544)
+rotation = 1.0107
 
 [node name="Block94" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, 208)
+position = Vector2(13088, 320)
 
 [node name="Block95" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, -464)
+position = Vector2(13088, -64)
 
 [node name="Block96" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, -336)
+position = Vector2(13088, 64)
 
 [node name="Block97" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, -205)
-
-[node name="Block98" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13320, 0)
-rotation = 0.785397
+position = Vector2(13088, 192)
 
 [node name="Block92" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(13312, 464)
+position = Vector2(12768, 576)
 
 [node name="WindTurbine12" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(13584, -328)
+position = Vector2(13488, -328)
 rotation = -0.785397
 acceleration_amount = 3.0
 
@@ -747,7 +778,7 @@ rotation = -0.00134501
 shape = SubResource("RectangleShape2D_ptpvn")
 
 [node name="WindTurbine13" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(14240, -328)
+position = Vector2(14144, -328)
 rotation = 0.785397
 acceleration_amount = 3.0
 
@@ -756,7 +787,7 @@ position = Vector2(0.000976563, 289.409)
 shape = SubResource("RectangleShape2D_wb2bf")
 
 [node name="WindTurbine14" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(14248, 331)
+position = Vector2(14152, 331)
 rotation = 2.35619
 acceleration_amount = 3.0
 
@@ -765,7 +796,7 @@ position = Vector2(0, 276.33)
 shape = SubResource("RectangleShape2D_14ual")
 
 [node name="WindTurbine15" parent="Obstacles" instance=ExtResource("5_h7vng")]
-position = Vector2(13576, 331)
+position = Vector2(13480, 331)
 rotation = -2.35619
 acceleration_amount = 3.0
 
@@ -774,13 +805,141 @@ position = Vector2(-0.000976563, 287.642)
 shape = SubResource("RectangleShape2D_cbrmp")
 
 [node name="Block67" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(12336, -136)
+position = Vector2(12192, -136)
 rotation = -0.261799
 
 [node name="Block99" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(12288, -304)
+position = Vector2(12248, -280)
 rotation = 0.261799
 
 [node name="Block100" parent="Obstacles" instance=ExtResource("4_dvoel")]
-position = Vector2(12392, -464)
+position = Vector2(12200, -432)
 rotation = -0.523598
+
+[node name="InvisibleWall" parent="Obstacles" instance=ExtResource("8_16hpb")]
+position = Vector2(-696, -464)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/InvisibleWall"]
+polygon = PackedVector2Array(-256, -72, -256, 48, 216, 288, 216, -72)
+
+[node name="Block119" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(11152, 0)
+rotation = -0.195021
+
+[node name="InvisibleWall2" parent="Obstacles" instance=ExtResource("8_16hpb")]
+position = Vector2(11488, -368)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/InvisibleWall2"]
+polygon = PackedVector2Array(-640, -168, -648, 192, -592, 344, 472, 416, 616, 344, 760, 88, 712, -56, 720, -160)
+
+[node name="Block120" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12896, 576)
+
+[node name="Block121" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(13024, 576)
+
+[node name="Block98" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(13088, -192)
+
+[node name="Block123" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(13088, -459)
+
+[node name="Block124" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12704, 320)
+
+[node name="Block125" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12832, 320)
+
+[node name="Block126" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12960, 320)
+
+[node name="Block122" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(13088, -587)
+
+[node name="Block127" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12400, 88)
+rotation = -0.491777
+
+[node name="Block128" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12552, 111.999)
+rotation = 0.33513
+
+[node name="Block129" parent="Obstacles" instance=ExtResource("4_dvoel")]
+position = Vector2(12088, 86)
+rotation = -0.491943
+
+[node name="InvisibleWall2" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(-696, -464)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall2"]
+polygon = PackedVector2Array(8024, 1000, 7832, 808, 7744, 888, 7712, 1000)
+
+[node name="InvisibleWall" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(-702, 458)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
+polygon = PackedVector2Array(236, 73, 239, -283, -250, -44, -250, 74)
+
+[node name="InvisibleWall3" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(9728, 256)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall3"]
+polygon = PackedVector2Array(592, 280, 592, -200, 656, -336, 656, -424, 376, -408, -144, -408, -320, -472, -552, -176, -600, -56, -376, 72, -352, 160, -416, 280)
+
+[node name="Block" parent="." instance=ExtResource("4_dvoel")]
+position = Vector2(12552, -192)
+rotation = 1.52618
+
+[node name="Block2" parent="." instance=ExtResource("4_dvoel")]
+position = Vector2(12840, -80)
+rotation = 0.10788
+
+[node name="Block3" parent="." instance=ExtResource("4_dvoel")]
+position = Vector2(12944, -184)
+rotation = -0.333244
+
+[node name="Block4" parent="." instance=ExtResource("4_dvoel")]
+position = Vector2(12712, -192)
+rotation = 0.667084
+
+[node name="Block5" parent="." instance=ExtResource("4_dvoel")]
+position = Vector2(13264, 448)
+rotation = 0.787727
+
+[node name="InvisibleWall5" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(14296, 488)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall5"]
+position = Vector2(33.498, 16.6675)
+rotation = -0.837199
+shape = SubResource("RectangleShape2D_3mbn5")
+
+[node name="InvisibleWall4" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(13344, 512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall4"]
+position = Vector2(-110.208, 109.948)
+rotation = -2.36105
+shape = SubResource("RectangleShape2D_ah7yy")
+
+[node name="InvisibleWall6" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(14280, -488)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall6"]
+position = Vector2(30.8691, -15.7216)
+rotation = 0.768303
+shape = SubResource("RectangleShape2D_1h2um")
+
+[node name="InvisibleWall7" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(11368, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall7"]
+position = Vector2(456, -4)
+shape = SubResource("RectangleShape2D_jwj0e")
+
+[node name="InvisibleWall8" parent="." instance=ExtResource("8_16hpb")]
+position = Vector2(-128, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall8"]
+position = Vector2(16, -88)
+shape = SubResource("RectangleShape2D_rukys")
