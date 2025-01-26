@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtr2g4tpcntc"]
+[gd_scene load_steps=5 format=3 uid="uid://dtr2g4tpcntc"]
 
 [ext_resource type="Script" path="res://scenes/timer_text.gd" id="1_rp8ti"]
 [ext_resource type="Texture2D" uid="uid://dg5n2cqkjwrja" path="res://assets/menu/nuage_timer.png" id="1_wem5l"]
+[ext_resource type="AudioStream" uid="uid://cyne7cgmdn0i4" path="res://assets/sound/env_clock_end_ring.wav" id="3_y1cri"]
+[ext_resource type="AudioStream" uid="uid://nyrcgn44vs1q" path="res://assets/sound/env_clock_end_warning.wav" id="4_jkoep"]
 
 [node name="TimerText" type="Node2D"]
 z_index = 800
@@ -19,3 +21,11 @@ theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[center] 12:123 [/center] "
 fit_content = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="EndRing" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_y1cri")
+
+[node name="EndWarning" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_jkoep")

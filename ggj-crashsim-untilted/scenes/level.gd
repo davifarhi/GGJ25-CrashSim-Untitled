@@ -9,6 +9,8 @@ class_name Level
 
 @onready var timer_widget = UiManager.Camera.timer_widget
 
+var timed_out = false
+
 
 func _ready():
 	boubou.dir_indicator.hide()
@@ -31,15 +33,14 @@ func _process(delta: float):
 	if boubou.dead:
 		return
 	
-	if level_timer.time_left < timeout_in_secs * 0.7:
-		timer_widget.set_danger()
+	if level_timer.time_left < 8.:
+		timer_widget.set_danger(not timed_out)
 	timer_widget.set_timer(level_timer.time_left)
 	
 	
 func _on_popit_done():
 	boubou.dir_indicator.show()
 	level_timer.start()
-	
 
 	
 func _on_level_timer_end():
@@ -47,10 +48,13 @@ func _on_level_timer_end():
 		return
 	TimeoutMenu.open_timeout_menu()
 	timer_widget.reset()
-	timer_widget.set_danger()
+	timer_widget.set_danger(false)
+	timer_widget.timer_end()
+	timed_out = true
 
 
 func _on_boubou_die(boubou):
 	GameManager.add_level_time(timeout_in_secs - level_timer.time_left)
 	level_timer.stop()
+	level_timer.stop_sfx()
 	timer_widget.set_normal()
