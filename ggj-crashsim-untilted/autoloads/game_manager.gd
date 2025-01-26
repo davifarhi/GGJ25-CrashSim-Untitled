@@ -10,7 +10,7 @@ const LEVEL_FILES_BASE = "res://scenes/levels/"
 #const LEVEL_FILES = ["scene1", "scene2"]
 
 # !! be careful about case, wrong case will not work in exports!!
-const LEVEL_FILES = ["level1", "Level2", "level3"]
+const LEVEL_FILES = ["level1", "Level2", "Level3"]
 var LAST_LEVEL = LEVEL_FILES.size()
 
 var next_level_idx: int = 0
