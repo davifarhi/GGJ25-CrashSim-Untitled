@@ -17,14 +17,11 @@ ForgroundInpulseTime = 0.2
 z_index = -1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mh4vl")
-centered = false
 
 [node name="Foreground" type="Sprite2D" parent="."]
 z_index = 1000
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ws6yw")
-centered = false
-offset = Vector2(-100, -100)
 
 [node name="LevelWalls" type="Node2D" parent="."]
 position = Vector2(-954, -540)
@@ -33,7 +30,7 @@ position = Vector2(-954, -540)
 physics_material_override = ExtResource("3_i76to")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/UpperWall"]
-position = Vector2(960, 0.5)
+position = Vector2(959, -23)
 shape = SubResource("RectangleShape2D_xxmmg")
 
 [node name="LowerWall" type="StaticBody2D" parent="LevelWalls"]
@@ -41,7 +38,7 @@ position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LowerWall"]
-position = Vector2(960, -24)
+position = Vector2(954, -11)
 shape = SubResource("RectangleShape2D_xxmmg")
 
 [node name="RightWall" type="StaticBody2D" parent="LevelWalls"]
@@ -49,7 +46,7 @@ position = Vector2(0, 1113)
 physics_material_override = ExtResource("3_i76to")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/RightWall"]
-position = Vector2(1918, -752)
+position = Vector2(1932, -755)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")
 
@@ -58,6 +55,6 @@ position = Vector2(-1915, 1113)
 physics_material_override = ExtResource("3_i76to")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelWalls/LeftWall"]
-position = Vector2(1918, -752)
+position = Vector2(1891, -753)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_xxmmg")

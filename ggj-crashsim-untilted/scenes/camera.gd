@@ -4,6 +4,8 @@ extends Camera2D
 @export var lockCam:bool = false
 @export var l_back = 2./3
 @export var l_forw = 1./4 # limit of movement
+@export var leftLimite:float = 0
+@export var rightLimite:float = 3960
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +24,8 @@ func _process(delta: float) -> void:
 	elif boubou.linear_velocity.x > 0:
 		if ratio > l_forw:
 			translate(Vector2(boubou.linear_velocity.x * delta, 0))
+			
+	if position.x < leftLimite:
+		position.x = leftLimite
+	elif position.x > rightLimite:
+		position.x = rightLimite

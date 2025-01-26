@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://yeonx2g4rge6"]
+[gd_scene load_steps=4 format=3 uid="uid://yeonx2g4rge6"]
 
 [ext_resource type="PackedScene" uid="uid://cgsnmul1dmmnk" path="res://scenes/camera_2d.tscn" id="1_dljyx"]
-[ext_resource type="PackedScene" path="res://scenes/obstacles/spikes_4.tscn" id="2_025s6"]
+[ext_resource type="PackedScene" uid="uid://b012f4a87qq77" path="res://scenes/obstacles/spikes_4.tscn" id="2_025s6"]
 [ext_resource type="PackedScene" uid="uid://b6j1f4wg7fctp" path="res://scenes/Boubou.tscn" id="3_if43k"]
-[ext_resource type="PackedScene" uid="uid://wakg8ukvu4bk" path="res://scenes/obstacles/round_bumper.tscn" id="4_njno4"]
-[ext_resource type="PackedScene" uid="uid://ycj1s8f21go5" path="res://scenes/obstacles/block1.tscn" id="5_uoqrv"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Camera2D" parent="." instance=ExtResource("1_dljyx")]
-lockCam = true
+position = Vector2(-15, -1)
 
 [node name="Spikes4" parent="." instance=ExtResource("2_025s6")]
 position = Vector2(827, -2)
@@ -18,99 +16,3 @@ position = Vector2(827, -2)
 position = Vector2(-768, -1)
 
 [node name="obstacles" type="Node2D" parent="."]
-
-[node name="RoundBumper" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-915, 49)
-
-[node name="RoundBumper2" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-915, -51)
-
-[node name="RoundBumper3" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-550, -78)
-
-[node name="RoundBumper4" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-456, -19)
-
-[node name="RoundBumper5" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-641, -136)
-
-[node name="Block" parent="obstacles" instance=ExtResource("5_uoqrv")]
-position = Vector2(-813, -326)
-
-[node name="Block2" parent="obstacles" instance=ExtResource("5_uoqrv")]
-position = Vector2(-817, 235)
-rotation = 0.523599
-
-[node name="Block4" parent="obstacles" instance=ExtResource("5_uoqrv")]
-position = Vector2(-392, -304)
-rotation = 0.785398
-
-[node name="Block3" parent="obstacles" instance=ExtResource("5_uoqrv")]
-position = Vector2(-591, 329)
-rotation = 0.261799
-scale = Vector2(1, 1)
-
-[node name="RoundBumper6" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-406, 317)
-
-[node name="RoundBumper7" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-128, -256)
-
-[node name="RoundBumper8" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(0, -64)
-
-[node name="RoundBumper9" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-128, 128)
-
-[node name="RoundBumper10" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(0, -448)
-
-[node name="RoundBumper11" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(128, -256)
-
-[node name="RoundBumper13" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(-656, -250)
-
-[node name="RoundBumper14" parent="obstacles" instance=ExtResource("4_njno4")]
-position = Vector2(0, 320)
-
-[node name="Block5" parent="obstacles" instance=ExtResource("5_uoqrv")]
-position = Vector2(696, 128)
-
-[node name="RoundBumper2" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(-128, 512)
-
-[node name="RoundBumper3" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(128, 128)
-
-[node name="RoundBumper4" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(128, 514)
-
-[node name="Block4" parent="." instance=ExtResource("5_uoqrv")]
-position = Vector2(704, -136)
-
-[node name="Block" parent="." instance=ExtResource("5_uoqrv")]
-position = Vector2(464, -200)
-rotation = 0.523599
-
-[node name="Block2" parent="." instance=ExtResource("5_uoqrv")]
-position = Vector2(456, 192)
-rotation = -0.523599
-
-[node name="RoundBumper" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(560, 112)
-
-[node name="RoundBumper7" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(568, -128)
-
-[node name="Block3" parent="." instance=ExtResource("5_uoqrv")]
-position = Vector2(328, -440)
-
-[node name="Block5" parent="." instance=ExtResource("5_uoqrv")]
-position = Vector2(320, 432)
-
-[node name="RoundBumper8" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(320, -280)
-
-[node name="RoundBumper9" parent="." instance=ExtResource("4_njno4")]
-position = Vector2(312, 264)
